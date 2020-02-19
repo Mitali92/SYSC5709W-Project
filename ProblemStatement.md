@@ -39,16 +39,16 @@ The Manager of the system should be able to add and remove titles and see report
 
 **Release 1:**
 
-Add/Remove Titles
-Register User
-See available titles
-Borrow Title
-Return title
-Waitlist
+1. Add/Remove Titles
+2. Register User
+3. See available titles
+4. Borrow Title
+5. Return title
+6. Waitlist
 
 
 
 **Release 2:**
 
-See titles currently held and limit
-Generate reports
+1. See titles currently held and limit
+2. Generate reports
