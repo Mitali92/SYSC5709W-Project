@@ -12,34 +12,22 @@ The Manager of the system should be able to add and remove titles and see report
 
 | **Feature** | **Details** |
 | --- | --- |
-| Register as a system user |
-- no duplicate users allowed
-- password access
- |
-| See available titles |
-- Title details and availability
- |
+| Register as a system user |no duplicate users allowed, password access|
+| See available titles |Title details and availability|
 | Borrow a title |   |
 | Return a title |   |
 | See titles currently held and limit |   |
 | Be added to a wait list for an unavailable title |   |
 
-         
+
 
 **Manager Side:**
 
 | **Feature** | **Details** |
 | --- | --- |
 | Add and Remove titles |   |
-| Generate report to list details of registered users |
-- Users details
-- Date Registered
- |
-| Generate report to list details and status of titles |
-- Title Details
-- Status - Available, out, is there a wait list?
- |
-|   |   |
+| Generate report to list details of registered users |Users details and Date Registered|
+| Generate report to list details and status of titles |Title Details and Status - Available, out, is there a wait list?|
 
 
 
@@ -52,15 +40,10 @@ The Manager of the system should be able to add and remove titles and see report
 **Release 1:**
 
 Add/Remove Titles
-
 Register User
-
 See available titles
-
 Borrow Title
-
 Return title
-
 Waitlist
 
 
@@ -68,5 +51,4 @@ Waitlist
 **Release 2:**
 
 See titles currently held and limit
-
 Generate reports
