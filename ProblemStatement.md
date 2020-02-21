@@ -64,9 +64,9 @@ With the increasing size of libraries and demand for effective ways to organise 
 
 **PROPOSAL**
 
-Through this project we are planning to build a system called BOOKbible (Book Management System). Book Bible attempts to reduce the paper usage by introducing the Software Application for managing the book tracking system.
+Through this project we are planning to build a system called Bookify (Book Management System). Book Bible attempts to reduce the paper usage by introducing the Software Application for managing the book tracking system.
 
-The process of developing and managing the BOOKbible itself consists of three main activities:
+The process of developing and managing the Bookify itself consists of three main activities:
 1.	Authorising the software to enter/modify the record information of every book
 2.	Storage of this information in a database and
 3.	Authorising the software to track the book lending history by providing the book exchange time stamps
@@ -76,7 +76,7 @@ This software is intended to provide secure maintenance of the records by provid
 
 **FUNCTIONAL REQUIREMENTS:**
 
-The BOOKbible Application should support the following functions:
+The Bookify Application should support the following functions:
 1. Password protected login access to the user
 2. User should have the option to Add/delete books
 3. View/Edit/Search from the book’s record
@@ -85,22 +85,22 @@ The BOOKbible Application should support the following functions:
 
 **NON-FUNCTIONAL REQUIREMENTS:**
 
-When designing BOOKbible, the following constraints should be taken into account:
+When designing Bookify, the following constraints should be taken into account:
 1. User-friendly interface of the application
 2. Any functionality included as part of developing this application must be platform independent
 3. The application must always be available to the user to be accessed locally 
 
 **SYSTEM LIMITATIONS:**
 
-When designing BOOKbible, the following will be true of the developed application:
-1. The BOOKbible application is a management system. Any use otherwise is not supported
-2. BOOKbible will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to the digitization process will still exist in the BOOKbible system
+When designing Bookify, the following will be true of the developed application:
+1. The Bookify application is a management system. Any use otherwise is not supported
+2. Bookify will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to the digitization process will still exist in the Bookify system
 
 
 **DEVELOPMENT ENVIRONMENT:**
 
 It is expected that the development environment requires the Operating system Windows 7 or above version and also a C. . . . . . . 
-The BOOKbible application will run on desktop machines.
+The Bookify application will run on desktop machines.
 1.	IDE
 2.	Compiler
 3.	Database (to store books records ) - TBD
@@ -108,5 +108,5 @@ The BOOKbible application will run on desktop machines.
 
 **ACCEPTANCE TEST**
 
-The BOOKbible application in working status that covers all the functional and non-functional requirements that are mention in the above sections. Additional functionalities added in the design phase will also be considered as part of developing the application.
+The Bookify application in working status that covers all the functional and non-functional requirements that are mention in the above sections. Additional functionalities added in the design phase will also be considered as part of developing the application.
  
