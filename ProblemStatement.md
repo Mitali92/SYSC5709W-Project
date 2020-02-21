@@ -55,10 +55,11 @@ The Manager of the system should be able to add and remove titles and see report
 2. Generate reports
 
 
-
+-------------------RAMYA--------------------------
 **PROBLEM**
 
 With the increasing size of libraries and demand for effective ways to organise the Library Management system, the need for new tracking systems has increased very much. Most of the currently maintained procedures are manual, time-consuming and inefficient. The physical recording process results in lots of manual work, extreme amount of wasted paper and also occupies lot of physical space that will be so mundane to maintain in long run and it is also very difficult to track back the record history.
+
 
 **PROPOSAL**
 
@@ -69,6 +70,7 @@ The process of developing and managing the BOOKbible itself consists of three ma
 3)	Authorising the software to track the book lending history by providing the book exchange time stamps
 This software is intended to provide secure maintenance of the records by providing an option of password protected access to the authorized personnel.
 
+
 **FUNCTIONAL REQUIREMENTS:**
 
 The BOOKbible Application should support the following functions:
@@ -76,6 +78,7 @@ The BOOKbible Application should support the following functions:
 •	User should have the option to Add/delete books
 •	View/Edit/Search from the book’s record
 •	Issue the books to other users
+
 
 **NON-FUNCTIONAL REQUIREMENTS:**
 
@@ -88,6 +91,7 @@ When designing BOOKbible, the following will be true of the developed applicatio
 •	The BOOKbible application is a management system. Any use otherwise is not supported
 •	BOOKbible will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to the digitization process will still exist in the BOOKbible system
 
+
 **DEVELOPMENT ENVIRONMENT:**
 
 It is expected that the development environment requires the Operating system Windows 7 or above version and also a C. . . . . . . 
@@ -95,6 +99,7 @@ The BOOKbible application will run on desktop machines.
 1.	IDE
 2.	Compiler
 3.	Database (to store books records ) - TBD
+
 
 **ACCEPTANCE TEST**
 
