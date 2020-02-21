@@ -1,6 +1,6 @@
 **PROBLEM**
 
-With the increasing size of libraries there is a demand for effective ways to organise and track the lending processes. Most of the currently maintained procedures are manual, time-consuming and inefficient. Manual/Physical recording processes result in lots of tedious work, extreme amount of wasted paper and also occupies lot of physical space that will be difficult to maintain in long run. Additionally they present challenges with retrieving records.
+With the increasing size of libraries there is a demand for effective ways to organise and track the lending processes. Most of the currently maintained procedures are manual, time-consuming and inefficient. Manual/Physical recording processes result in lots of tedious work, extreme amount of wasted paper and also occupies lot of physical space that will be difficult to maintain in long run. Additionally they present challenges with retrieving and maintaining records.
 
 **PROPOSAL**
 
