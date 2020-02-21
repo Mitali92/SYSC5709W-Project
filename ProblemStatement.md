@@ -18,6 +18,7 @@ The Manager of the system should be able to add and remove titles and see report
 | Return a title |   |
 | See titles currently held and limit |   |
 | Be added to a wait list for an unavailable title |   |
+| Dashboard of registered user | Activity done by the user in account|
 
 
 
