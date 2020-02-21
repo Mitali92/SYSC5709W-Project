@@ -55,7 +55,8 @@ The Manager of the system should be able to add and remove titles and see report
 2. Generate reports
 
 
--------------------RAMYA--------------------------
+**-------------------RAMYA--------------------------**
+
 **PROBLEM**
 
 With the increasing size of libraries and demand for effective ways to organise the Library Management system, the need for new tracking systems has increased very much. Most of the currently maintained procedures are manual, time-consuming and inefficient. The physical recording process results in lots of manual work, extreme amount of wasted paper and also occupies lot of physical space that will be so mundane to maintain in long run and it is also very difficult to track back the record history.
