@@ -1,112 +1,67 @@
-**Problem Statement**
-
-The system to be built is a Library Management System. A Library for our definition is a collection of titles which can be borrowed and returned to the system. It is possible to have multiple copies of the same title available. The system is available only to registered users and there is a limit on the number of titles that a user can hold in any time period. If a user is holding a title it is no longer accessible to other users until returned.
-
-The Manager of the system should be able to add and remove titles and see reports on the status of the available titles. Registered users should be able to see which titles are available for borrowing and which titles they already hold.
-
-**Requirements/Key Features**
-
-
-
-**User Side:**
-
-| **Feature** | **Details** |
-| --- | --- |
-| Register as a system user |no duplicate users allowed, password access|
-| See available titles |Title details and availability|
-| Borrow a title |   |
-| Return a title |   |
-| See titles currently held and limit |   |
-| Be added to a wait list for an unavailable title |   |
-| Dashboard of registered user | Activity done by the user in account|
-
-
-
-**Manager Side:**
-
-| **Feature** | **Details** |
-| --- | --- |
-| Add and Remove titles |   |
-| Generate report to list details of registered users |Users details and Date Registered|
-| Generate report to list details and status of titles |Title Details and Status - Available, out, is there a wait list?|
-
-
-
-
-
-
-
-**Priority**
-
-**Release 1:**
-
-1. Add/Remove Titles
-2. Register User
-3. See available titles
-4. Borrow Title
-5. Return title
-6. Waitlist
-
-
-
-**Release 2:**
-
-1. See titles currently held and limit
-2. Generate reports
-
-
-**-------------------RAMYA--------------------------**
-
 **PROBLEM**
 
-With the increasing size of libraries and demand for effective ways to organise the Library Management system, the need for new tracking systems has increased very much. Most of the currently maintained procedures are manual, time-consuming and inefficient. The physical recording process results in lots of manual work, extreme amount of wasted paper and also occupies lot of physical space that will be so mundane to maintain in long run and it is also very difficult to track back the record history.
-
+With the increasing size of libraries there is a demand for effective ways to organise and track the lending processes. Most of the currently maintained procedures are manual, time-consuming and inefficient. Manual/Physical recording processes result in lots of tedious work, extreme amount of wasted paper and also occupies lot of physical space that will be difficult to maintain in long run. Additionally they present challenges with retrieving records.
 
 **PROPOSAL**
 
-Through this project we are planning to build a system called Bookify (Book Management System). Book Bible attempts to reduce the paper usage by introducing the Software Application for managing the book tracking system.
+Through this project we aim to build a library management system called BOOKIFY. BOOKIFY attempts to reduce the paper usage by utilizing software to manage library processes.
 
-The process of developing and managing the Bookify itself consists of three main activities:
-1.	Authorising the software to enter/modify the record information of every book
-2.	Storage of this information in a database and
-3.	Authorising the software to track the book lending history by providing the book exchange time stamps
+The process of developing and managing the BOOKIFY consists of three main activities:
 
-This software is intended to provide secure maintenance of the records by providing an option of password protected access to the authorized personnel.
+1.  Authorising the software to enter/modify the record information of books, and register users 
+2.  Storage of this information in a database and
+3.  Authorising the software to track the book lending process 
 
+This software is intended to provide secure maintenance of the records by providing password protected access to the registered users.
 
 **FUNCTIONAL REQUIREMENTS:**
 
-The Bookify Application should support the following functions:
-1. Password protected login access to the user
-2. User should have the option to Add/delete books
-3. View/Edit/Search from the book’s record
-4. Issue the books to other users
+BOOKIFY should support the following functions:
 
+1.  Password protected login access to registered users
+2.  Manager should have the option to Add/delete books
+3.  Registered users should be able to View/Search the book records
+4.  Registered users should be able to borrow and return books
 
 **NON-FUNCTIONAL REQUIREMENTS:**
 
-When designing Bookify, the following constraints should be taken into account:
-1. User-friendly interface of the application
-2. Any functionality included as part of developing this application must be platform independent
-3. The application must always be available to the user to be accessed locally 
+When designing BOOKIFY, the following constraints will be taken into account:
+
+1.  User-friendly interface of the application
+2.  Any functionality included as part of developing this application must be platform independent
 
 **SYSTEM LIMITATIONS:**
 
-When designing Bookify, the following will be true of the developed application:
-1. The Bookify application is a management system. Any use otherwise is not supported
-2. Bookify will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to the digitization process will still exist in the Bookify system
+When designing BOOKIFY, the following will be true of the developed application:
 
+1.  The BOOKIFY application is a management system. Any use otherwise is not supported
+2.  BOOKIFY will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to being entered into the application will still exist in the BOOKIFY system
 
 **DEVELOPMENT ENVIRONMENT:**
 
-It is expected that the development environment requires the Operating system Windows 7 or above version and also a C. . . . . . . 
-The Bookify application will run on desktop machines.
-1.	IDE
-2.	Compiler
-3.	Database (to store books records ) - TBD
+It is expected that the development environment requires the Operating system Windows 7 or above. 
 
+1.  IDE
+2.  Compiler
+3.  Database (to store books records ) -- TBD
+
+The BOOKIFY application will run on desktop machines
 
 **ACCEPTANCE TEST**
 
-The Bookify application in working status that covers all the functional and non-functional requirements that are mention in the above sections. Additional functionalities added in the design phase will also be considered as part of developing the application.
- 
+The BOOKIFY application in working status that covers all the functional and non-functional requirements that are mention in the above sections. Additional functionalities added in the design phase will also be considered as part of developing the application.
+
+**FEATURES LISTED BY PRIORITY **
+
+**Release 1:**
+
+1.  Add/Remove/Edit Books
+2.  Register User with Login and Password
+3.  Check Book availability status
+4.  Issue/Borrow Book
+
+**Release 2:**
+
+1.  Display all users details
+2.  Search/Display Book details
+3.  TBD
