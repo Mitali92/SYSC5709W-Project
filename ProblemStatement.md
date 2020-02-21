@@ -65,32 +65,36 @@ With the increasing size of libraries and demand for effective ways to organise 
 **PROPOSAL**
 
 Through this project we are planning to build a system called BOOKbible (Book Management System). Book Bible attempts to reduce the paper usage by introducing the Software Application for managing the book tracking system.
+
 The process of developing and managing the BOOKbible itself consists of three main activities:
-1)	Authorising the software to enter/modify the record information of every book
-2)	Storage of this information in a database and
-3)	Authorising the software to track the book lending history by providing the book exchange time stamps
+1.	Authorising the software to enter/modify the record information of every book
+2.	Storage of this information in a database and
+3.	Authorising the software to track the book lending history by providing the book exchange time stamps
+
 This software is intended to provide secure maintenance of the records by providing an option of password protected access to the authorized personnel.
 
 
 **FUNCTIONAL REQUIREMENTS:**
 
 The BOOKbible Application should support the following functions:
-•	Password protected login access to the user
-•	User should have the option to Add/delete books
-•	View/Edit/Search from the book’s record
-•	Issue the books to other users
+1. Password protected login access to the user
+2. User should have the option to Add/delete books
+3. View/Edit/Search from the book’s record
+4. Issue the books to other users
 
 
 **NON-FUNCTIONAL REQUIREMENTS:**
 
 When designing BOOKbible, the following constraints should be taken into account:
-•	User-friendly interface of the application
-•	Any functionality included as part of developing this application must be platform independent
-•	The application must always be available to the user to be accessed locally 
-SYSTEM LIMITATIONS:
+1. User-friendly interface of the application
+2. Any functionality included as part of developing this application must be platform independent
+3. The application must always be available to the user to be accessed locally 
+
+**SYSTEM LIMITATIONS:**
+
 When designing BOOKbible, the following will be true of the developed application:
-•	The BOOKbible application is a management system. Any use otherwise is not supported
-•	BOOKbible will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to the digitization process will still exist in the BOOKbible system
+1. The BOOKbible application is a management system. Any use otherwise is not supported
+2. BOOKbible will not be able to detect technical errors in the Book entry details. Therefore, any errors that existed prior to the digitization process will still exist in the BOOKbible system
 
 
 **DEVELOPMENT ENVIRONMENT:**
