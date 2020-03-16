@@ -28,10 +28,13 @@ void header_position(const char* screen_name)
         printf(ANSI_COLOR_GREEN"%s"ANSI_COLOR_RESET,screen_name);
     }
 
-void header_display(const char* screen_name)
+void header_layout(const char* screen_name)
     {
             system("cls");  //clears the console screen - added stdlib.h
             printf(ANSI_COLOR_CYAN"\n=======================================================================================================================");
+            printf("\n====================================                                               ====================================");
+            printf("\n====================================       "ANSI_COLOR_RESET"BOOKIFY - Library management System"ANSI_COLOR_CYAN"     ====================================");
+            printf("\n====================================                                               ====================================");
             printf("\n======================================================================================================================="ANSI_COLOR_RESET);
             printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
             header_position(screen_name);
@@ -40,7 +43,7 @@ void header_display(const char* screen_name)
 
 void welcome_message()
     {
-        header_display("WELCOME");
+        header_layout("WELCOME");
         printf("\n\n");
         printf(ANSI_COLOR_RED"\n\t\t\t\t***-***-***-***-***-***-***-***-***-***-***-***-***-***-***-***");
         printf("\n\t\t\t\t        =============================================");
