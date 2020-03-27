@@ -1,3 +1,6 @@
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
 int main (int argc, char*argv[]);   
 int sign_up (char name[], char username[], char password[], char confirm_password[], char email_address[]);  
 int log_in (char username[], char password[]);
@@ -11,3 +14,4 @@ FILE * database_lookup (char search_term[], char table[], char field[]);
 int validate_filter (int filter_entry);
 _Noreturn void before_exit (void);
 
+#endif
