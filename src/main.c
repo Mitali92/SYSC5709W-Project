@@ -155,7 +155,7 @@ void add_record(struct signup new_user)
 
         if(fa==NULL)
             {
-                printf("\NFILE NOT OPENED");
+                printf("\nFILE NOT OPENED");
                 exit(1);
             }
 
