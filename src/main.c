@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include<string.h>
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -9,6 +9,11 @@
 #define ANSI_COLOR_MAGENTA "\x1b[35m"
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+
+void gotoxy(int x, int y)
+    {
+        printf("%c[%d;%df", 0x1B, y, x);
+    }
 
 void header_position(const char* screen_name)
     {
@@ -65,7 +70,7 @@ void welcome_message()
 int home_menu()
     {
         int selection = 0;
-        header_display("HOME MENU");
+        header_layout("HOME MENU");
 
         printf("\n\t\t\t\t\t\t[ 1 ] SIGNUP");
         printf("\n\t\t\t\t\t\t[ 2 ] LOGIN");
@@ -91,12 +96,73 @@ int home_menu()
 //                default:
 //                    printf("\nINVALID INPUT! PLEASE TRY AGAIN");
 //            }
+        if(selection==1)    //for signup page
+        {
+            system("cls");
+            header_layout("SIGNUP");
+            gotoxy(50,11);
+            printf("FILL THE BELOW DETAILS:\n");
+
+            gotoxy(50,14);
+            printf("Full name:");
+            char full_name[20];
+            gotoxy(69,14);
+            scanf("%s", full_name);
+
+            gotoxy(50,16);
+            printf("User name:");
+            char user_name[20];
+            gotoxy(69,16);
+            scanf("%s", user_name);
+
+            gotoxy(50,18);
+            printf("Password:");
+            char pwd[20];
+            gotoxy(69,18);
+            scanf("%s", pwd);
+
+            gotoxy(50,20);
+            printf("Confirm Password:");
+            char confirm_pwd[20];
+            gotoxy(69,20);
+            scanf("%s", confirm_pwd);
+
+            gotoxy(50,22);
+            printf("Email address:");
+            char email[20];
+            gotoxy(69,22);
+            scanf("%s", email);
+
+
+            //scanf("%c", &full_name[20]);
+//            gotoxy(50,13);
+//            printf("FULL NAME:\n");
+//            gotoxy(50,15);
+//            printf("USER NAME:\n");
+//            gotoxy(50,17);
+//            printf("PASSWORD:\n");
+//            gotoxy(50,19);
+//            printf("CONFIRM PASSWORD:\n");
+//            gotoxy(50,21);
+//            printf("E-MAIL ADDRESS:\n");
+
+
+            //int sign_up(char full_name[], char user_name[], char pwd[], char confirm_pwd[], char email[]);
+        }
+    }
+
+int sign_up(char full_name[], char user_name[], char pwd[], char confirm_pwd[], char email[])
+    {
+        system("cls");
+        header_layout("SIGN UP");
+
     }
 
 int main()
     {
         welcome_message();
         home_menu();
+//        int sign_up(full_name[], user_name[], pwd[], confirm_pwd[], email[]);
         return 0;
     }
 
