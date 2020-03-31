@@ -10,6 +10,20 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
+struct signup
+    {
+        char name[20];
+        char user_name[20];
+        char pwd[20];
+        char c_pwd[20];
+        char email[20];
+    };
+
+struct signup new_user;
+//COORD coord = {0,0};
+
+FILE *fa;
+
 void gotoxy(int x, int y)
     {
         printf("%c[%d;%df", 0x1B, y, x);
@@ -78,11 +92,11 @@ int home_menu()
         printf(ANSI_COLOR_YELLOW"\n\n\t\t\t\t\t\t PLEASE ENTER YOUR CHOICE: "ANSI_COLOR_RESET);
         scanf("%d", &selection);
 
-//        switch(selection)
-//            {
-//                case 1:
-//                    sign_up();
-//                    break;
+        switch(selection)
+            {
+                case 1:
+                    sign_up();
+                    break;
 //
 //                case 2:
 //                    log_in();
@@ -93,76 +107,71 @@ int home_menu()
 //                    exit(1);
 //                    break;
 //
-//                default:
-//                    printf("\nINVALID INPUT! PLEASE TRY AGAIN");
-//            }
-        if(selection==1)    //for signup page
-        {
-            system("cls");
-            header_layout("SIGNUP");
-            gotoxy(50,11);
-            printf("FILL THE BELOW DETAILS:\n");
-
-            gotoxy(50,14);
-            printf("Full name:");
-            char full_name[20];
-            gotoxy(69,14);
-            scanf("%s", full_name);
-
-            gotoxy(50,16);
-            printf("User name:");
-            char user_name[20];
-            gotoxy(69,16);
-            scanf("%s", user_name);
-
-            gotoxy(50,18);
-            printf("Password:");
-            char pwd[20];
-            gotoxy(69,18);
-            scanf("%s", pwd);
-
-            gotoxy(50,20);
-            printf("Confirm Password:");
-            char confirm_pwd[20];
-            gotoxy(69,20);
-            scanf("%s", confirm_pwd);
-
-            gotoxy(50,22);
-            printf("Email address:");
-            char email[20];
-            gotoxy(69,22);
-            scanf("%s", email);
-
-
-            //scanf("%c", &full_name[20]);
-//            gotoxy(50,13);
-//            printf("FULL NAME:\n");
-//            gotoxy(50,15);
-//            printf("USER NAME:\n");
-//            gotoxy(50,17);
-//            printf("PASSWORD:\n");
-//            gotoxy(50,19);
-//            printf("CONFIRM PASSWORD:\n");
-//            gotoxy(50,21);
-//            printf("E-MAIL ADDRESS:\n");
-
-
-            //int sign_up(char full_name[], char user_name[], char pwd[], char confirm_pwd[], char email[]);
-        }
+                default:
+                    printf("\nINVALID INPUT! PLEASE TRY AGAIN");
+            }
     }
 
-int sign_up(char full_name[], char user_name[], char pwd[], char confirm_pwd[], char email[])
+int sign_up(struct signup new_user)
     {
         system("cls");
         header_layout("SIGN UP");
 
+        gotoxy(50,11);
+        printf("FILL THE BELOW DETAILS:\n");
+
+        gotoxy(50,14);
+        printf("Full name:");
+        gotoxy(69,14);
+        scanf("%s", &new_user.name);
+
+        gotoxy(50,16);
+        printf("User name:");
+        gotoxy(69,16);
+        scanf("%s", &new_user.user_name);
+
+        gotoxy(50,18);
+        printf("Password:");
+        gotoxy(69,18);
+        scanf("%s", &new_user.pwd);
+
+        gotoxy(50,20);
+        printf("Confirm Password:");
+        gotoxy(69,20);
+        scanf("%s", &new_user.c_pwd);
+
+        gotoxy(50,22);
+        printf("Email address:");
+        gotoxy(69,22);
+        scanf("%s", &new_user.email);
+
+        add_record(new_user);
+
+    }
+
+void add_record(struct signup new_user)
+    {
+        fa = fopen("F:\\test.txt", "ab+");
+
+        if(fa==NULL)
+            {
+                printf("\NFILE NOT OPENED");
+                exit(1);
+            }
+
+        fprintf(fa, "\n");
+        fwrite(&new_user,sizeof(new_user),1,fa);
+
+        gotoxy(21,14);
+        printf("\nTHE RECORD IS SUCCESSFULLY SAVED");
+
+        fclose(fa);
     }
 
 int main()
     {
         welcome_message();
         home_menu();
-//        int sign_up(full_name[], user_name[], pwd[], confirm_pwd[], email[]);
         return 0;
     }
 
