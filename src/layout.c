@@ -67,9 +67,3 @@ void welcome_message()
 
     }
 
-int main()
-    {
-        welcome_message();
-        return 0;
-    }
-
