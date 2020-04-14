@@ -44,6 +44,34 @@ int maxsize = 255;
 const char comma[4] = "\",\"";
 char *fields_array[num_struct_fields];
 struct books file_to_struct(void);
+
+struct books file_to_struct(void){
+int i = 0;
+char *field;
+struct books db_record;
+/* get the first token */
+field = strtok(line, comma);
+/* walk through other tokens */
+while(field != NULL ) {
+
+    fields_array[i] = field;
+    //printf("%s\n", fields_array[i]);
+    i++;
+    field = strtok(NULL, comma);
+}
+
+strcpy(db_record.book_id, fields_array[0]);
+strcpy(db_record.book_title, fields_array[1]);
+strcpy(db_record.isbn_no, fields_array[2]);
+strcpy(db_record.author_name, fields_array[3]);
+strcpy(db_record.quantity, fields_array[4]);
+strcpy(db_record.category, fields_array[5]);
+strcpy(db_record.language, fields_array[6]);
+strcpy(db_record.date_of_pub, fields_array[7]);
+strcpy(db_record.entry_date, fields_array[8]);
+
+return db_record;
+}
 //char *set_tablestring(int table);
 //char tablestring[255];
 
