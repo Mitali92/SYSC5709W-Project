@@ -16,3 +16,10 @@ void header_position(const char* screen_name);
 void header_layout(const char* screen_name);
 void welcome_message();
 
+//Functions related to pages
+struct all_pages init_pages(void);
+void display_page (struct page display_data);
+void display_table (FILE *return_file);
+
+
+FILE *lookup(char search_term[20], int table, int search_field);
