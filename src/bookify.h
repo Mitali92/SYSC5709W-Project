@@ -23,3 +23,4 @@ void display_table (FILE *return_file);
 
 
 FILE *lookup(char search_term[20], int table, int search_field);
+struct books file_to_struct(void);
