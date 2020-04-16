@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
     struct all_pages pages = init_pages();
 
     welcome_message();
-    display_page(pages.modify_book);
+    display_page(pages.manager_main_menu);
 
 //     /*
 //     // This needs to be put in the welcome message function
