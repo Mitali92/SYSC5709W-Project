@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include "layout.c"
+#include "database_lookup.c"
+//#include "pages.c"
+//#include "database_lookup.c"
 
-
-
+//char line[255];
+//int maxsize = 255;
 
 void display_page (struct page display_data){
 

@@ -10,6 +10,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
+
 int main(int argc, char *argv[]);
 void gotoxy(int x, int y);
 void header_position(const char* screen_name);
@@ -18,7 +19,7 @@ void welcome_message();
 
 //Functions related to pages
 struct all_pages init_pages(void);
-void display_page (struct page display_data);
+//void display_page (struct page display_data);
 void display_table (FILE *return_file);
 
 
