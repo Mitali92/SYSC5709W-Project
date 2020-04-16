@@ -18,6 +18,7 @@ int main(int argc, char *argv[]){
 
     welcome_message();
     display_page(pages.manager_main_menu);
+    display_table(lookup(" ",1,2));
 
 //     /*
 //     // This needs to be put in the welcome message function

@@ -10,7 +10,7 @@
 //int maxsize = 255;
 
 void display_page (struct page display_data){
-
+    char selection;
     header_layout(display_data.page_title);
 
 
@@ -19,6 +19,9 @@ void display_page (struct page display_data){
                 printf("%50s%-s\n","", display_data.menu[i]);
         }
     }
+    printf("please select an option: ");
+    selection = getchar();
+    
 
 }
 
