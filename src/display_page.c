@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
 //#include "layout.c"
 #include "database_lookup.c"
 //#include "pages.c"
