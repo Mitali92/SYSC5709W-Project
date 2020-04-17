@@ -1,3 +1,11 @@
+#ifdef __linux__
+    #define CLEAR "clear"
+#elif _WIN64 || _WIN32
+    #define CLEAR "cls"
+#elif __APPLE__
+    #define CLEAR "clear"
+#endif
+
 void gotoxy(int x, int y)
     {
         printf("%c[%d;%df", 0x1B, y, x);
@@ -23,7 +31,7 @@ void header_position(const char* screen_name)
 
 void header_layout(const char* screen_name)
     {
-            system("cls");  //clears the console screen - added stdlib.h
+            system(CLEAR);  //clears the console screen - added stdlib.h
             printf(ANSI_COLOR_CYAN"\n=======================================================================================================================");
             printf("\n====================================                                               ====================================");
             printf("\n====================================       "ANSI_COLOR_RESET"BOOKIFY - Library management System"ANSI_COLOR_CYAN"     ====================================");
@@ -51,7 +59,6 @@ void welcome_message()
         printf("\n\t\t\t\t***-***-***-***-***-***-***-***-***-***-***-***-***-***-***-***\n"ANSI_COLOR_RESET);
         printf(ANSI_COLOR_YELLOW"\n\n\t\t\t\t\t\t ENTER ANY KEY TO CONTINUE..."ANSI_COLOR_RESET);
 
-        getch();
+        getchar();
 
     }
-
