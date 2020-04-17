@@ -4,6 +4,8 @@
     #define CLEAR "cls"
 #elif __APPLE__
     #define CLEAR "clear"
+#elif __unix__
+    #define CLEAR "clear"
 #endif
 
 void gotoxy(int x, int y)
