@@ -1,5 +1,6 @@
 #include "bookify.h"
 #include "layout.c"
+#include "home_menu.c"
 
 int main(int argc, char *argv[]){
 
@@ -11,6 +12,8 @@ int main(int argc, char *argv[]){
     int user_selection;
 
     welcome_message();
+
+    home_menu();
 //     /*
 //     // This needs to be put in the welcome message function
 //     if (strcmp(getchar(),"q"){

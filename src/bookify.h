@@ -15,4 +15,5 @@ void gotoxy(int x, int y);
 void header_position(const char* screen_name);
 void header_layout(const char* screen_name);
 void welcome_message();
+void home_menu();
 
