@@ -1,5 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "bookify.h"
 #include "layout.c"
+#include "pages.c"
+#include "display_page.c"
 
 int main(int argc, char *argv[]){
 
@@ -9,8 +14,12 @@ int main(int argc, char *argv[]){
     }
 
     int user_selection;
+    struct all_pages pages = init_pages();
 
     welcome_message();
+    display_page(pages.manager_main_menu);
+    display_table(lookup(" ",1,2));
+
 //     /*
 //     // This needs to be put in the welcome message function
 //     if (strcmp(getchar(),"q"){
