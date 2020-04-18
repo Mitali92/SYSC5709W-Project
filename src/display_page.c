@@ -2,7 +2,7 @@
 //#include <stdlib.h>
 //#include <string.h>
 //#include "layout.c"
-#include "database_lookup.c"
+//#include "database_lookup.c"
 //#include "pages.c"
 //#include "database_lookup.c"
 
@@ -27,16 +27,16 @@ void display_page (struct page display_data){
 
 void display_table (FILE *return_file){
 
-    system(CLEAR);
+    //system(CLEAR);
     header_layout("SEARCH RESULT");
-    while ((fgets(line, maxsize, return_file)) != NULL){
+    /*while ((fgets(line, maxsize, return_file)) != NULL){
 
         struct books db_record = file_to_struct();
         printf("    %-6s\t %-18s\t %-12s\t %-12s\t %-12s\t %-12s\t %-12s\n\n",
         db_record.book_id, db_record.book_title, db_record.isbn_no,
         db_record.author_name, db_record.quantity, db_record.category,
         db_record.language);
- }
+ }*/
 }
 
 /*FILE *return_all(int table){
