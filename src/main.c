@@ -19,8 +19,8 @@ int main(int argc, char *argv[]){
 
     welcome_message();
     home_menu();
-    //display_page(pages.manager_main_menu);
-    //display_table(lookup(" ",1,2));
+    display_page(pages.manager_main_menu);
+    display_table(lookup(" ",1,2));
 
 //     /*
 //     // This needs to be put in the welcome message function
