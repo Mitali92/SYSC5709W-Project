@@ -1,19 +1,14 @@
 #include<stdio.h>
 #include<string.h>
-#include<windows.h>
 #include<time.h>
 
 struct books a;
-COORD coord = {0, 0};
 FILE *fa;
 char tablestring[255];
-//int table_num;
 
 time_t current;
 struct tm* pLocal;
 int choice;
-
-
 
 // function prototype
 int add_record(struct books a,int table);
