@@ -12,8 +12,7 @@ void home_menu()
         switch(selection)
              {
                 case 1:
-                     printf("\n SIGNUP FUNCTION CALLING");
-                     //sign_up();
+                     sign_up();
                      break;
 
                 case 2:

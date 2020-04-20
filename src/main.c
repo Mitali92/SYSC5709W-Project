@@ -1,11 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "bookify.h"
 #include "layout.c"
 #include "home_menu.c"
 #include "pages.c"
 #include "display_page.c"
+#include "sign_up.c"
 
 int main(int argc, char *argv[]){
 
