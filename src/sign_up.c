@@ -70,7 +70,7 @@ void sign_up()
         if(char_check(new_user.name) == 0)
             {
                 gotoxy(45,17);
-                printf("INVALID NAME. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(2);
                 getchar();
                 gotoxy(69,14);
                 printf("                                                                           ");
@@ -82,7 +82,7 @@ void sign_up()
         else if(strlen(new_user.name) >= 20)
             {
                 gotoxy(45,17);
-                printf("NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(3);
                 getchar();
                 gotoxy(69,14);
                 printf("                                                                           ");
@@ -102,7 +102,7 @@ void sign_up()
         if(char_check(new_user.user_name) == 0)
             {
                 gotoxy(45,19);
-                printf("INVALID USERNAME. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(4);
                 getchar();
                 gotoxy(69,16);
                 printf("                                                                           ");
@@ -114,7 +114,7 @@ void sign_up()
         else if(strlen(new_user.user_name) > 20)
             {
                 gotoxy(45,19);
-                printf("NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(5);
                 getchar();
                 gotoxy(69,16);
                 printf("                                                                           ");
@@ -149,7 +149,7 @@ void sign_up()
         if(pwd_check(new_user.pwd) == 0)
             {
                 gotoxy(55,20);
-                printf("INVALID PASSWORD. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(6);
                 getchar();
                 gotoxy(69,18);
                 printf("                                                                           ");
@@ -161,7 +161,7 @@ void sign_up()
         else if(strlen(new_user.pwd) > 20)
             {
                 gotoxy(55,20);
-                printf("PASSWORD CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(7);
                 getchar();
                 gotoxy(69,18);
                 printf("                                                                           ");
@@ -201,7 +201,7 @@ void sign_up()
         else
             {
                 gotoxy(55,22);
-                printf("PASSWORD MIS-MATCH. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(8);
                 getchar();
                 gotoxy(55,22);
                 printf("                                                                           ");
@@ -224,13 +224,13 @@ void sign_up()
 
         if(strchr(new_user.email, '.') && strchr(new_user.email, '@'))
             {
-                printf("\n\t\t\t SIGNUP SUCCESSFUL. NEED TO LINK ADD_RECORD FUNCTION HERE");
+                messages(9);
             }
 
         else
             {
                 gotoxy(69,24);
-                printf("INVALID EMAIL ADDRESS. PLEASE PRESS ENTER TO TRY AGAIN");
+                messages(10);
                 getchar();
                 gotoxy(69,24);
                 printf("                                                                           ");
