@@ -4,6 +4,7 @@
 #include "pages.c"
 #include "display_page.c"
 #include "sign_up.c"
+#include "log_in.c"
 #include "add_books.c"
 #include "add_record.c"
 
