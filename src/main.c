@@ -4,6 +4,8 @@
 #include "pages.c"
 #include "display_page.c"
 #include "sign_up.c"
+#include "add_books.c"
+#include "add_record.c"
 
 int main(int argc, char *argv[]){
 
@@ -17,9 +19,11 @@ int main(int argc, char *argv[]){
 
     welcome_message();
     home_menu();
-    //display_page(pages.manager_main_menu);
-    //display_table(lookup(" ",1,2));
+    display_page(pages.manager_main_menu);
+    display_table(lookup(" ",1,2));
 
+
+    //add_book();
 //     /*
 //     // This needs to be put in the welcome message function
 //     if (strcmp(getchar(),"q"){
