@@ -1,4 +1,5 @@
 struct signup new_user;
+int add_record(struct signup new_user,int table);
 
 struct signup
     {
@@ -8,6 +9,7 @@ struct signup
         char c_pwd[20];
         char email[20];
     };
+
 
 int char_check(char input[])
     {
@@ -70,7 +72,7 @@ void sign_up()
         if(char_check(new_user.name) == 0)
             {
                 gotoxy(45,17);
-                printf("INVALID NAME. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"INVALID NAME. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,14);
                 printf("                                                                           ");
@@ -82,7 +84,7 @@ void sign_up()
         else if(strlen(new_user.name) >= 20)
             {
                 gotoxy(45,17);
-                printf("NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,14);
                 printf("                                                                           ");
@@ -102,7 +104,7 @@ void sign_up()
         if(char_check(new_user.user_name) == 0)
             {
                 gotoxy(45,19);
-                printf("INVALID USERNAME. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"INVALID USERNAME. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,16);
                 printf("                                                                           ");
@@ -114,7 +116,7 @@ void sign_up()
         else if(strlen(new_user.user_name) > 20)
             {
                 gotoxy(45,19);
-                printf("NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,16);
                 printf("                                                                           ");
@@ -149,7 +151,7 @@ void sign_up()
         if(pwd_check(new_user.pwd) == 0)
             {
                 gotoxy(55,20);
-                printf("INVALID PASSWORD. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"INVALID PASSWORD. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,18);
                 printf("                                                                           ");
@@ -161,7 +163,7 @@ void sign_up()
         else if(strlen(new_user.pwd) > 20)
             {
                 gotoxy(55,20);
-                printf("PASSWORD CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"PASSWORD CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,18);
                 printf("                                                                           ");
@@ -201,7 +203,7 @@ void sign_up()
         else
             {
                 gotoxy(55,22);
-                printf("PASSWORD MIS-MATCH. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"PASSWORD MIS-MATCH. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(55,22);
                 printf("                                                                           ");
@@ -224,21 +226,35 @@ void sign_up()
 
         if(strchr(new_user.email, '.') && strchr(new_user.email, '@'))
             {
-                printf("\n\t\t\t SIGNUP SUCCESSFUL. NEED TO LINK ADD_RECORD FUNCTION HERE");
+                int signup_status = add_record(new_user, 2);
+
+                if(signup_status == 1)
+                    {
+                        gotoxy(40,24);
+                        printf(ANSI_COLOR_GREEN"SIGNUP SUCCESSFUL. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
+                        getchar();
+                        home_menu();
+                    }
+                
+                else if(signup_status == 0)
+                    {
+                        gotoxy(40,24);
+                        printf(ANSI_COLOR_RED"SIGNUP FAILED. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
+                        getchar();
+                        home_menu();
+                    }
+
             }
 
         else
             {
                 gotoxy(69,24);
-                printf("INVALID EMAIL ADDRESS. PLEASE PRESS ENTER TO TRY AGAIN");
+                printf(ANSI_COLOR_RED"INVALID EMAIL ADDRESS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(69,24);
                 printf("                                                                           ");
                 gotoxy(69,22);
                 printf("                                                                           ");
                 goto email_repeat;
-
             }
-
-        //add_record(new_user);
     }
