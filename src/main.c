@@ -6,6 +6,7 @@
 #include "sign_up.c"
 #include "add_books.c"
 #include "add_record.c"
+#include "messages.c"
 
 int main(int argc, char *argv[]){
 
