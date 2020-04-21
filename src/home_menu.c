@@ -19,7 +19,7 @@ void home_menu()
         switch(selection)
              {
                 case 1:
-                     sign_up();
+                     //sign_up();
                      break;
 
                 case 2:

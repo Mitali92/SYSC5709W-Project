@@ -18,7 +18,7 @@ void header_layout(const char* screen_name);
 void welcome_message();
 void messages(int msg_id);
 void home_menu();
-void sign_up();
+//void sign_up();
 void log_in();
 int pwd_check(char input[]);
 int char_check(char input[]);
