@@ -255,6 +255,7 @@ if(table == 1){
            db_record->entry_date, db_record->status);
 
        }
+       free(db_record);
 
     }
 }else if (table == 2){
@@ -287,6 +288,7 @@ if(table == 1){
            db_record->number_of_books);
 
        }
+       free(db_record);
 
     }
 }else if (table == 3){
@@ -311,7 +313,7 @@ if(table == 1){
            fprintf(returnfile, "\"%s\",\"%s\"\n", db_record->user_name, db_record->isbn_no);
 
        }
-
+       free(db_record);
     }
 }
 
