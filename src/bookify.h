@@ -16,6 +16,7 @@ void gotoxy(int x, int y);
 void header_position(const char* screen_name);
 void header_layout(const char* screen_name);
 void welcome_message();
+void messages(int msg_id);
 void home_menu();
 void sign_up();
 int pwd_check(char input[]);

@@ -72,7 +72,7 @@ void sign_up()
         if(char_check(new_user.name) == 0)
             {
                 gotoxy(45,17);
-                printf(ANSI_COLOR_RED"INVALID NAME. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(2);
                 getchar();
                 gotoxy(69,14);
                 printf("                                                                           ");
@@ -84,7 +84,7 @@ void sign_up()
         else if(strlen(new_user.name) >= 20)
             {
                 gotoxy(45,17);
-                printf(ANSI_COLOR_RED"NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(3);
                 getchar();
                 gotoxy(69,14);
                 printf("                                                                           ");
@@ -104,7 +104,7 @@ void sign_up()
         if(char_check(new_user.user_name) == 0)
             {
                 gotoxy(45,19);
-                printf(ANSI_COLOR_RED"INVALID USERNAME. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(4);
                 getchar();
                 gotoxy(69,16);
                 printf("                                                                           ");
@@ -116,7 +116,7 @@ void sign_up()
         else if(strlen(new_user.user_name) > 20)
             {
                 gotoxy(45,19);
-                printf(ANSI_COLOR_RED"NAME CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(5);
                 getchar();
                 gotoxy(69,16);
                 printf("                                                                           ");
@@ -151,7 +151,7 @@ void sign_up()
         if(pwd_check(new_user.pwd) == 0)
             {
                 gotoxy(55,20);
-                printf(ANSI_COLOR_RED"INVALID PASSWORD. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(6);
                 getchar();
                 gotoxy(69,18);
                 printf("                                                                           ");
@@ -163,7 +163,7 @@ void sign_up()
         else if(strlen(new_user.pwd) > 20)
             {
                 gotoxy(55,20);
-                printf(ANSI_COLOR_RED"PASSWORD CANNOT BE MORE THAN 20 CHARACTERS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(7);
                 getchar();
                 gotoxy(69,18);
                 printf("                                                                           ");
@@ -203,7 +203,7 @@ void sign_up()
         else
             {
                 gotoxy(55,22);
-                printf(ANSI_COLOR_RED"PASSWORD MIS-MATCH. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(8);
                 getchar();
                 gotoxy(55,22);
                 printf("                                                                           ");
@@ -243,13 +243,13 @@ void sign_up()
                         getchar();
                         home_menu();
                     }
-
+                messages(9);
             }
 
         else
             {
                 gotoxy(69,24);
-                printf(ANSI_COLOR_RED"INVALID EMAIL ADDRESS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                messages(10);
                 getchar();
                 gotoxy(69,24);
                 printf("                                                                           ");
