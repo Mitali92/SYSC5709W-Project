@@ -1,8 +1,16 @@
 #include<stdio.h>
 #include<string.h>
+<<<<<<< HEAD
 #include<time.h>
 
 struct books a;
+=======
+//#include<windows.h>
+#include<time.h>
+
+struct books a;
+//COORD coord = {0, 0};
+>>>>>>> Implement_more_structs
 FILE *fa;
 char tablestring[255];
 
@@ -75,8 +83,3 @@ int add_book(){
         }
         return 0;
 }
-
-
-
-
-

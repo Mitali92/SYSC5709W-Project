@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 
 //#include "layout.c"
 //#define TYPE books
-#define num_struct_fields 9
-
+#define book_struct_fields 9
+#define user_struct_fields 5
+#define request_struct_fields 2
 
 /**
 * The function searches the database for a given search term and returns a file
@@ -38,39 +40,108 @@ struct books{
 
 };
 
+struct user{
+
+  char name[20];
+  char user_name[20];
+  char email[50];
+  char password[20];
+  char number_of_books[2];
+};
+
+struct request{
+
+  char user_name[20];
+  char isbn_no[20];
+
+};
 
 char line[255];
 int maxsize = 255;
 const char comma[4] = "\",\"";
-char *fields_array[num_struct_fields];
-struct books file_to_struct(void);
 
-struct books file_to_struct(void){
-int i = 0;
-char *field;
-struct books db_record;
-/* get the first token */
-field = strtok(line, comma);
-/* walk through other tokens */
-while(field != NULL ) {
+void *file_to_struct(int type);
 
-    fields_array[i] = field;
-    //printf("%s\n", fields_array[i]);
-    i++;
-    field = strtok(NULL, comma);
-}
+void *file_to_struct(int type){
 
-strcpy(db_record.book_id, fields_array[0]);
-strcpy(db_record.book_title, fields_array[1]);
-strcpy(db_record.isbn_no, fields_array[2]);
-strcpy(db_record.author_name, fields_array[3]);
-strcpy(db_record.quantity, fields_array[4]);
-strcpy(db_record.category, fields_array[5]);
-strcpy(db_record.language, fields_array[6]);
-strcpy(db_record.date_of_pub, fields_array[7]);
-strcpy(db_record.entry_date, fields_array[8]);
+    void *record;
 
-return db_record;
+    if(type == 1){
+
+            struct books *db_record = malloc(sizeof(struct books));
+
+            char *fields_array[book_struct_fields];
+
+            int i = 0;
+            char *field;
+            /* get the first token */
+            field = strtok(line, comma);
+            /* walk through other tokens */
+            while(field != NULL ) {
+                fields_array[i] = field;
+                i++;
+                field = strtok(NULL, comma);
+            }
+
+            strcpy(db_record->book_id, fields_array[0]);
+            strcpy(db_record->book_title, fields_array[1]);
+            strcpy(db_record->isbn_no, fields_array[2]);
+            strcpy(db_record->author_name, fields_array[3]);
+            strcpy(db_record->quantity, fields_array[4]);
+            strcpy(db_record->category, fields_array[5]);
+            strcpy(db_record->language, fields_array[6]);
+            strcpy(db_record->date_of_pub, fields_array[7]);
+            strcpy(db_record->entry_date, fields_array[8]);
+
+            void *record = db_record;
+            return record;
+
+    }else if(type == 2){
+            struct user *db_record = malloc(sizeof(struct user));
+            char *fields_array[user_struct_fields];
+
+            int i = 0;
+            char *field;
+            /* get the first token */
+            field = strtok(line, comma);
+            /* walk through other tokens */
+            while(field != NULL ) {
+                fields_array[i] = field;
+                i++;
+                field = strtok(NULL, comma);
+            }
+
+            strcpy(db_record->name, fields_array[0]);
+            strcpy(db_record->user_name, fields_array[1]);
+            strcpy(db_record->email, fields_array[2]);
+            strcpy(db_record->password, fields_array[3]);
+            strcpy(db_record->number_of_books, fields_array[4]);
+
+            void *record = db_record;
+            return record;
+
+    }else if(type == 3){
+            struct request *db_record = malloc(sizeof(struct request));
+            char *fields_array[request_struct_fields];
+
+            int i = 0;
+            char *field;
+            /* get the first token */
+            field = strtok(line, comma);
+            /* walk through other tokens */
+            while(field != NULL ) {
+                fields_array[i] = field;
+                i++;
+                field = strtok(NULL, comma);
+            }
+
+            strcpy(db_record->user_name, fields_array[0]);
+            strcpy(db_record->isbn_no, fields_array[1]);
+
+            void *record = db_record;
+            return record;
+    }
+
 }
 //char *set_tablestring(int table);
 //char tablestring[255];
@@ -140,45 +211,104 @@ switch(table){
 }
 //struct *struct_record = file_to_struct(dbfile);
 //struct *file_to_struct(FILE *file){
-while ((fgets(line, maxsize, dbfile)) != NULL){
+
+if(table == 1){
+    while ((fgets(line, maxsize, dbfile)) != NULL){
+
+        struct books *db_record = file_to_struct(1);
+        comp_result = NULL;
 
 
-    struct books db_record = file_to_struct();
+       switch (search_field) {
+           case 1: comp_result = strstr(db_record->book_id, search_term);
+           break;
+           case 2: comp_result = strstr(db_record->book_title, search_term);
+           break;
+           case 3: comp_result = strstr(db_record->isbn_no, search_term);
+           break;
+           case 4: comp_result = strstr(db_record->author_name, search_term);
+           break;
+           case 5: comp_result = strstr(db_record->quantity, search_term);
+           break;
+           case 6: comp_result = strstr(db_record->category, search_term);
+           break;
+           case 7: comp_result = strstr(db_record->language, search_term);
+           break;
+           case 8: comp_result = strstr(db_record->date_of_pub, search_term);
+           break;
+           case 9: comp_result = strstr(db_record->entry_date, search_term);
+           break;
+           default: printf("No valid search field passed");
+           break;
+       }
 
-   comp_result = NULL;
-   switch (search_field) {
-       case 1: comp_result = strstr(db_record.book_id, search_term);
-       break;
-       case 2: comp_result = strstr(db_record.book_title, search_term);
-       break;
-       case 3: comp_result = strstr(db_record.isbn_no, search_term);
-       break;
-       case 4: comp_result = strstr(db_record.author_name, search_term);
-       break;
-       case 5: comp_result = strstr(db_record.quantity, search_term);
-       break;
-       case 6: comp_result = strstr(db_record.category, search_term);
-       break;
-       case 7: comp_result = strstr(db_record.language, search_term);
-       break;
-       case 8: comp_result = strstr(db_record.date_of_pub, search_term);
-       break;
-       case 9: comp_result = strstr(db_record.entry_date, search_term);
-       break;
-       default: printf("No valid search field passed");
-       break;
-   }
+       if (comp_result != NULL){
+          // write the record to file.
 
-   if (comp_result != NULL){
-      // write the record to file.
+           fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
+           db_record->book_id, db_record->book_title, db_record->isbn_no, db_record->author_name,
+           db_record->quantity, db_record->category, db_record->language, db_record->date_of_pub,
+           db_record->entry_date);
 
-       fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
-       db_record.book_id, db_record.book_title, db_record.isbn_no, db_record.author_name,
-       db_record.quantity, db_record.category, db_record.language, db_record.date_of_pub,
-       db_record.entry_date);
+       }
 
-   }
+    }
+}else if (table == 2){
+    while ((fgets(line, maxsize, dbfile)) != NULL){
 
+        struct user *db_record = file_to_struct(1);
+        comp_result = NULL;
+
+
+       switch (search_field) {
+           case 1: comp_result = strstr(db_record->name, search_term);
+           break;
+           case 2: comp_result = strstr(db_record->user_name, search_term);
+           break;
+           case 3: comp_result = strstr(db_record->password, search_term);
+           break;
+           case 4: comp_result = strstr(db_record->email, search_term);
+           break;
+           case 5: comp_result = strstr(db_record->number_of_books, search_term);
+           break;
+           default: printf("No valid search field passed");
+           break;
+       }
+
+       if (comp_result != NULL){
+          // write the record to file.
+
+           fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
+           db_record->name, db_record->user_name, db_record->password,db_record->email,
+           db_record->number_of_books);
+
+       }
+
+    }
+}else if (table == 3){
+    while ((fgets(line, maxsize, dbfile)) != NULL){
+
+        struct request *db_record = file_to_struct(1);
+        comp_result = NULL;
+
+
+       switch (search_field) {
+           case 1: comp_result = strstr(db_record->user_name, search_term);
+           break;
+           case 2: comp_result = strstr(db_record->isbn_no, search_term);
+           break;
+           default: printf("No valid search field passed");
+           break;
+       }
+
+       if (comp_result != NULL){
+          // write the record to file.
+
+           fprintf(returnfile, "\"%s\",\"%s\"\n", db_record->user_name, db_record->isbn_no);
+
+       }
+
+    }
 }
 
 //fclose(returnfile);

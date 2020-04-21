@@ -3,11 +3,16 @@
 #include "home_menu.c"
 #include "pages.c"
 #include "display_page.c"
+<<<<<<< HEAD
 #include "sign_up.c"
 #include "log_in.c"
 //#include "add_books.c" - this should be uncommented after add_record is generalized with a UNION input argument
 #include "add_record.c"
 #include "messages.c"
+=======
+//#include "add_books.c"
+//#include "add_record.c"
+>>>>>>> Implement_more_structs
 
 int main(int argc, char *argv[]){
 
@@ -19,9 +24,10 @@ int main(int argc, char *argv[]){
     int user_selection;
     struct all_pages pages = init_pages();
 
-    welcome_message();
-    home_menu();
-    display_page(pages.manager_main_menu);
+//while(1){
+    //welcome_message();
+    //home_menu();
+    //display_page(pages.manager_main_menu);
     display_table(lookup(" ",1,2));
 
 
@@ -44,5 +50,6 @@ int main(int argc, char *argv[]){
 //         //The display page function needs to check input and recall user_menu
 //         //as needed
 //     };
+//}
     return 0;
 }
