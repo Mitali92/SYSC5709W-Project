@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<string.h>
-#include<windows.h>
+//#include<windows.h>
 #include<time.h>
 
 struct books a;
-COORD coord = {0, 0};
+//COORD coord = {0, 0};
 FILE *fa;
 char tablestring[255];
 //int table_num;
@@ -80,8 +80,3 @@ int add_book(){
         }
         return 0;
 }
-
-
-
-
-
