@@ -1,9 +1,0 @@
-#include <check.h>
-#include "database_lookup.c"
-
-//lookup
-START_TEST (test_lookup)
-{
-  lookup("search_term_too_long",1,2);
-}
-END_TEST
