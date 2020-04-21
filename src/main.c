@@ -4,6 +4,7 @@
 #include "pages.c"
 #include "display_page.c"
 #include "sign_up.c"
+#include "log_in.c"
 //#include "add_books.c" - this should be uncommented after add_record is generalized with a UNION input argument
 #include "add_record.c"
 #include "messages.c"

@@ -23,8 +23,7 @@ void home_menu()
                      break;
 
                 case 2:
-                    printf("\n LOGIN FUNCTION CALLING");
-                    //log_in();
+                    log_in();
                     break;
 
                 case 0:
