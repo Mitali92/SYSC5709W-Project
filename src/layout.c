@@ -28,7 +28,7 @@ void header_position(const char* screen_name)
                 printf(" ");
             }
         //print message
-        printf(ANSI_COLOR_GREEN"%s"ANSI_COLOR_RESET,screen_name);
+        printf(ANSI_COLOR_GREEN "%s" ANSI_COLOR_RESET,screen_name);
     }
 
 void header_layout(const char* screen_name)

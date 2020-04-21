@@ -1,4 +1,5 @@
 struct signup new_user;
+int add_record(struct signup new_user,int table);
 
 struct signup
     {
@@ -8,6 +9,7 @@ struct signup
         char c_pwd[20];
         char email[20];
     };
+
 
 int char_check(char input[])
     {
@@ -224,6 +226,23 @@ void sign_up()
 
         if(strchr(new_user.email, '.') && strchr(new_user.email, '@'))
             {
+                int signup_status = add_record(new_user, 2);
+
+                if(signup_status == 1)
+                    {
+                        gotoxy(40,24);
+                        printf(ANSI_COLOR_GREEN"SIGNUP SUCCESSFUL. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
+                        getchar();
+                        home_menu();
+                    }
+                
+                else if(signup_status == 0)
+                    {
+                        gotoxy(40,24);
+                        printf(ANSI_COLOR_RED"SIGNUP FAILED. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
+                        getchar();
+                        home_menu();
+                    }
                 messages(9);
             }
 
@@ -237,8 +256,5 @@ void sign_up()
                 gotoxy(69,22);
                 printf("                                                                           ");
                 goto email_repeat;
-
             }
-
-        //add_record(new_user);
     }
