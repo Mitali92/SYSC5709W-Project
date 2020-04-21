@@ -28,7 +28,7 @@ void header_position(const char* screen_name)
                 printf(" ");
             }
         //print message
-        printf(ANSI_COLOR_GREEN"%s"ANSI_COLOR_RESET,screen_name);
+        printf(ANSI_COLOR_GREEN "%s" ANSI_COLOR_RESET,screen_name);
     }
 
 void header_layout(const char* screen_name)
@@ -59,7 +59,7 @@ void welcome_message()
         printf("\n\t\t\t\t        |                  "ANSI_COLOR_RESET"SYSTEM"ANSI_COLOR_RED"                   |");
         printf("\n\t\t\t\t        =============================================\n");
         printf("\n\t\t\t\t***-***-***-***-***-***-***-***-***-***-***-***-***-***-***-***\n"ANSI_COLOR_RESET);
-        printf(ANSI_COLOR_YELLOW"\n\n\t\t\t\t\t\t ENTER ANY KEY TO CONTINUE..."ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_YELLOW"\n\n\t\t\t\t\t\t PRESS ENTER KEY TO CONTINUE..."ANSI_COLOR_RESET);
 
         getchar();
 

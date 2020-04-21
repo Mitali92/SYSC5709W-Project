@@ -3,11 +3,18 @@ void home_menu()
         int selection = 0;
         header_layout("HOME MENU");
 
-        printf("\n\t\t\t\t\t\t[ 1 ] SIGNUP");
-        printf("\n\t\t\t\t\t\t[ 2 ] LOGIN");
-        printf("\n\t\t\t\t\t\t[ 0 ] CLOSE APPLICATION");
+        gotoxy(50,15);
+        printf("[ 1 ] SIGNUP");
+        gotoxy(50,17);
+        printf("[ 2 ] LOGIN");
+        gotoxy(50,19);
+        printf("[ 0 ] CLOSE APPLICATION");
+        gotoxy(50,21);
         printf(ANSI_COLOR_YELLOW"\n\n\t\t\t\t\t\t PLEASE ENTER YOUR CHOICE: "ANSI_COLOR_RESET);
+    selection_repeat:
+        gotoxy(77,23);
         scanf("%d", &selection);
+        getchar();
 
         switch(selection)
              {
@@ -25,6 +32,13 @@ void home_menu()
                     break;
 
                 default:
-                    printf("\nINVALID INPUT! PLEASE TRY AGAIN");
+                    gotoxy(50,25);
+                    messages(1);
+                    getchar();
+                    gotoxy(77,23);
+                    printf("                                        ");
+                    gotoxy(50,25);
+                    printf("                                                                                  ");
+                    goto selection_repeat;
              }
     }
