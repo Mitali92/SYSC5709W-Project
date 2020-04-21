@@ -3,16 +3,11 @@
 #include "home_menu.c"
 #include "pages.c"
 #include "display_page.c"
-<<<<<<< HEAD
 #include "sign_up.c"
 #include "log_in.c"
 //#include "add_books.c" - this should be uncommented after add_record is generalized with a UNION input argument
 #include "add_record.c"
 #include "messages.c"
-=======
-//#include "add_books.c"
-//#include "add_record.c"
->>>>>>> Implement_more_structs
 
 int main(int argc, char *argv[]){
 

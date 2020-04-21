@@ -5,7 +5,7 @@
 
 //#include "layout.c"
 //#define TYPE books
-#define book_struct_fields 9
+#define book_struct_fields 10
 #define user_struct_fields 5
 #define request_struct_fields 2
 
@@ -37,6 +37,7 @@ struct books{
   char language[20];
   char date_of_pub [20];
   char entry_date[20];
+  char status[20];
 
 };
 
@@ -92,6 +93,7 @@ void *file_to_struct(int type){
             strcpy(db_record->language, fields_array[6]);
             strcpy(db_record->date_of_pub, fields_array[7]);
             strcpy(db_record->entry_date, fields_array[8]);
+            strcpy(db_record->status, fields_array[9]);
 
             void *record = db_record;
             return record;
@@ -197,9 +199,9 @@ if (returnfile == NULL){
 }
 
 switch(table){
-    case 1: fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
+    case 1: fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
     "BOOK ID", "BOOK TITLE", "ISBN NO.", "AUTHOR NAME", "QUANTITY", "CATEGORY",
-    "LANGUAGE", "DATE OF PUB", "ENTRY DATE");
+    "LANGUAGE", "DATE OF PUB", "ENTRY DATE", "STATUS");
     break;
     case 2: fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
     "NAME", "USERNAME", "PASSWORD", "EMAIL", "BOOK COUNT");
@@ -238,6 +240,8 @@ if(table == 1){
            break;
            case 9: comp_result = strstr(db_record->entry_date, search_term);
            break;
+           case 10: comp_result = strstr(db_record->status, search_term);
+           break;
            default: printf("No valid search field passed");
            break;
        }
@@ -245,10 +249,10 @@ if(table == 1){
        if (comp_result != NULL){
           // write the record to file.
 
-           fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
+           fprintf(returnfile, "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
            db_record->book_id, db_record->book_title, db_record->isbn_no, db_record->author_name,
            db_record->quantity, db_record->category, db_record->language, db_record->date_of_pub,
-           db_record->entry_date);
+           db_record->entry_date, db_record->status);
 
        }
 

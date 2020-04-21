@@ -39,10 +39,10 @@ void display_table (FILE *return_file){
     while ((fgets(line, maxsize, return_file)) != NULL){
 
         struct books *db_record = file_to_struct(1);
-        printf("    %-6s\t %-18s\t %-12s\t %-12s\t %-12s\t %-12s\t %-12s\n\n",
+        printf("    %-6s\t %-18s\t %-12s\t %-12s\t %-12s\t %-12s\t %-12s\t %-12s\n\n",
         db_record->book_id, db_record->book_title, db_record->isbn_no,
         db_record->author_name, db_record->quantity, db_record->category,
-        db_record->language);
+        db_record->language, db_record->status);
     }
 }else if(strcmp(check, "\"USER") == 0){
 
