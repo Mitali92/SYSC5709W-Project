@@ -42,8 +42,19 @@ void log_in()
         getchar();
 
 //validating login details - calling database_lookup function
-        gotoxy(40,18);
-        printf("database-lookup function should be called. \n\n\t\t\tPRESS ENTER TO GO BACK TO HOME MENU");
-        getchar();
-        home_menu();
+        char line[255];
+        printf("inside");
+        struct user *usr = malloc(sizeof(struct user));
+        while (fgets(line, 255, lookup(details.user_name, 2, 2)) != NULL){
+            usr = file_to_struct(2);
+            
+        };
+        if((strcmp(details.user_name, usr->user_name) == 0) && (strcmp(details.pwd, usr->password) == 0)){
+            display_page(pages.user_main_menu);
+        }else {
+            printf("\n\n\t\t\tPRESS ENTER TO TRY AGAIN");
+            getchar();
+            log_in();
+        }
+        
     }
