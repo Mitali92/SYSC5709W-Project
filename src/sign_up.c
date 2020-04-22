@@ -1,5 +1,5 @@
 struct signup new_user;
-int add_record(struct signup new_user,int table);
+int add_record(void *struct_data,int table);
 
 struct signup
     {
@@ -13,7 +13,7 @@ struct signup
 
 int char_check(char input[])
     {
-        
+
         int size, x=0;
         size = strlen(input);
 
@@ -226,7 +226,16 @@ void sign_up()
 
         if(strchr(new_user.email, '.') && strchr(new_user.email, '@'))
             {
-                int signup_status = add_record(new_user, 2);
+                struct user *nuser = malloc(sizeof(struct user));
+                strcpy(nuser->name, new_user.name);
+                strcpy(nuser->user_name, new_user.user_name);
+                strcpy(nuser->password, new_user.pwd);
+                strcpy(nuser->email, new_user.email);
+                strcpy(nuser->number_of_books, "0");
+
+
+                void *struct_data = nuser;
+                int signup_status = add_record(struct_data, 2);
 
                 if(signup_status == 1)
                     {
@@ -235,7 +244,7 @@ void sign_up()
                         getchar();
                         home_menu();
                     }
-                
+
                 else if(signup_status == 0)
                     {
                         gotoxy(40,24);
