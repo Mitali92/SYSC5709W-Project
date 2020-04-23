@@ -5,9 +5,13 @@
 #include "display_page.c"
 #include "sign_up.c"
 #include "log_in.c"
-//#include "add_books.c" - this should be uncommented after add_record is generalized with a UNION input argument
+#include "add_books.c"
 #include "add_record.c"
 #include "messages.c"
+#include "manager_menu.c"
+#include "delete_book.c"
+#include "delete_record.c"
+#include "modify_book.c"
 
 int main(int argc, char *argv[]){
 
@@ -20,12 +24,13 @@ int main(int argc, char *argv[]){
     struct all_pages pages = init_pages();
 
     welcome_message();
-    home_menu();
-    display_page(pages.manager_main_menu);
-    display_table(lookup(" ",1,2));
+    //home_menu();
+    //display_page(pages.manager_main_menu);
+    //display_table(lookup(" ",1,2));
 
 
     //add_book();
+    manager_menu();
 //     /*
 //     // This needs to be put in the welcome message function
 //     if (strcmp(getchar(),"q"){

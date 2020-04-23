@@ -23,6 +23,11 @@ void log_in();
 int pwd_check(char input[]);
 int char_check(char input[]);
 
+void add_book();
+void delete_book();
+int modify_book();
+
+
 //Functions related to pages
 struct all_pages init_pages(void);
 //void display_page (struct page display_data);
