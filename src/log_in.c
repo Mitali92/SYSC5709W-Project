@@ -13,7 +13,7 @@ void log_in()
 
         gotoxy(50,11);
         printf("FILL BELOW DETAILS TO LOGIN:");
-        
+
 //USERNAME FIELD
         gotoxy(50,14);
         printf("USER NAME:");
@@ -42,8 +42,24 @@ void log_in()
         getchar();
 
 //validating login details - calling database_lookup function
-        gotoxy(40,18);
-        printf("database-lookup function should be called. \n\n\t\t\tPRESS ENTER TO GO BACK TO HOME MENU");
-        getchar();
-        home_menu();
+        char line[255];
+		int i = 0;
+        //struct user *usr = malloc(sizeof(struct user));
+		FILE *fp = lookup(details.user_name, 2, 2);
+		struct user *usr;
+        while (fgets(line, 255, fp) != NULL){
+
+			usr = file_to_struct(line, 2);
+
+        };
+
+        if((strcmp(details.user_name, usr->user_name) == 0) && (strcmp(details.pwd, usr->password) == 0)){
+			printf("logged in");
+
+		}else {
+			   printf("\n\n\t\t\tPRESS ENTER TO TRY AGAIN");
+			   getchar();
+			   log_in();
+		}
+
     }
