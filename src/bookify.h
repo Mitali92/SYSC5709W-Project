@@ -18,21 +18,22 @@ void header_layout(const char* screen_name);
 void welcome_message();
 void messages(int msg_id);
 void home_menu();
-void sign_up();
+//void sign_up();
 void log_in();
 int pwd_check(char input[]);
 int char_check(char input[]);
 
-void add_book();
-void delete_book();
-int modify_book();
-
-
 //Functions related to pages
 struct all_pages init_pages(void);
+struct all_pages pages;
+//extern int a;
 //void display_page (struct page display_data);
 void display_table (FILE *return_file);
 
+void user_main_menu(void);
+
 
 FILE *lookup(char search_term[20], int table, int search_field);
-void *file_to_struct(int type);
+void *file_to_struct(char *line, int type);
+
+//struct all_pages setup_pages(void);
