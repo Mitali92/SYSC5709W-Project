@@ -24,13 +24,13 @@ int main(int argc, char *argv[]){
     struct all_pages pages = init_pages();
 
     welcome_message();
-    //home_menu();
+    home_menu();
     //display_page(pages.manager_main_menu);
     //display_table(lookup(" ",1,2));
 
 
     //add_book();
-    manager_menu();
+    //manager_menu();
 //     /*
 //     // This needs to be put in the welcome message function
 //     if (strcmp(getchar(),"q"){
