@@ -1,3 +1,4 @@
+#include "database_lookup.h"
 struct login details;
 
 struct login

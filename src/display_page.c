@@ -6,8 +6,8 @@
 //#include "pages.c"
 //#include "database_lookup.c"
 
-//char line[255];
-//int maxsize = 255;
+char line[255];
+int maxsize = 255;
 //struct all_pages setup_pages(void);
 //global struct all_pages pages;
 //void setup_pages(){

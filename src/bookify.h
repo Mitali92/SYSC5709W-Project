@@ -34,5 +34,5 @@ struct all_pages init_pages(void);
 void display_table (FILE *return_file);
 
 
-FILE *lookup(char search_term[20], int table, int search_field);
-void *file_to_struct(char *line, int type);
+//FILE *lookup(char search_term[20], int table, int search_field);
+//void *file_to_struct(char *line, int type);

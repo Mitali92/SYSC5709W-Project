@@ -12,6 +12,7 @@
 #include<string.h>
 #include<time.h>
 #include <stdlib.h>
+#include <errno.h>
 
 // function prototype
 int add_record(void *struct_data,int table);
@@ -195,6 +196,3 @@ int increment_id()
     return increment;
 
 }
-
-
-
