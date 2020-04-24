@@ -27,11 +27,16 @@ void add_book();
 void delete_book();
 int modify_book();
 
+extern int a;
 
 //Functions related to pages
 struct all_pages init_pages(void);
-//void display_page (struct page display_data);
-void display_table (FILE *return_file);
+void user_main_menu(void);
+void search_book(void);
+void view_my_details(void);
+//void display_page(struct page display_data);
+void display_table(FILE *return_file);
+
 
 
 //FILE *lookup(char search_term[20], int table, int search_field);

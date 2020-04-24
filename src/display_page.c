@@ -3,6 +3,7 @@
 //#include <string.h>
 //#include "layout.c"
 #include "database_lookup.h"
+
 //#include "pages.c"
 //#include "database_lookup.c"
 
@@ -10,18 +11,19 @@
 //struct all_pages setup_pages(void);
 //global struct all_pages pages;
 //void setup_pages(){
-//	struct all_pages pages = init_pages();
+//struct all_pages pages = init_pages();
 
 //}
 
-void display_page (struct page display_data);
+//void display_page(struct page display_data);
 
-void display_page (struct page display_data){
+void display_page(struct page display_data){
 
     /**
     * The function take a page struct and prints it to the screen
     * @param[in] display_data 	struct containing data for the page.
     */
+
 
     char selection;
     header_layout(display_data.page_title);

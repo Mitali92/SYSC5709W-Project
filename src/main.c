@@ -14,6 +14,7 @@
 #include "modify_book.c"
 #include "database_lookup.h"
 
+
 int main(int argc, char *argv[]){
 
     if ((argc == 2) && strcmp(argv[1],"-v") == 0){
@@ -21,12 +22,16 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    int user_selection;
-    struct all_pages pages = init_pages();
+    //int user_selection;
+    //struct all_pages *page_memory = malloc(sizeof(struct all_pages));
+    //struct all_pages page_holder = init_pages();
+    //page_memory = &page_holder;
+    //void *pages = &page_memory;
+
 
     welcome_message();
     home_menu();
-    //display_page(pages.manager_main_menu);
+    //display_page(pages->manager_main_menu);
     //display_table(lookup(" ",1,2));
 
 

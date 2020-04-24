@@ -55,7 +55,8 @@ void log_in()
         };
 
         if((strcmp(details.user_name, usr->user_name) == 0) && (strcmp(details.pwd, usr->password) == 0)){
-			printf("logged in");
+            user_main_menu();
+
 
 		}else {
 			   printf("\n\n\t\t\tPRESS ENTER TO TRY AGAIN");
