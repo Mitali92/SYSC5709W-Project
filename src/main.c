@@ -9,9 +9,10 @@
 #include "add_record.c"
 #include "messages.c"
 #include "manager_menu.c"
-#include "delete_book.c"
-#include "delete_record.c"
-#include "modify_book.c"
+//#include "delete_book.c"
+//#include "delete_record.c"
+//#include "modify_book.c"
+#include "database_lookup.h"
 
 int main(int argc, char *argv[]){
 

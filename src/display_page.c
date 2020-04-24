@@ -2,7 +2,7 @@
 //#include <stdlib.h>
 //#include <string.h>
 //#include "layout.c"
-#include "database_lookup.c"
+#include "database_lookup.h"
 //#include "pages.c"
 //#include "database_lookup.c"
 
