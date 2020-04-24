@@ -91,6 +91,35 @@ void view_my_details(void){
 
 
 }
+
+void view_list_of_books(void){
+    struct page view_list_of_books;
+        strcpy(view_list_of_books.page_title, "LIST OF BOOKS");
+        strcpy(view_list_of_books.menu[0], "1. BOOK TITLE");
+        strcpy(view_list_of_books.menu[1], "2. BOOK ID");
+        strcpy(view_list_of_books.menu[2], "3. ISBN NUMBER");
+        strcpy(view_list_of_books.menu[3], "4. QUANTITY");
+        strcpy(view_list_of_books.menu[4], "5. AUTHOR NAME");
+        strcpy(view_list_of_books.menu[5], "6. DATE OF PUBLICATION");
+        strcpy(view_list_of_books.menu[6], "7. ENTRY DATE");
+        strcpy(view_list_of_books.menu[7], "8. CATEGORY");
+        strcpy(view_list_of_books.menu[8], "9. LANGUAGE");
+        strcpy(view_list_of_books.menu[9], "10. STATUS");
+        view_list_of_books.menu_length = 10;
+
+        int selection;
+        header_layout(view_list_of_books.page_title);
+
+
+        for(int i = 0; i<view_list_of_books.menu_length; i++){
+            if(view_list_of_books.menu[i] != ""){
+                    printf("%50s%-s\n","", view_list_of_books.menu[i]);
+            }
+        }
+        printf("\nplease select an option to search by: ");
+        selection = getchar();
+
+}
 struct all_pages init_pages(void){
 
     struct all_pages returned_pages;
@@ -121,8 +150,6 @@ struct all_pages init_pages(void){
         add_book.menu_length = 9;
         returned_pages.add_book = add_book;
 
-
-
     struct page delete_book;
         strcpy(delete_book.page_title, "DELETE BOOK");
         strcpy(delete_book.menu[0], "1. BOOK ID");
@@ -137,22 +164,6 @@ struct all_pages init_pages(void){
         modify_book.menu_length = 2;
         returned_pages.modify_book = modify_book;
 
-    struct page view_list_of_books;
-        strcpy(view_list_of_books.page_title, "LIST OF BOOKS");
-        strcpy(view_list_of_books.menu[0], "1. BOOK TITLE");
-        strcpy(view_list_of_books.menu[1], "2. BOOK ID");
-        strcpy(view_list_of_books.menu[2], "3. ISBN NUMBER");
-        strcpy(view_list_of_books.menu[3], "4. QUANTITY");
-        strcpy(view_list_of_books.menu[4], "5. AUTHOR NAME");
-        strcpy(view_list_of_books.menu[5], "6. DATE OF PUBLICATION");
-        strcpy(view_list_of_books.menu[6], "7. ENTRY DATE");
-        strcpy(view_list_of_books.menu[7], "8. CATEGORY");
-        strcpy(view_list_of_books.menu[8], "9. LANGUAGE");
-        strcpy(view_list_of_books.menu[9], "10. STATUS");
-        view_list_of_books.menu_length = 10;
-        returned_pages.view_list_of_books = view_list_of_books;
-
-
     struct page view_list_of_users;
         strcpy(view_list_of_users.page_title, "LIST OF USERS");
         strcpy(view_list_of_users.menu[0], "1. NAME");
@@ -161,7 +172,6 @@ struct all_pages init_pages(void){
         strcpy(view_list_of_users.menu[3], "4. NUMBER OF BOOKS");
         view_list_of_users.menu_length = 4;
         returned_pages.view_list_of_users = view_list_of_users;
-
 
     return returned_pages;
 }
