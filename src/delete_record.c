@@ -19,6 +19,9 @@
     #define REQUESTS "data/requests.csv"
     #define BACKUP "data/bookdetails_backup.csv"
 #endif
+
+#include "layout.h"
+
 void delete_book();
 
 int delete_record(char search_term[20], int table,int search_field)

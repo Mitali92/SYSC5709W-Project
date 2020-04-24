@@ -1,3 +1,5 @@
+#include "layout.h"
+
 void manager_menu()
     {
         int selection = 0;

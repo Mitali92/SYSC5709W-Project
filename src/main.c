@@ -31,10 +31,9 @@ int main(int argc, char *argv[]){
 
     welcome_message();
     home_menu();
+    //display_page(pages.manager_main_menu);
     //display_page(pages->manager_main_menu);
     //display_table(lookup(" ",1,2));
-
-
     //add_book();
     //manager_menu();
 //     /*

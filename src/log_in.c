@@ -1,3 +1,5 @@
+#include "layout.h"
+#include "home_menu.h"
 #include "database_lookup.h"
 struct login details;
 

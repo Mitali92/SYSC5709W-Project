@@ -10,6 +10,7 @@
 
 #include<stdio.h>
 #include<string.h>
+#include "layout.h"
 
 int delete_record(char search_term[20], int table,int search_field);
 

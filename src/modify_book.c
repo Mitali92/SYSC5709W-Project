@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <errno.h>
+#include "layout.h"
 
 int edit_field();
 int int_check(char input[]);
