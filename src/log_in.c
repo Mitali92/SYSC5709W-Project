@@ -1,3 +1,6 @@
+#include "layout.h"
+#include "home_menu.h"
+
 struct login details;
 
 struct login

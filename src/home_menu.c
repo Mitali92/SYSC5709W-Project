@@ -1,3 +1,8 @@
+#include "layout.h"
+#include "messages.h"
+#include "sign_up.h"
+#include "log_in.h"
+
 void home_menu()
     {
         int selection = 0;

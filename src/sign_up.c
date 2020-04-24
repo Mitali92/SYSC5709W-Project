@@ -1,3 +1,6 @@
+#include "layout.h"
+#include "messages.h"
+
 struct signup new_user;
 int add_record(void *struct_data,int table);
 

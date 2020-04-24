@@ -1,7 +1,7 @@
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include <string.h>
-//#include "layout.c"
+#include "layout.h"
 #include "database_lookup.c"
 //#include "pages.c"
 //#include "database_lookup.c"
