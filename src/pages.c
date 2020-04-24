@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 struct all_pages init_pages(void);
+void user_main_menu(void);
 struct page manager_main_menu;
 struct all_pages all_pages;
 
@@ -25,8 +27,70 @@ struct all_pages {
     struct page view_list_of_users;
 };
 
+void user_main_menu(){
+    struct page user_main_menu;
+
+        strcpy(user_main_menu.page_title, "USER'S MAIN MENU");
+        strcpy(user_main_menu.menu[0], "1. SEARCH BOOK");
+        strcpy(user_main_menu.menu[1], "2. VIEW MY DETAILS");
+        user_main_menu.menu_length = 2;
 
 
+        char selection;
+        header_layout(user_main_menu.page_title);
+
+
+        for(int i = 0; i<user_main_menu.menu_length; i++){
+            if(user_main_menu.menu[i] != ""){
+                    printf("%50s%-s\n","", user_main_menu.menu[i]);
+            }
+        }
+        printf("please select an option: ");
+        selection = getchar();
+
+        if (selection = '1'){
+            search_book();
+        }else if (selection = '1'){
+            view_my_details();
+        }else{
+            printf("Call the validation function");
+        }
+
+}
+
+void search_book(void){
+    struct page search_books;
+        strcpy(search_books.page_title, "LIST OF BOOKS");
+        strcpy(search_books.menu[0], "1. BOOK TITLE");
+        strcpy(search_books.menu[1], "2. BOOK ID");
+        strcpy(search_books.menu[2], "3. ISBN NUMBER");
+        strcpy(search_books.menu[3], "4. QUANTITY");
+        strcpy(search_books.menu[4], "5. AUTHOR NAME");
+        strcpy(search_books.menu[5], "6. DATE OF PUBLICATION");
+        strcpy(search_books.menu[6], "7. ENTRY DATE");
+        strcpy(search_books.menu[7], "8. CATEGORY");
+        strcpy(search_books.menu[8], "9. LANGUAGE");
+        strcpy(search_books.menu[9], "10. STATUS");
+        search_books.menu_length = 10;
+
+        int selection;
+        header_layout(search_books.page_title);
+
+
+        for(int i = 0; i<search_books.menu_length; i++){
+            if(search_books.menu[i] != ""){
+                    printf("%50s%-s\n","", search_books.menu[i]);
+            }
+        }
+        printf("please select an option: ");
+        selection = getchar();
+
+}
+
+void view_my_details(void){
+
+
+}
 struct all_pages init_pages(void){
 
     struct all_pages returned_pages;
@@ -57,13 +121,7 @@ struct all_pages init_pages(void){
         add_book.menu_length = 9;
         returned_pages.add_book = add_book;
 
-    struct page user_main_menu;
 
-        strcpy(user_main_menu.page_title, "USER'S MAIN MENU");
-        strcpy(user_main_menu.menu[0], "1. SEARCH BOOK");
-        strcpy(user_main_menu.menu[1], "2. VIEW MY DETAILS");
-        user_main_menu.menu_length = 2;
-        returned_pages.user_main_menu = user_main_menu;
 
     struct page delete_book;
         strcpy(delete_book.page_title, "DELETE BOOK");
@@ -94,20 +152,6 @@ struct all_pages init_pages(void){
         view_list_of_books.menu_length = 10;
         returned_pages.view_list_of_books = view_list_of_books;
 
-    struct page search_books;
-        strcpy(search_books.page_title, "LIST OF BOOKS");
-        strcpy(search_books.menu[0], "1. BOOK TITLE");
-        strcpy(search_books.menu[1], "2. BOOK ID");
-        strcpy(search_books.menu[2], "3. ISBN NUMBER");
-        strcpy(search_books.menu[3], "4. QUANTITY");
-        strcpy(search_books.menu[4], "5. AUTHOR NAME");
-        strcpy(search_books.menu[5], "6. DATE OF PUBLICATION");
-        strcpy(search_books.menu[6], "7. ENTRY DATE");
-        strcpy(search_books.menu[7], "8. CATEGORY");
-        strcpy(search_books.menu[8], "9. LANGUAGE");
-        strcpy(search_books.menu[9], "10. STATUS");
-        search_books.menu_length = 10;
-        returned_pages.search_books = search_books;
 
     struct page view_list_of_users;
         strcpy(view_list_of_users.page_title, "LIST OF USERS");
