@@ -17,6 +17,12 @@
 void display_page (struct page display_data);
 
 void display_page (struct page display_data){
+
+    /**
+    * The function take a page struct and prints it to the screen
+    * @param[in] display_data 	struct containing data for the page.
+    */
+
     char selection;
     header_layout(display_data.page_title);
 
@@ -33,6 +39,12 @@ void display_page (struct page display_data){
 }
 
 void display_table (FILE *return_file){
+
+    /**
+    * The function takes a csv file, reads the lines and prints them to the
+        console formatted as a table.
+    * @param[in] return_file 	file from which data for table is to be read
+    */
 
     system(CLEAR);
     header_layout("SEARCH RESULT");

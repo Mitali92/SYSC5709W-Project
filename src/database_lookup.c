@@ -11,11 +11,6 @@
 
 
 
-//FILE *lookup(char search_term[20], int table, int search_field);
-//struct *file_to_struct(FILE *file);
-
-
-
 FILE *dbfile;
 FILE *returnfile;
 char *comp_result;
@@ -28,6 +23,14 @@ const char comma[4] = "\",\"";
 //void *file_to_struct(char *line, int type);
 
 void *file_to_struct(char *line, int type){
+
+    /**
+    * The function take a line extracted from a csv file and splits the entries
+      into separate tokens. It then passes the tokens into the appropriate
+      struct.
+    * @param[in] line 	line from a csv file to be split up.
+    * @param[in] type 	A number indicating which tyoe of struct to make.
+    */
 
 	const char comma[4] = "\",\"";
     void *record;
@@ -113,35 +116,17 @@ void *file_to_struct(char *line, int type){
     }
 
 }
-//char *set_tablestring(int table);
-//char tablestring[255];
-
-
-/*char *set_tablestring(int table){
-
-    switch(table){
-        case 1: strcpy(tablestring, "data/database.csv");
-            break;
-        case 2: strcpy(tablestring, "data/users.csv");
-            break;
-        case 3: strcpy(tablestring, "data/database.csv");
-            break;
-        default: printf("No match");
-    }
-
-    return tablestring;
-
-}*/
 
 FILE *lookup(char search_term[20], int table, int search_field){
 
-	/**
-	* The function searches the database for a given search term and returns a file
-	  with the entries that match.
-	* @param[in] search_term - term to match in database.
-	* @param[in] table - A number indicating which database table to search.
-	* @param[in] search_field - A number indicating which field of the table to search
-	*/
+/**
+* The function searches the database for a given search term and returns a file
+  with the entries that match.
+* @param[in] search_term 	Term to match in database.
+* @param[in] table 	A number indicating which database table to search.
+* @param[in] search_field 	A number indicating which field of the table to search
+* @param[out] FILE *returnfile	A pointer to the file containing the result of the search
+*/
 
 
 // int table will tell which file to open
@@ -188,8 +173,6 @@ switch(table){
     break;
 
 }
-//struct *struct_record = file_to_struct(dbfile);
-//struct *file_to_struct(FILE *file){
 
 if(table == 1){
     while ((fgets(line, maxsize, dbfile)) != NULL){
@@ -304,27 +287,3 @@ return returnfile;
 
 
 }
-
-
-/*
-int main(){
-    //Test run
-    //int linesCount = 0;
-    char ch;
-    char nline[255];
-
-    FILE *file = lookup(" ",1,2);
-
-    //while((fgets(nline, maxsize, file)) != NULL) {
-        printf("%s",(fgets(nline, maxsize, file)));
-        //if(ch=='\n')
-        //linesCount++;
-//}
-//close the file
-fclose(file);
-///print number of lines
-//printf("Total number of lines are: %d\n",linesCount);
-
-    return 0;
-}
-*/
