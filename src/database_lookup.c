@@ -11,7 +11,7 @@
 
 
 
-FILE *lookup(char search_term[20], int table, int search_field);
+//FILE *lookup(char search_term[20], int table, int search_field);
 //struct *file_to_struct(FILE *file);
 
 
@@ -21,11 +21,11 @@ FILE *returnfile;
 char *comp_result;
 
 
-char line[512];
-int maxsize = 512;
+char line[255];
+int maxsize = 255;
 const char comma[4] = "\",\"";
 
-void *file_to_struct(char *line, int type);
+//void *file_to_struct(char *line, int type);
 
 void *file_to_struct(char *line, int type){
 

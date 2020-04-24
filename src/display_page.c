@@ -6,8 +6,7 @@
 //#include "pages.c"
 //#include "database_lookup.c"
 
-char line[255];
-int maxsize = 255;
+
 //struct all_pages setup_pages(void);
 //global struct all_pages pages;
 //void setup_pages(){
@@ -38,6 +37,8 @@ void display_table (FILE *return_file){
     system(CLEAR);
     header_layout("SEARCH RESULT");
 
+    char line[255];
+    int maxsize = 255;
     char check[5];
     fread(check, 1, 5, return_file);
     rewind(return_file);
