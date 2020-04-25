@@ -9,6 +9,7 @@
 #include "layout.h"
 #include "database_lookup.h"
 #include "manager_menu.h"
+#include "messages.h"
 
 time_t current;
 struct tm* pLocal;
@@ -106,7 +107,6 @@ void add_book()
         gotoxy(59,14);printf("%s",a->book_id);
 
         gotoxy(40,16);printf("Book Name:");
-    new_book:
         gotoxy(59,16);scanf("%[^\n]%*c",a->book_title);
         gotoxy(40,18);printf("Author:");
         gotoxy(59,18);scanf("%[^\n]%*c",a->author_name);
@@ -120,13 +120,15 @@ void add_book()
 
         //duplicate isbn validation check from the database table
         if(isbn_validation(a->isbn_no,3)==1){
-            gotoxy(45,24);printf("The isbn number already exists\n");
+            gotoxy(45,24);printf(ANSI_COLOR_RED"The isbn number already exists\n"ANSI_COLOR_RESET);
             gotoxy(45,25);printf("Please choose one of the filter to proceed");
-            gotoxy(45,26);printf("1. Move to modify page to change isbn number ");
-            gotoxy(45,27);printf("2. Enter new ISBN Number ");
+            gotoxy(45,26);printf("[1]. Move to modify page to change isbn number ");
+            gotoxy(45,27);printf("[2]. Enter new ISBN Number ");
 
-            gotoxy(45,28);printf("Select the filter : ");
+            gotoxy(45,28);printf(ANSI_COLOR_YELLOW"ENTER YOUR CHOICE: "ANSI_COLOR_RESET);
+        repeat_choice:
             gotoxy(69,28);scanf("%d",&choice);
+            getchar();
 
             if(choice == 1){
                 //move to modify book to change the book details of the entered isbn_no
@@ -144,23 +146,11 @@ void add_book()
                 goto isbn_repeat;
             }
             else{
-                gotoxy(45,30);printf("Invalid filter.Please try again");
+                gotoxy(45,30);messages(1);
                 getchar();
-                gotoxy(59,16);printf("                                                                           ");
+                gotoxy(69,28);printf("                                                                           ");
                 gotoxy(45,30);printf("                                                                           ");
-                gotoxy(40,18);printf("                                                                           ");
-                gotoxy(59,18);printf("                                                                           ");
-                gotoxy(40,20);printf("                                                                           ");
-                gotoxy(69,20);printf("                                                                           ");
-                gotoxy(40,22);printf("                                                                           ");
-                gotoxy(59,22);printf("                                                                           ");
-                gotoxy(45,24);printf("                                                                           ");
-                gotoxy(45,25);printf("                                                                           ");
-                gotoxy(45,26);printf("                                                                           ");
-                gotoxy(45,27);printf("                                                                           ");
-                gotoxy(45,28);printf("                                                                           ");
-                gotoxy(59,28);printf("                                                                           ");
-                goto new_book;
+                goto repeat_choice;
             }
         }
 
@@ -187,8 +177,7 @@ void add_book()
 
         if(add_record(struct_data,1) == 1){
              getchar();
-             gotoxy(40,34);printf("Book added successfully");
-             gotoxy(40,36);printf("Press any key to continue to main menu...");
+             gotoxy(40,34);printf(ANSI_COLOR_GREEN"BOOK ADDED. PRESS ENTER TO GO BACK TO THE MANAGER MENU"ANSI_COLOR_RESET);
              getchar();
              manager_menu();
         }

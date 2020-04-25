@@ -8,6 +8,7 @@
 #include "manager_menu.h"
 #include "modify_record.h"
 #include "database_lookup.h"
+#include "messages.h"
 
 char bookid[20];
 int edited;
@@ -30,7 +31,7 @@ int edit_field(){
         gotoxy(40,23);printf("[6]. LANGUAGE");
         gotoxy(40,25);printf("[7]. DATE OF PUB");
         gotoxy(40,27);printf("[8]. Status");
-        gotoxy(40,29);printf("Select the filter : ");
+        gotoxy(40,29);printf(ANSI_COLOR_YELLOW"ENTER YOUR CHOICE: "ANSI_COLOR_RESET);
         fflush(stdout);
         gotoxy(60,29);scanf("%d",&search_field);
 
@@ -88,7 +89,7 @@ void modify_book(){
         gotoxy(40,11);printf("Choose the filter to search the book : \n");
         gotoxy(40,14);printf("[1]. Book ID \n");
         gotoxy(40,16);printf("[2]. ISBN Number \n");
-        gotoxy(40,18);printf("Select the filter : ");
+        gotoxy(40,18);printf(ANSI_COLOR_YELLOW"ENTER YOUR CHOICE: "ANSI_COLOR_RESET);
         fflush(stdout);
     repeat:
         gotoxy(60,18);scanf("%d",&choice);
@@ -115,14 +116,13 @@ void modify_book(){
 
                 if(modify_record(bookid,1,edited)==0){
                     getchar();
-                    gotoxy(40,33);printf("Book details modified successfully");
-                    gotoxy(40,35);printf("Press any key to cotinue to main menu....");
+                    gotoxy(40,33);printf(ANSI_COLOR_GREEN"BOOK MODIFIED. PRESS ENTER TO GO BACK TO THE MANAGER MENU"ANSI_COLOR_RESET);
                     getchar();
                     manager_menu();
                 }
             }
             else{
-                gotoxy(40,22);printf("Data does not exist.Please try again");
+                gotoxy(40,22);printf(ANSI_COLOR_RED"Data does not exist.Try again...!!"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(60,20);printf("                                                                           ");
                 gotoxy(40,22);printf("                                                                           ");
@@ -149,14 +149,13 @@ void modify_book(){
                 edited = edit_field();
                 if(modify_record(isbn,1,edited)==0){
                     getchar();
-                    gotoxy(40,33);printf("Book details modified successfully");
-                    gotoxy(40,35);printf("Press any key to cotinue to main menu....");
+                    gotoxy(40,33);printf(ANSI_COLOR_GREEN"BOOK MODIFIED. PRESS ENTER TO GO BACK TO THE MANAGER MENU"ANSI_COLOR_RESET);
                     getchar();
                     manager_menu();
                 };
             }
             else{
-                gotoxy(40,22);printf("Data does not exist.Please try again");
+                gotoxy(40,22);printf(ANSI_COLOR_RED"Data does not exist.Try again...!!"ANSI_COLOR_RESET);
                 getchar();
                 gotoxy(60,20);printf("                                                                           ");
                 gotoxy(40,22);printf("                                                                           ");
@@ -164,10 +163,10 @@ void modify_book(){
             }
         }
         else{
-            gotoxy(40,19);printf("Invalid Filter. Please select proper filter from the given choice ");
+            gotoxy(40,20);messages(1);
             getchar();
-            gotoxy(60,17);printf("                                                                           ");
-            gotoxy(40,19);printf("                                                                           ");
+            gotoxy(60,18);printf("                                                                           ");
+            gotoxy(40,20);printf("                                                                           ");
             goto repeat;
         }
 }

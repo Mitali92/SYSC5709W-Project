@@ -28,6 +28,7 @@
 
 #include "layout.h"
 #include "database_lookup.h"
+#include "messages.h"
 
 int int_check(char input[]){
 
@@ -168,7 +169,7 @@ int modify_record(char search_term[], int table,int search_field){
                     gotoxy(60,31);scanf("%s",editedValue);
                     getchar();
                     if(int_check(editedValue)!=0) {
-                        gotoxy(40,33);printf("Enter valid quantity....!!!");
+                        gotoxy(40,33);printf(ANSI_COLOR_RED"Enter valid quantity....!!!"ANSI_COLOR_RESET);
                         getchar();
                         gotoxy(60,31);printf("                                                                           ");
                         gotoxy(40,33);printf("                                                                           ");
@@ -189,7 +190,7 @@ int modify_record(char search_term[], int table,int search_field){
                     gotoxy(80,31);scanf("%s",editedValue);
                     getchar();
                     if(date_validation(editedValue)!=0) {
-                        gotoxy(40,33);printf("Enter valid date....!!!");
+                        gotoxy(40,33);printf(ANSI_COLOR_RED"Enter valid date....!!!"ANSI_COLOR_RESET);
                         getchar();
                         gotoxy(80,31);printf("                                                                           ");
                         gotoxy(40,33);printf("                                                                           ");
@@ -203,14 +204,14 @@ int modify_record(char search_term[], int table,int search_field){
                     gotoxy(60,31);scanf("%s",editedValue);
                     getchar();
                     if(status_check(editedValue)!=0) {
-                        gotoxy(40,33);printf("Enter valid status....!!!");
+                        gotoxy(40,33);printf(ANSI_COLOR_RED"Enter valid status....!!!"ANSI_COLOR_RESET);
                         getchar();
                         gotoxy(60,31);printf("                                                                           ");
                         gotoxy(40,33);printf("                                                                           ");
                         goto repeat_status;
                     }
                     break;
-            default: gotoxy(40,31);printf("Invalid Filed. Please select proper field from the given choice ");
+            default: gotoxy(40,31);messages(1);
                      getchar();
                      gotoxy(60,31);printf("                                                                           ");
                      gotoxy(40,33);printf("                                                                           ");
@@ -263,7 +264,7 @@ int modify_record(char search_term[], int table,int search_field){
                                 break;
                         case 8: comp_result = strcpy(db_record->status, editedValue);
                                 break;
-                        default: gotoxy(40,32);printf("Invalid Field. Please select proper field from the given choice ");
+                        default: gotoxy(40,32);messages(1);
                                  getchar();
                                  gotoxy(60,29);printf("                                                                           ");
                                  gotoxy(40,32);printf("                                                                           ");

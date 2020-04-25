@@ -56,7 +56,6 @@ int delete_record(char search_term[20], int table,int search_field){
             char *field = strtok(buffer, "\",\"");
             row++;
             if(strcmp(field,search_term)==0){
-                gotoxy(40,23);printf("Record deleted successfully");
                 ret = 1;
                 break;
             }
@@ -65,7 +64,6 @@ int delete_record(char search_term[20], int table,int search_field){
         field = strtok(NULL, "\",\"");
 
             if(strcmp(field,search_term)==0){
-                gotoxy(40,23);printf("Record deleted successfully");
                 ret = 1;
                 break;
             }
