@@ -1,7 +1,6 @@
 #include "layout.h"
 #include "home_menu.h"
 #include "database_lookup.h"
-struct login details;
 
 struct login
     {
@@ -56,14 +55,23 @@ void log_in()
 
         };
 
-        if((strcmp(details.user_name, usr->user_name) == 0) && (strcmp(details.pwd, usr->password) == 0)){
-            user_main_menu();
+        if((strcmp(details.user_name, "admin") == 0) && (strcmp(details.pwd, "admin123") == 0))
+            {
+                //manager_menu();
+                printf("comment this line when uncommenting above line");
+            }
 
-
-		}else {
+        else if((strcmp(details.user_name, usr->user_name) == 0) && (strcmp(details.pwd, usr->password) == 0))
+            {
+                //user_main_menu();
+                printf("comment this line when uncommenting above line");
+            }
+        
+        else 
+            {
 			   printf("\n\n\t\t\tPRESS ENTER TO TRY AGAIN");
 			   getchar();
 			   log_in();
-		}
+		    }
 
     }
