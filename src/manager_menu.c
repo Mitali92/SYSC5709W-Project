@@ -9,8 +9,13 @@
 #include "delete_book.h"
 #include "messages.h"
 
-void manager_menu()
-    {
+void manager_menu(){
+
+        /**
+        * The function prints manager-menu-page with 5 options for which only manager has the
+          access to those features
+        */
+
         int selection = 0;
         header_layout("MANAGER MENU");
 
@@ -33,36 +38,35 @@ void manager_menu()
         scanf("%d", &selection);
         getchar();
 
-        switch(selection)
-             {
-                case 1:
-                     add_book();
-                     break;
+        switch(selection){
+            case 1:
+                    add_book();
+                    break;
 
-                case 2:
+            case 2:
                     delete_book();
                     break;
 
-                case 3:
+            case 3:
                     modify_book();
                     break;
 
-                case 4:
+            case 4:
                     printf("\nLIST OF REGISTERED USER FUNCTION CALLING");
                     //list_users();
                     break;
 
-                case 5:
+            case 5:
                     printf("\nUSER REQUSETS FUNCTION CALLING");
                     //user_request();
                     break;
 
-                case 0:
+            case 0:
                     printf("\nEXIT FUNCTION CALLING");
                     //exit(1);
                     break;
 
-                default:
+            default:
                     gotoxy(50,29);
                     messages(1);
                     getchar();
@@ -71,5 +75,5 @@ void manager_menu()
                     gotoxy(50,29);
                     printf("                                                                                  ");
                     goto selection_repeat;
-             }
+        }
     }
