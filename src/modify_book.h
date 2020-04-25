@@ -11,11 +11,6 @@
     #define CLEAR "clear"
 #endif
 
-#include <errno.h>
-#include<string.h>
-#include<stdio.h>
-#include <stdlib.h>
-#include<time.h>
 
 int modify_book();
 int edit_field();

@@ -20,6 +20,11 @@
     #define BACKUP "data/bookdetails_backup.csv"
 #endif
 
+#include <errno.h>
+#include<string.h>
+#include<stdio.h>
+#include <stdlib.h>
+
 #include "layout.h"
 
 int delete_record(char search_term[20], int table,int search_field)

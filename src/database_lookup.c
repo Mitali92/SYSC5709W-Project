@@ -150,7 +150,7 @@ if((strlen(search_term) > 20)){
 char tablestring[255];
 //strcpy(tablestring, set_tablestring(table));
 switch(table){
-    case 1: strcpy(tablestring, "data/database.csv");
+    case 1: strcpy(tablestring, "data/bookdetails.csv");
         break;
     case 2: strcpy(tablestring, "data/users.csv");
         break;
