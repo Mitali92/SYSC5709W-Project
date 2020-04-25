@@ -1,3 +1,9 @@
+#include <errno.h>
+#include<string.h>
+#include<stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
 #include "layout.h"
 #include "manager_menu.h"
 #include "modify_record.h"
@@ -110,15 +116,15 @@ int modify_book()
         }
         else if(choice == 2)
         {
-            gotoxy(40,19);printf("Enter ISBN No. :");
+            gotoxy(40,20);printf("Enter ISBN No. :");
             fflush(stdout);
         repeat_isbn:
-            gotoxy(60,19);scanf("%s",isbn);
+            gotoxy(60,20);scanf("%s",isbn);
             getchar();
 
         if(data_valid(isbn,3)==1)
         {
-            gotoxy(40,11);printf("                                                                           ");
+             gotoxy(40,11);printf("                                                                           ");
             gotoxy(40,14);printf("                                                                           ");
             gotoxy(40,16);printf("                                                                           ");
             gotoxy(60,18);printf("                                                                           ");

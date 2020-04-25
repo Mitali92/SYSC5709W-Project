@@ -1,4 +1,3 @@
-
 #ifdef __linux__
     #define BOOKSFILE "data/bookdetails.csv"
     #define USERSFILE "data/users.csv"
@@ -20,6 +19,12 @@
     #define REQUESTS "data/requests.csv"
     #define BACKUP "data/bookdetails_backup.csv"
 #endif
+
+#include <errno.h>
+#include<string.h>
+#include<stdio.h>
+#include <stdlib.h>
+#include<time.h>
 
 #include "layout.h"
 #include "database_lookup.h"
@@ -129,19 +134,11 @@ int modify_record(char search_term[], int table,int search_field)
 
             switch (search_field)
             {
-                case 1: gotoxy(40,31);printf("Enter Title");
+                case 1: gotoxy(40,31);printf("Enter Title :");
                         fflush(stdout);
                         gotoxy(60,31);scanf("%s",editedValue);
                         break;
-                case 2: gotoxy(40,31);printf("Enter ISBN No.");
-                        fflush(stdout);
-                        gotoxy(60,31);scanf("%s",editedValue);
-                        break;
-                case 3: gotoxy(40,31);printf("Enter Author Name");
-                        fflush(stdout);
-                        gotoxy(60,31);scanf("%s",editedValue);
-                        break;
-                case 4: gotoxy(40,31);printf("Enter Quantity");
+                case 2: gotoxy(40,31);printf("Enter ISBN No :");
                         fflush(stdout);
                     quantity:
                         gotoxy(60,31);scanf("%s",editedValue);
@@ -154,11 +151,11 @@ int modify_record(char search_term[], int table,int search_field)
                             goto quantity;
                         }
                         break;
-                case 5: gotoxy(40,31);printf("Enter Category");
+                case 5: gotoxy(40,31);printf("Enter Category : ");
                         fflush(stdout);
                         gotoxy(60,31);scanf("%s",editedValue);
                         break;
-                case 6: gotoxy(40,31);printf("Enter Language");
+                case 6: gotoxy(40,31);printf("Enter Language : ");
                         fflush(stdout);
                         gotoxy(60,31);scanf("%s",editedValue);
                         break;

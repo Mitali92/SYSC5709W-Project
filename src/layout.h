@@ -1,10 +1,6 @@
 #ifndef LAYOUT_H
 #define LAYOUT_H
 
-#include <stdio.h>
-#include <stdlib.h>     //used for - system(CLEAR)
-#include <string.h>
-
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -23,7 +19,6 @@
     #define CLEAR "clear"
 #endif
 
-//int main(int argc, char *argv[]);
 void gotoxy(int x, int y);
 void header_position(const char* screen_name);
 void header_layout(const char* screen_name);

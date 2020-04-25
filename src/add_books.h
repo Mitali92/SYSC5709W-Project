@@ -11,12 +11,6 @@
     #define CLEAR "clear"
 #endif
 
-#include<stdio.h>
-#include<string.h>
-#include<time.h>
-#include <stdlib.h>
-#include <errno.h>
-
 int isbn_validation(char search_term[],int search_field);
 int increment_id();
 void add_book();

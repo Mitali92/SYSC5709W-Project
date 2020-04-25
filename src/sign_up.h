@@ -1,10 +1,6 @@
 #ifndef SIGN_UP_H
 #define SIGN_UP_H
 
-#include <stdio.h>
-#include <stdlib.h>     //used for - system(CLEAR)
-#include <string.h>
-
 #ifdef __linux__
     #define CLEAR "clear"
 #elif _WIN64 || _WIN32
