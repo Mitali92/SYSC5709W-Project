@@ -35,11 +35,15 @@ void messages(int msg_id)
                     break;
 
                 case 9:
-                    printf(ANSI_COLOR_RED"\n\t\t\t SIGNUP SUCCESSFUL. NEED TO LINK ADD_RECORD FUNCTION HERE"ANSI_COLOR_RESET);
+                    printf(ANSI_COLOR_GREEN"\n\t\t\t SIGNUP SUCCESSFUL. PRESS ENTER TO GO BACK TO THE HOME MENU"ANSI_COLOR_RESET);
                     break;
 
                 case 10:
                     printf(ANSI_COLOR_RED"INVALID EMAIL ADDRESS. PLEASE PRESS ENTER TO TRY AGAIN"ANSI_COLOR_RESET);
+                    break;
+                
+                case 11:
+                    printf(ANSI_COLOR_RED"SIGNUP FAILED. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
                     break;
 
                 default:
