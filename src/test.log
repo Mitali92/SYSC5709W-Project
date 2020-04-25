@@ -1,0 +1,9 @@
+Running suite All_tests
+test_lookup.c:10:P:Core:test_long_search_term:0: Passed
+test_lookup.c:18:P:Core:test_table_ofb:0: Passed
+test_lookup.c:26:P:Core:test_searchfield_ofb_1:0: Passed
+test_lookup.c:34:P:Core:test_searchfield_ofb_2:0: Passed
+test_lookup.c:42:P:Core:test_searchfield_ofb_3:0: Passed
+test_lookup.c:61:P:Core:test_all_good:0: Passed
+Results for all suites run:
+100%: Checks: 6, Failures: 0, Errors: 0
