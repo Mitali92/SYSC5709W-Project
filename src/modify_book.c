@@ -122,10 +122,10 @@ void modify_book(){
                 }
             }
             else{
-                gotoxy(40,21);printf("Data does not exist.Please try again");
+                gotoxy(40,22);printf("Data does not exist.Please try again");
                 getchar();
                 gotoxy(60,20);printf("                                                                           ");
-                gotoxy(40,21);printf("                                                                           ");
+                gotoxy(40,22);printf("                                                                           ");
                 goto repeat_bookid;
             }
         }
@@ -156,10 +156,10 @@ void modify_book(){
                 };
             }
             else{
-                gotoxy(40,21);printf("Data does not exist.Please try again");
+                gotoxy(40,22);printf("Data does not exist.Please try again");
                 getchar();
-                gotoxy(60,19);printf("                                                                           ");
-                gotoxy(40,21);printf("                                                                           ");
+                gotoxy(60,20);printf("                                                                           ");
+                gotoxy(40,22);printf("                                                                           ");
                 goto repeat_isbn;
             }
         }
