@@ -1,4 +1,8 @@
+#include "add_books.h"
+#include "modify_book.h"
 #include "layout.h"
+#include "delete_book.h"
+#include "messages.h"
 
 void manager_menu()
     {
