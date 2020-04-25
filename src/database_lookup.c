@@ -132,12 +132,18 @@ if((strlen(search_term) > 20)){
     exit(0);
 }else if (table > 3){
     exit(0);
-}else if((table == 1) && ((search_field > 10) || (search_field < 1)))){
+}else if(table == 1){
+    if((search_field > 10) || (search_field < 1)){
     exit(0);
-}else if ((table == 2) && ((search_field > 5) || (search_field < 1)))){
+    }
+}else if (table == 2){
+    if((search_field > 5) || (search_field < 1)){
     exit(0);
-}else if ((table == 3) && ((search_field > 2) || (search_field < 1)))){
+    }
+}else if (table == 3){
+    if((search_field > 2) || (search_field < 1)){
     exit(0);
+    }
 }
 
 // int table will tell which file to open
