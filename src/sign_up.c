@@ -243,7 +243,7 @@ void sign_up()
                 if(signup_status == 1)
                     {
                         gotoxy(40,24);
-                        printf(ANSI_COLOR_GREEN"SIGNUP SUCCESSFUL. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
+                        messages(9);
                         getchar();
                         home_menu();
                     }
@@ -251,11 +251,10 @@ void sign_up()
                 else if(signup_status == 0)
                     {
                         gotoxy(40,24);
-                        printf(ANSI_COLOR_RED"SIGNUP FAILED. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
+                        messages(11);
                         getchar();
                         home_menu();
                     }
-                messages(9);
             }
 
         else
