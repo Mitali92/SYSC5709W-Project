@@ -1,5 +1,11 @@
+#include <errno.h>
+#include<string.h>
+#include<stdio.h>
+#include <stdlib.h>
+
 #include "delete_record.h"
 #include "layout.h"
+#include "manager_menu.h"
 
 void delete_book()
 {
@@ -40,7 +46,7 @@ void delete_book()
             else{
                 gotoxy(40,25);printf("Press any key to continue to the main menu....");
                 getchar();
-                //home_menu();
+                manager_menu();
             }
         }
         else if(choice == 2)
@@ -60,7 +66,7 @@ void delete_book()
             else{
                 gotoxy(40,25);printf("Press any key to continue to the main menu....");
                 getchar();
-                //home_menu();
+                manager_menu();
             }
         }
         else

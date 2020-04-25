@@ -1,10 +1,6 @@
 #ifndef LOG_IN_H
 #define LOG_IN_H
 
-#include <stdio.h>
-#include <stdlib.h>     //used for - system(CLEAR)
-#include <string.h>
-
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_RESET   "\x1b[0m"

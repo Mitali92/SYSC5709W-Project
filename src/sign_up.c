@@ -1,8 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>     //used for - system(CLEAR)
+#include <string.h>
+
 #include "layout.h"
 #include "messages.h"
-
-struct signup new_user;
-int add_record(void *struct_data,int table);
+#include "sign_up.h"
+#include "database_lookup.h"
+#include "add_record.h"
+#include "home_menu.h"
 
 struct signup
     {

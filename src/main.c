@@ -1,18 +1,7 @@
-#include "bookify.h"
-#include "layout.c"
-#include "home_menu.c"
-#include "pages.c"
-#include "display_page.c"
-#include "sign_up.c"
-#include "log_in.c"
-#include "add_books.c"
-#include "add_record.c"
-#include "messages.c"
-#include "manager_menu.c"
-#include "delete_book.c"
-#include "delete_record.c"
-#include "modify_book.c"
-#include "database_lookup.h"
+#include "layout.h"
+#include "home_menu.h"
+#include <stdio.h>
+#include <string.h>
 
 
 int main(int argc, char *argv[]){
@@ -22,37 +11,8 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    //int user_selection;
-    //struct all_pages *page_memory = malloc(sizeof(struct all_pages));
-    //struct all_pages page_holder = init_pages();
-    //page_memory = &page_holder;
-    //void *pages = &page_memory;
-
-
     welcome_message();
     home_menu();
-    //display_page(pages.manager_main_menu);
-    //display_page(pages->manager_main_menu);
-    //display_table(lookup(" ",1,2));
-    //add_book();
-    //manager_menu();
-//     /*
-//     // This needs to be put in the welcome message function
-//     if (strcmp(getchar(),"q"){
-//         exit();
-//     };
-//     */
-//     user_selection = home_menu();
-//     if (user_selection() == 1){
-//         //display_page(manager_menu);
-//         //Handle functions of the manager menu
-//         //The display page function needs to check input and recall manager_menu
-//         //as needed
-//     }else if(user_selection() == 2){
-//         //display_page(user_menu);
-//         //Handle functions of the user menu
-//         //The display page function needs to check input and recall user_menu
-//         //as needed
-//     };
+
     return 0;
 }
