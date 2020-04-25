@@ -1,3 +1,8 @@
+#include <errno.h>
+#include<string.h>
+#include<stdio.h>
+#include <stdlib.h>
+
 #include "add_books.h"
 #include "modify_book.h"
 #include "layout.h"

@@ -8,6 +8,11 @@
     #define CLEAR "clear"
 #endif
 
+#include<stdio.h>
+#include<string.h>
+#include <stdlib.h>
+#include "layout.h"
+
 void gotoxy(int x, int y)
     {
         printf("%c[%d;%df", 0x1B, y, x);

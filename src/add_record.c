@@ -16,6 +16,13 @@
     #define REQUESTS "data/requests.csv"
 #endif
 
+
+#include <errno.h>
+#include<string.h>
+#include<stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
 //#include "add_record.h"
 #include "database_lookup.h"
 /**

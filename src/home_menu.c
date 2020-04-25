@@ -1,3 +1,17 @@
+#ifdef __linux__
+    #define CLEAR "clear"
+#elif _WIN64 || _WIN32
+    #define CLEAR "cls"
+#elif __APPLE__
+    #define CLEAR "clear"
+#elif __unix__
+    #define CLEAR "clear"
+#endif
+
+#include <stdio.h>
+#include <stdlib.h>     //used for - system(CLEAR)
+#include <string.h>
+
 #include "layout.h"
 #include "messages.h"
 #include "sign_up.h"

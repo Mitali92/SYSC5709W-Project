@@ -1,18 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "pages.h"
+#include "layout.h"
 
 struct all_pages init_pages(void);
 void user_main_menu(void);
 struct page manager_main_menu;
 struct all_pages all_pages;
 
-struct page {
-    char page_title[20];
-    char menu[15][50];
-    int menu_length;
-};
+
 
 struct all_pages {
 

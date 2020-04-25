@@ -1,7 +1,14 @@
+#include<stdio.h>
+#include<string.h>
+#include<time.h>
+#include <stdlib.h>
+#include <errno.h>
+
 #include "add_record.h"
 #include "modify_book.h"
 #include "layout.h"
 #include "database_lookup.h"
+#include "manager_menu.h"
 
 
 time_t current;
@@ -166,10 +173,11 @@ void add_book()
 
         if(add_record(struct_data,1) == 1)
         {
+             getchar();
              gotoxy(40,34);printf("Book added successfully");
              gotoxy(40,36);printf("Press any key to continue to main menu...");
              getchar();
-             //home_menu();
+             manager_menu();
         }
         else
         {
