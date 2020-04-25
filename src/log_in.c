@@ -16,6 +16,13 @@ struct login
 
 void log_in()
     {
+        /**
+        * The function displays LOGIN page, takes user inputs, calls and validates it from users.csv file
+        * IF USER INPUT IS VALID   --- displays either USER-menu or MANAGER-menu, based on the login details entered
+        * IF USER INPUT IS INVALID --- prints respective error message and continues to take new input 
+        * @param[in] void 
+        * @param[out] void
+        */
         struct login details;
         header_layout("LOGIN");
 

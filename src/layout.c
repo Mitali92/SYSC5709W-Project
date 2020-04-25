@@ -14,12 +14,21 @@
 #include "layout.h"
 
 void gotoxy(int x, int y)
-    {
+    {  
+        /**
+        * The function places the cursor at the point (x,y)
+        * @param[in] x horizontal co-ordinate of the console screen
+        * @param[in] y the vertical co-ordinate of the console screen
+        */
         printf("%c[%d;%df", 0x1B, y, x);
     }
 
 void header_position(const char* screen_name)
     {
+        /**
+        * The function calculates header length, determines its positioning inside the header-bar and prints it
+        * @param[in] screen_name name of the current screen
+        */
         int length = 0;
         int position = 0;
 
@@ -38,19 +47,27 @@ void header_position(const char* screen_name)
 
 void header_layout(const char* screen_name)
     {
-            system(CLEAR);  //clears the console screen - added stdlib.h
-            printf(ANSI_COLOR_CYAN"\n=======================================================================================================================");
-            printf("\n====================================                                               ====================================");
-            printf("\n====================================       "ANSI_COLOR_RESET"BOOKIFY - Library management System"ANSI_COLOR_CYAN"     ====================================");
-            printf("\n====================================                                               ====================================");
-            printf("\n======================================================================================================================="ANSI_COLOR_RESET);
-            printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
-            header_position(screen_name);
-            printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
+        /**
+        * The function prints header-bar into the screen and calls the header_position( ) with the screen_name
+        * @param[in] screen_name name of the current screen
+        */
+        system(CLEAR);  //clears the console screen - added stdlib.h
+        printf(ANSI_COLOR_CYAN"\n=======================================================================================================================");
+        printf("\n====================================                                               ====================================");
+        printf("\n====================================       "ANSI_COLOR_RESET"BOOKIFY - Library management System"ANSI_COLOR_CYAN"     ====================================");
+        printf("\n====================================                                               ====================================");
+        printf("\n======================================================================================================================="ANSI_COLOR_RESET);
+        printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
+        header_position(screen_name);
+        printf("\n-----------------------------------------------------------------------------------------------------------------------\n");
     }
 
 void welcome_message()
     {
+        /**
+        * The function prints layout for the landing-page
+        * @param[in] void
+        */
         header_layout("WELCOME");
         printf("\n\n");
         printf(ANSI_COLOR_RED"\n\t\t\t\t***-***-***-***-***-***-***-***-***-***-***-***-***-***-***-***");

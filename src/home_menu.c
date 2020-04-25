@@ -19,6 +19,13 @@
 
 void home_menu()
     {
+        /**
+        * The function prints home-page with 3 options for the user to 
+        * choose from and calls different functions based on the user-input. 
+        * This function doesn't take any input arguments. It will be called
+        * directly from main() after the welcome_message()
+        * @param[in] void
+        */
         int selection = 0;
         header_layout("HOME MENU");
 
