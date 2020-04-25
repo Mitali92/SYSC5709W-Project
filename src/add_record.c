@@ -16,44 +16,43 @@
     #define REQUESTS "data/requests.csv"
 #endif
 
-
 #include <errno.h>
 #include<string.h>
 #include<stdio.h>
 #include <stdlib.h>
 #include<time.h>
 
-//#include "add_record.h"
 #include "database_lookup.h"
-/**
-* The function add the book details to the database for specific table in data set and returns
-  the acknowledgement to the calling function.It also checks for duplicate isbn number if already present in database.
-* @param[in] void *data - passing a struct data into generic function to be entered into database.
-* @param[in] table - A number indicating which database table to add.
-*/
 
-int add_record(void *struct_data,int table)
-{
-    char tablestring[255];
-    FILE *fa;
-    int isValid;
+int add_record(void *struct_data,int table){
 
-    struct books *book;
-    struct user *user;
-    struct request *request;
+     /**
+     * The function add details to the database for specific table in data set and returns
+       the acknowledgement to the calling function.
+     * @param[in] *data  passing a pointer to struct data into generic function to be entered into database.
+     * @param[in] table  A number indicating which database table to add.
+     * @param[out] isValid Acknowledge to the calling function if sucessfully added in respective csv file.
+     */
 
-    if(table == 1){
+     char tablestring[255];
+     FILE *fa;
+     int isValid;
+
+     struct books *book;
+     struct user *user;
+     struct request *request;
+
+     if(table == 1){
         book = struct_data;
-    }
-    else if(table == 2){
+     }
+     else if(table == 2){
         user = struct_data;
-    }
-    else if(table == 3){
+     }
+     else if(table == 3){
         request = struct_data;
-    }
+     }
 
-    switch(table)
-    {
+     switch(table){
         case 1: strcpy(tablestring, BOOKSFILE);
                 break;
         case 2: strcpy(tablestring, USERSFILE);
@@ -61,18 +60,16 @@ int add_record(void *struct_data,int table)
         case 3: strcpy(tablestring, REQUESTS);
                 break;
         default: printf("No match");
-    }
+     }
 
-    fa = fopen(tablestring,"a");
+     fa = fopen(tablestring,"a");
 
-    if(fa == NULL)
-    {
+     if(fa == NULL){
         printf("File is not opened\n");
         exit(1);
-    }
+     }
 
-	switch(table)
-	{
+	 switch(table){
         case 1:   fprintf(fa,"\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n",
                   book->book_id,book->book_title,book->isbn_no,book->author_name,book->quantity,
                   book->category,book->language,book->date_of_pub,book->entry_date,book->status);
@@ -90,9 +87,8 @@ int add_record(void *struct_data,int table)
 
         default : printf("No match");
                   isValid = 0;
-    }
+     }
 
     fclose(fa);
     return isValid;
-
 }

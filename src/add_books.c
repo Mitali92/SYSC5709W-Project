@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 #include<time.h>
-#include <stdlib.h>
-#include <errno.h>
+#include<stdlib.h>
+#include<errno.h>
 
 #include "add_record.h"
 #include "modify_book.h"
@@ -10,68 +10,87 @@
 #include "database_lookup.h"
 #include "manager_menu.h"
 
-
 time_t current;
 struct tm* pLocal;
 int choice;
 
 int isbn_validation(char search_term[],int search_field){
 
-            char buff[255];
-            int isFound = 0;
-            FILE *returnFile = lookup(search_term,1,search_field);
+        /**
+        * The function search the isbn_no in the csv file and validates it if present or not.
+        * @param[in] search_term 	Term to match in database.
+        * @param[in] search_field 	A number indicating which field of the table to search
+        * @param[out] isFound	Acknowledge to the calling function if isbn_no is present or not.
+        */
 
-            while (fgets(buff, 1024, returnFile))
-            {
-                char *field = strtok(buff, "\",\"");
+        char buff[255];
+        int isFound = 0;
+        FILE *returnFile = lookup(search_term,1,search_field);
 
-                field = strtok(NULL, "\",\"");
-                field = strtok(NULL, "\",\"");
-
-                if(strcmp(field,search_term)==0)
-                {
-                    isFound = 1;
-                    break;
-                }
+        if (returnFile == NULL){
+            switch(errno){
+                case ENOENT: printf ("The file doesn't exist\n");
+                             break;
+                    default: printf("The error number is %d\n", errno);
             }
+        }
+
+        while (fgets(buff, 1024, returnFile)){
+
+            char *field = strtok(buff, "\",\"");
+
+            field = strtok(NULL, "\",\"");
+            field = strtok(NULL, "\",\"");
+
+            if(strcmp(field,search_term)==0){
+                isFound = 1;
+                break;
+            }
+        }
 
         return isFound;
 }
 
-//bookid increment in database whenever new book details are entered
-int increment_id()
-{
-     struct books *a = malloc(sizeof(struct books));
-     char buf[255];
-     char *field;
-     int increment;
+int increment_id(){
 
-     FILE *mainFile =fopen("data/bookdetails.csv","r");
+       /**
+       * The function search the last book_id present in csvfile auto-increment it and sent back to the calling function
+       * @param[out] increment Incremented book_id sent back to the calling function
+       */
 
-     if (mainFile == NULL)
-     {
-       switch(errno)
-       {
-           case ENOENT: printf ("The file doesn't exist\n");
-                        break;
-               default: printf("The error number is %d\n", errno);
+       struct books *a = malloc(sizeof(struct books));
+       char buf[255];
+       char *field;
+       int increment;
+
+       FILE *mainFile =fopen("data/bookdetails.csv","r");
+
+       if (mainFile == NULL){
+            switch(errno){
+                case ENOENT: printf ("The file doesn't exist\n");
+                             break;
+                    default: printf("The error number is %d\n", errno);
+            }
        }
-     }
 
-      while (fgets(buf, 1024, mainFile))
-      {
+       while (fgets(buf, 1024, mainFile)){
          field = strtok(buf, "\",\"");
+       }
 
-      }
-      field = strtok(buf, "\",\"");
-      increment = atoi(field)+1;
+       field = strtok(buf, "\",\"");
+       increment = atoi(field)+1;
 
     return increment;
-
 }
 
 void add_book()
 {
+        /**
+        * The function adds the book details to the csv file.Validation for duplicate
+          isbn_no if already present in the csv file and auto-increment for the book_id as
+          going on adding new books has also been implemented.
+        */
+
         struct books *a = malloc(sizeof(struct books));
 
         system(CLEAR);
@@ -87,7 +106,6 @@ void add_book()
         gotoxy(59,14);printf("%s",a->book_id);
 
         gotoxy(40,16);printf("Book Name:");
-
     new_book:
         gotoxy(59,16);scanf("%[^\n]%*c",a->book_title);
         gotoxy(40,18);printf("Author:");
@@ -101,8 +119,7 @@ void add_book()
         fflush(stdout);
 
         //duplicate isbn validation check from the database table
-        if(isbn_validation(a->isbn_no,3)==1)
-        {
+        if(isbn_validation(a->isbn_no,3)==1){
             gotoxy(45,24);printf("The isbn number already exists\n");
             gotoxy(45,25);printf("Please choose one of the filter to proceed");
             gotoxy(45,26);printf("1. Move to modify page to change isbn number ");
@@ -111,12 +128,11 @@ void add_book()
             gotoxy(45,28);printf("Select the filter : ");
             gotoxy(69,28);scanf("%d",&choice);
 
-            if(choice == 1)
-            {
+            if(choice == 1){
+                //move to modify book to change the book details of the entered isbn_no
                 modify_book();
             }
-            else if(choice == 2)
-            {
+            else if(choice == 2){
                 gotoxy(59,22);printf("                                                                           ");
                 gotoxy(45,24);printf("                                                                           ");
                 gotoxy(45,25);printf("                                                                           ");
@@ -127,8 +143,7 @@ void add_book()
                 getchar();
                 goto isbn_repeat;
             }
-            else
-            {
+            else{
                 gotoxy(45,30);printf("Invalid filter.Please try again");
                 getchar();
                 gotoxy(59,16);printf("                                                                           ");
@@ -167,20 +182,17 @@ void add_book()
 
         gotoxy(40,32);printf("Status:");
         gotoxy(59,32);scanf("%s",a->status);
-        //strcpy(a->status,"Available");
 
         void *struct_data = a;
 
-        if(add_record(struct_data,1) == 1)
-        {
+        if(add_record(struct_data,1) == 1){
              getchar();
              gotoxy(40,34);printf("Book added successfully");
              gotoxy(40,36);printf("Press any key to continue to main menu...");
              getchar();
              manager_menu();
         }
-        else
-        {
+        else{
             printf("Error in saving details");
         }
 }
