@@ -21,7 +21,11 @@ struct signup
 
 int char_check(char input[])
     {
-
+        /**
+        * The function validates if the character array contains only letters and spaces 
+        * @param[in] input[] the user input is stored into this array
+        * @param[out] int based on the validation, either 0 or 1 will be returned by this function
+        */
         int size, x=0;
         size = strlen(input);
 
@@ -43,6 +47,12 @@ int char_check(char input[])
 
 int pwd_check(char input[])
     {
+        /**
+        * The function validates if the character array contains only letters, numbers and special 
+        * characters ONLY without spaces
+        * @param[in] input[] the user input is stored into this array
+        * @param[out] int based on the validation, either 0 or 1 will be returned by this function
+        */
         int size, x = 0;
         size = strlen(input);
 
@@ -62,10 +72,16 @@ int pwd_check(char input[])
 
 void sign_up()
     {
+        /**
+        * The function displays SIGNUP page, takes user inputs for various fields, validates the inputs,
+        * IF USER INPUT IS VALID   --- stores the user details in users.csv file using add_record() and 
+        *                              prompts the user for confirmation to go back to HOME-MENU page
+        * IF USER INPUT IS INVALID --- prints respective error messages and continues to take new inputs 
+        * @param[in] void 
+        * @param[out] void
+        */
         struct signup new_user;
-
         header_layout("SIGN UP");
-
         gotoxy(50,11);
         printf("FILL THE BELOW DETAILS:");
 
@@ -76,7 +92,9 @@ void sign_up()
         gotoxy(69,14);
         scanf("%s", &new_user.name);
         getchar();
-        //validating the user input for FULL NAME field
+    
+    //validating the user input for FULL NAME field
+        // first validation --- checking for only alphabets and spaces
         if(char_check(new_user.name) == 0)
             {
                 gotoxy(45,17);
@@ -88,7 +106,7 @@ void sign_up()
                 printf("                                                                           ");
                 goto name_repeat;
             }
-
+        // second validation --- checking for character limit
         else if(strlen(new_user.name) >= 20)
             {
                 gotoxy(45,17);
@@ -108,7 +126,8 @@ void sign_up()
         gotoxy(69,16);
         scanf("%s", &new_user.user_name);
         getchar();
-        //validating the user input for USER NAME field
+    //validating the user input for USER NAME field
+        // first validation --- checking for only alphabets and spaces
         if(char_check(new_user.user_name) == 0)
             {
                 gotoxy(45,19);
@@ -121,6 +140,7 @@ void sign_up()
                 goto username_repeat;
             }
 
+        // second validation --- checking for character limit
         else if(strlen(new_user.user_name) > 20)
             {
                 gotoxy(45,19);
@@ -155,7 +175,8 @@ void sign_up()
         new_user.pwd[z]='\0';
         //getchar();
 
-        //validating entered password
+    //validating the user input for PASSWORD field
+        // first validation --- checking for only letters, numbers and special characters ONLY without spaces
         if(pwd_check(new_user.pwd) == 0)
             {
                 gotoxy(55,20);
@@ -168,6 +189,7 @@ void sign_up()
                 goto pwd_repeat;
             }
 
+        // second validation --- checking for character limit
         else if(strlen(new_user.pwd) > 20)
             {
                 gotoxy(55,20);
@@ -200,8 +222,8 @@ void sign_up()
           printf("%c",'*');
           temp2++;
         }
-        //getchar();
         new_user.c_pwd[y]='\0';
+        
         //comparing CONFIRM PASSWORD with PASSWORD field values
         if(strcmp(new_user.pwd, new_user.c_pwd) == 0)
             {
@@ -232,6 +254,7 @@ void sign_up()
         scanf("%s", &new_user.email);
         getchar();
 
+        //when user input is valid, add_record() is called
         if(strchr(new_user.email, '.') && strchr(new_user.email, '@'))
             {
                 struct user *nuser = malloc(sizeof(struct user));
@@ -241,10 +264,11 @@ void sign_up()
                 strcpy(nuser->email, new_user.email);
                 strcpy(nuser->number_of_books, "0");
 
-
                 void *struct_data = nuser;
                 int signup_status = add_record(struct_data, 2);
 
+            //checking for return value of add_record()
+                //when user details are stored into the file. SUCCESS message is displayed
                 if(signup_status == 1)
                     {
                         gotoxy(40,24);
@@ -253,6 +277,7 @@ void sign_up()
                         home_menu();
                     }
 
+                //when user details are NOT stored into the file. ERROR message is displayed
                 else if(signup_status == 0)
                     {
                         gotoxy(40,24);
@@ -262,6 +287,7 @@ void sign_up()
                     }
             }
 
+        //when input for EMAIL-ADDRESS field is invalid, ERROR message displayed
         else
             {
                 gotoxy(69,24);
