@@ -31,7 +31,7 @@ else
 endif
 
 CC = gcc-9
-CFLAGS += -I
+CFLAGS += -I.
 DEPS = layout.h add_books.h add_record.h delete_record.h delete_book.h modify_book.h modify_record.h database_lookup.h manager_menu.h sign_up.h log_in.h messages.h home_menu.h
 
 %.o: %.c $(DEPS)
