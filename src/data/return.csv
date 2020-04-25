@@ -1,2 +1,2 @@
-"NAME","USERNAME","PASSWORD","EMAIL","BOOK COUNT"
-"Ramya ","RamyaMB","S3cur3d","ramyabodapati@cmail.carleton.ca","0"
+"BOOK ID","BOOK TITLE","ISBN NO.","AUTHOR NAME","QUANTITY","CATEGORY","LANGUAGE","DATE OF PUB","ENTRY DATE","STATUS"
+"13","Bat Whisperer The","12645","Tang","3","Nowhere Press","Owe","01-03-2004","01-03-2004",""

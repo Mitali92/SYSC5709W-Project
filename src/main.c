@@ -29,8 +29,8 @@ int main(int argc, char *argv[]){
     //void *pages = &page_memory;
 
 
-    welcome_message();
-    home_menu();
+    //welcome_message();
+    //home_menu();
     //display_page(pages->manager_main_menu);
     //display_table(lookup(" ",1,2));
 
