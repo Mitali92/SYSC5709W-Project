@@ -22,8 +22,6 @@
 
 #include "layout.h"
 
-void delete_book();
-
 int delete_record(char search_term[20], int table,int search_field)
 {
 
@@ -96,7 +94,9 @@ int delete_record(char search_term[20], int table,int search_field)
 
             remove(BOOKSFILE);
             rename(BACKUP,BOOKSFILE);
+            fclose(mainBackup);
         }
 
+        fclose(mainFile);
         return ret;
 }

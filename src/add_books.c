@@ -1,29 +1,67 @@
-#ifdef __linux__
-    #define CLEAR "clear"
-#elif _WIN64 || _WIN32
-    #define CLEAR "cls"
-#elif __APPLE__
-    #define CLEAR "clear"
-#elif __unix__
-    #define CLEAR "clear"
-#endif
-
+#include "add_record.h"
+#include "modify_book.h"
 #include "layout.h"
-#include<stdio.h>
-#include<string.h>
-#include<time.h>
-#include <stdlib.h>
-#include <errno.h>
+#include "database_lookup.h"
 
-// function prototype
-int add_record(void *struct_data,int table);
-int validation(char isbn[20]);
-int modify_book();
-int increment_id();
 
 time_t current;
 struct tm* pLocal;
 int choice;
+
+int isbn_validation(char search_term[],int search_field){
+
+            char buff[255];
+            int isFound = 0;
+            FILE *returnFile = lookup(search_term,1,search_field);
+
+            while (fgets(buff, 1024, returnFile))
+            {
+                char *field = strtok(buff, "\",\"");
+
+                field = strtok(NULL, "\",\"");
+                field = strtok(NULL, "\",\"");
+
+                if(strcmp(field,search_term)==0)
+                {
+                    isFound = 1;
+                    break;
+                }
+            }
+
+        return isFound;
+}
+
+//bookid increment in database whenever new book details are entered
+int increment_id()
+{
+     struct books *a = malloc(sizeof(struct books));
+     char buf[255];
+     char *field;
+     int increment;
+
+     FILE *mainFile =fopen("data/bookdetails.csv","r");
+
+     if (mainFile == NULL)
+     {
+       switch(errno)
+       {
+           case ENOENT: printf ("The file doesn't exist\n");
+                        break;
+               default: printf("The error number is %d\n", errno);
+       }
+     }
+
+      while (fgets(buf, 1024, mainFile))
+      {
+         field = strtok(buf, "\",\"");
+
+      }
+      field = strtok(buf, "\",\"");
+      increment = atoi(field)+1;
+
+    return increment;
+
+}
 
 void add_book()
 {
@@ -56,7 +94,7 @@ void add_book()
         fflush(stdout);
 
         //duplicate isbn validation check from the database table
-        if(validation(a->isbn_no)==1)
+        if(isbn_validation(a->isbn_no,3)==1)
         {
             gotoxy(45,24);printf("The isbn number already exists\n");
             gotoxy(45,25);printf("Please choose one of the filter to proceed");
@@ -139,61 +177,3 @@ void add_book()
         }
 }
 
-//isbn validation from database
-int validation(char isbn[20])
-{
-     char buffer[255];
-     int ret = 0;
-     FILE *mainFile =fopen("data/bookdetails.csv","r");
-
-     if(mainFile != NULL)
-     {
-        while (fgets(buffer, 1024, mainFile))
-        {
-            char *field = strtok(buffer, "\",\"");
-
-            field = strtok(NULL, "\",\"");
-            field = strtok(NULL, "\",\"");
-
-                if(strcmp(field,isbn)==0)
-                {
-                    ret = 1;
-                    break;
-                }
-         }
-      }
-
-  return ret;
-}
-
-//bookid increment in database whenever new book details are entered
-int increment_id()
-{
-     struct books *a = malloc(sizeof(struct books));
-     char buf[255];
-     char *field;
-     int increment;
-
-     FILE *mainFile =fopen("data/bookdetails.csv","r");
-
-     if (mainFile == NULL)
-     {
-       switch(errno)
-       {
-           case ENOENT: printf ("The file doesn't exist\n");
-                        break;
-               default: printf("The error number is %d\n", errno);
-       }
-     }
-
-      while (fgets(buf, 1024, mainFile))
-      {
-         field = strtok(buf, "\",\"");
-
-      }
-      field = strtok(buf, "\",\"");
-      increment = atoi(field)+1;
-
-    return increment;
-
-}
