@@ -1,19 +1,19 @@
 #ifdef __linux__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
 #elif _WIN64 || _WIN32
-    #define BOOKSFILE "data\bookdetails.csv"
-    #define USERSFILE "data\users.csv"
-    #define REQUESTS "data\requests.csv"
+    #define BOOKSFILE "..\data\bookdetails.csv"
+    #define USERSFILE "..\data\users.csv"
+    #define REQUESTS "..\data\requests.csv"
 #elif __APPLE__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
 #elif __unix__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
 #endif
 
 #include <errno.h>
