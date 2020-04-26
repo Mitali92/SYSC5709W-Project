@@ -15,7 +15,12 @@
 #include "messages.h"
 
 void messages(int msg_id)
-    {
+    {   
+        /**
+        * The function prints the ERROR or SUCCESS message based on the value of msg_id 
+        * @param[in] msg_id the message identifier 
+        * @param[out] void
+        */
         switch(msg_id)
             {
                 case 1:

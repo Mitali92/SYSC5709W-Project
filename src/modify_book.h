@@ -12,7 +12,7 @@
 #endif
 
 
-int modify_book();
+void modify_book();
 int edit_field();
 int data_valid(char search_term[],int search_field);
 
