@@ -6,7 +6,8 @@
     #include <check.h>
 #endif
 
-#include "../src/database_lookup.h"
+
+#include "database_lookup.h"
 #include "add_books.h"
 #include "sign_up.h"
 #include "modify_book.h"
