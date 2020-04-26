@@ -62,6 +62,10 @@ void messages(int msg_id)
                     printf(ANSI_COLOR_RED"SIGNUP FAILED. PLEASE PRESS ENTER TO GO BACK TO HOME PAGE"ANSI_COLOR_RESET);
                     break;
 
+                case 12:
+                    printf(ANSI_COLOR_RED"PLEASE PRESS ENTER TO GO BACK TO MENU"ANSI_COLOR_RESET);
+                    break;
+
                 default:
                     printf("ARE YOU SURE YOU WANT TO EXIT ? (Y/N)");
                     break;

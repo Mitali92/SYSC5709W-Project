@@ -3,6 +3,10 @@
 #include <string.h>
 #include "pages.h"
 #include "layout.h"
+#include "database_lookup.h"
+#include "display_page.h"
+#include "messages.h"
+
 
 struct all_pages init_pages(void);
 void user_main_menu(void);
@@ -47,7 +51,7 @@ void user_main_menu(){
 
         if (selection = '1'){
             search_book();
-        }else if (selection = '1'){
+        }else if (selection = '2'){
             view_my_details();
         }else{
             printf("Call the validation function");
@@ -57,7 +61,7 @@ void user_main_menu(){
 
 void search_book(void){
     struct page search_books;
-        strcpy(search_books.page_title, "LIST OF BOOKS");
+        strcpy(search_books.page_title, "SEARCH FILTERS");
         strcpy(search_books.menu[0], "1. BOOK TITLE");
         strcpy(search_books.menu[1], "2. BOOK ID");
         strcpy(search_books.menu[2], "3. ISBN NUMBER");
@@ -80,12 +84,90 @@ void search_book(void){
             }
         }
         printf("please select an option: ");
-        selection = getchar();
+        scanf("%d", &selection);
+        getchar();
+
+        char search_term[20];
+        switch(selection){
+            case 1: printf("Please enter a title: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,2));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 2: printf("Please enter a book ID: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,1));
+                    messages(12);
+                    getchar();
+                    //user_main_menu();
+                    break;
+            case 3: printf("Please enter a ISBN Number: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,3));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 4: printf("Please enter a quantity: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,5));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 5: printf("Please enter an author name: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,4));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 6: printf("Please enter a publication date: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,8));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 7: printf("Please enter a Entry Date: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,9));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 8: printf("Please enter a category: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,6));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 9: printf("Please enter an language: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,7));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            case 10: printf("Please enter a status: ");
+                    scanf("%s", &search_term);
+                    display_table(lookup(search_term,1,10));
+                    messages(12);
+                    getchar();
+                    user_main_menu();
+                    break;
+            default:
+                    break;
+
+        }
 
 }
 
 void view_my_details(void){
-
+    printf("We need a way to know who is logged in");
 
 }
 

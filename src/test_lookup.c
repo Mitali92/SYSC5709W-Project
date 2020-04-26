@@ -61,9 +61,8 @@ START_TEST(test_all_good) {
   result = lookup("Bat",1,2);
   ck_assert(result != NULL);
 
-  char check[5] = {0,0,0,0,0};
+  char check[6] = {0};
   fread(check, 1, 5, result);
-  check[strcspn(check, "v")] = 0;
   //Implies that the file returned is open with read permission and the pointer is at the top.
   ck_assert_str_ne(check, "\"BOOK");
 
