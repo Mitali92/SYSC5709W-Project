@@ -27,58 +27,54 @@
 
 #include "layout.h"
 
-int delete_record(char search_term[20], int table,int search_field)
-{
+int delete_record(char search_term[20], int table,int search_field){
 
-    char buffer[255];
-    int row=0;
-    int ret = 0;// isFound = false;
-    FILE *mainFile =fopen(BOOKSFILE,"r");
+        /**
+        * The function delete details to the database for specific table in data set and returns
+          the acknowledgement to the calling function.
+        * @param[in] search_term 	Term to match in database.
+        * @param[in] table 	A number indicating which database table to search.
+        * @param[in] search_field 	A number indicating which field of the table to search
+        * @param[out] ret	Acknowledge to the calling function if sucessfully deleted in respective csv file.
+        */
 
-    if (mainFile == NULL)
-    {
-        switch(errno)
-        {
-            case ENOENT: printf ("The file doesn't exist\n");
-                         break;
-            default: printf("The error number is %d\n", errno);
+        char buffer[255];
+        int row=0;
+        int ret = 0;
+        FILE *mainFile =fopen(BOOKSFILE,"r");
+
+        if (mainFile == NULL){
+            switch(errno){
+                case ENOENT: printf ("The file doesn't exist\n");
+                             break;
+                    default: printf("The error number is %d\n", errno);
+            }
         }
-    }
 
+        while (fgets(buffer, 1024, mainFile)){
 
-
-    while (fgets(buffer, 1024, mainFile))
-    {
-        char *field = strtok(buffer, "\",\"");
-        row++;
-        if(strcmp(field,search_term)==0)
-        {
-            gotoxy(40,23);printf("Record deleted successfully");
-            ret = 1;
-            break;
-        }
+            char *field = strtok(buffer, "\",\"");
+            row++;
+            if(strcmp(field,search_term)==0){
+                ret = 1;
+                break;
+            }
 
         field = strtok(NULL, "\",\"");
         field = strtok(NULL, "\",\"");
 
-        if(strcmp(field,search_term)==0)
-        {
-            gotoxy(40,23);printf("Record deleted successfully");
-            ret = 1;
-            break;
+            if(strcmp(field,search_term)==0){
+                ret = 1;
+                break;
+            }
         }
-    }
-
 
         rewind(mainFile);
-        if(ret==1)
-        {
+        if(ret==1){
             FILE *mainBackup =fopen(BACKUP,"w");
 
-            if (mainBackup == NULL)
-            {
-                switch(errno)
-                {
+            if (mainBackup == NULL) {
+                switch(errno){
                     case ENOENT: printf ("The file doesn't exist\n");
                                 break;
                     default: printf("The error number is %d\n", errno);
@@ -88,11 +84,9 @@ int delete_record(char search_term[20], int table,int search_field)
             char bufferNew[255];
             int count=0;
 
-            while (fgets(bufferNew, 1024, mainFile))
-            {
+            while (fgets(bufferNew, 1024, mainFile)){
                 count++;
-                if(count!=row)
-                {
+                if(count!=row){
                     fprintf(mainBackup,"%s",bufferNew);
                 }
             }
