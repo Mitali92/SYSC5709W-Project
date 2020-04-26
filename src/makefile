@@ -46,5 +46,5 @@ all: $(EXECUTABLES)
 main: main.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
 	$(CC) -g -o main main.c layout.c add_books.c add_record.c delete_record.c delete_book.c modify_book.c modify_record.c database_lookup.c manager_menu.c sign_up.c log_in.c messages.c home_menu.c display_page.c pages.c
 
-all_tests: test_lookup.o database_lookup.o
-	$(CC)  test_lookup.c database_lookup.c -lcheck -lm -lpthread -o all_tests
+all_tests: test_lookup.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
+	$(CC)  test_lookup.c layout.c add_books.c add_record.c delete_record.c delete_book.c modify_book.c modify_record.c database_lookup.c manager_menu.c sign_up.c log_in.c messages.c home_menu.c display_page.c pages.c -lcheck -lm -lpthread -o all_tests

@@ -1,9 +1,17 @@
 Running suite All_tests
-test_lookup.c:17:P:Core:test_long_search_term:0: Passed
-test_lookup.c:25:P:Core:test_table_ofb:0: Passed
-test_lookup.c:33:P:Core:test_searchfield_ofb_1:0: Passed
-test_lookup.c:41:P:Core:test_searchfield_ofb_2:0: Passed
-test_lookup.c:49:P:Core:test_searchfield_ofb_3:0: Passed
-test_lookup.c:68:P:Core:test_all_good:0: Passed
+test_lookup.c:22:P:Core:test_long_search_term:0: Passed
+test_lookup.c:30:P:Core:test_table_ofb:0: Passed
+test_lookup.c:38:P:Core:test_searchfield_ofb_1:0: Passed
+test_lookup.c:46:P:Core:test_searchfield_ofb_2:0: Passed
+test_lookup.c:54:P:Core:test_searchfield_ofb_3:0: Passed
+test_lookup.c:72:P:Core:test_all_good:0: Passed
+test_lookup.c:103:P:Core:test_ISBN_validation:0: Passed
+test_lookup.c:111:P:Core:test_char_check:0: Passed
+test_lookup.c:117:F:Core:test_pwd_check:0: Assertion 'char_check("spaced password ") == 0' failed: char_check("spaced password ") == 1, 0 == 0
+test_lookup.c:128:P:Core:test_status_check:0: Passed
+test_lookup.c:136:P:Core:test_int_check:0: Passed
+test_lookup.c:140:E:Core:test_date_validation:0: (after this point) Received signal 10 (Bus error: 10)
+test_lookup.c:155:F:Core:test_data_valid:0: Assertion 'data_valid("Dee",4) == 1' failed: data_valid("Dee",4) == 0, 1 == 1
+test_lookup.c:83:E:Core:test_file_to_struct:0: (after this point) Received signal 11 (Segmentation fault: 11)
 Results for all suites run:
-100%: Checks: 6, Failures: 0, Errors: 0
+71%: Checks: 14, Failures: 2, Errors: 2
