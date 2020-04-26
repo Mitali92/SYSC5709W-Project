@@ -34,10 +34,11 @@ void user_main_menu(){
         strcpy(user_main_menu.page_title, "USER'S MAIN MENU");
         strcpy(user_main_menu.menu[0], "1. SEARCH BOOK");
         strcpy(user_main_menu.menu[1], "2. VIEW MY DETAILS");
-        user_main_menu.menu_length = 2;
+        strcpy(user_main_menu.menu[2], "0. EXIT PROGRAM");
+        user_main_menu.menu_length = 3;
 
 
-        char selection;
+        int selection;
         header_layout(user_main_menu.page_title);
 
 
@@ -47,12 +48,15 @@ void user_main_menu(){
             }
         }
         printf("please select an option: ");
-        selection = getchar();
+        scanf("%d", &selection);
+        getchar();
 
-        if (selection = '1'){
+        if (selection == 1){
             search_book();
-        }else if (selection = '2'){
+        }else if (selection == 2){
             view_my_details();
+        }else if(selection == 0){
+            exit(0);
         }else{
             printf("Call the validation function");
         }
@@ -91,6 +95,7 @@ void search_book(void){
         switch(selection){
             case 1: printf("Please enter a title: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,2));
                     messages(12);
                     getchar();
@@ -98,13 +103,15 @@ void search_book(void){
                     break;
             case 2: printf("Please enter a book ID: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,1));
                     messages(12);
                     getchar();
-                    //user_main_menu();
+                    user_main_menu();
                     break;
             case 3: printf("Please enter a ISBN Number: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,3));
                     messages(12);
                     getchar();
@@ -112,6 +119,7 @@ void search_book(void){
                     break;
             case 4: printf("Please enter a quantity: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,5));
                     messages(12);
                     getchar();
@@ -119,6 +127,7 @@ void search_book(void){
                     break;
             case 5: printf("Please enter an author name: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,4));
                     messages(12);
                     getchar();
@@ -126,6 +135,7 @@ void search_book(void){
                     break;
             case 6: printf("Please enter a publication date: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,8));
                     messages(12);
                     getchar();
@@ -133,6 +143,7 @@ void search_book(void){
                     break;
             case 7: printf("Please enter a Entry Date: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,9));
                     messages(12);
                     getchar();
@@ -140,6 +151,7 @@ void search_book(void){
                     break;
             case 8: printf("Please enter a category: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,6));
                     messages(12);
                     getchar();
@@ -147,6 +159,7 @@ void search_book(void){
                     break;
             case 9: printf("Please enter an language: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,7));
                     messages(12);
                     getchar();
@@ -154,6 +167,7 @@ void search_book(void){
                     break;
             case 10: printf("Please enter a status: ");
                     scanf("%s", &search_term);
+                    getchar();
                     display_table(lookup(search_term,1,10));
                     messages(12);
                     getchar();
