@@ -30,7 +30,7 @@ else
     endif
 endif
 
-EXECUTABLES = main all_tests
+EXECUTABLES = build/main all_tests
 
 CC = gcc
 CFLAGS += -I. -Iinclude
@@ -39,13 +39,17 @@ DEPS = layout.h add_books.h add_record.h delete_record.h delete_book.h modify_bo
 
 
 
-%.o: src/%.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+build/%.o: %.c $(DEPS)
+	$(CC) -c -o $< $(CFLAGS) $@
 
 all: $(EXECUTABLES)
 
 main: main.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
-	$(CC) $(CFLAGS) -g -o main src/main.c src/layout.c src/add_books.c src/add_record.c src/delete_record.c src/delete_book.c src/modify_book.c src/modify_record.c src/database_lookup.c src/manager_menu.c src/sign_up.c src/log_in.c src/messages.c src/home_menu.c src/display_page.c src/pages.c
+	$(CC) $(CFLAGS) -g -o main main.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
 
-all_tests: test_lookup.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
-	$(CC)  src/test_lookup.c src/layout.c src/add_books.c src/add_record.c src/delete_record.c src/delete_book.c src/modify_book.c src/modify_record.c src/database_lookup.c src/manager_menu.c src/sign_up.c src/log_in.c src/messages.c src/home_menu.c src/display_page.c src/pages.c -lcheck -lm -lpthread -o all_tests
+all_tests: test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
+	$(CC)  test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o -lcheck -lm -lpthread -o all_tests
+
+.PHONY: clean
+clean:
+	rm -f *.o

@@ -24,5 +24,4 @@ void header_position(const char* screen_name);
 void header_layout(const char* screen_name);
 void welcome_message();
 
-#endif 
-
+#endif
