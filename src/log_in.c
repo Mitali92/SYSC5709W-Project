@@ -75,7 +75,7 @@ void log_in()
 
         else if((strcmp(details.user_name, usr->user_name) == 0) && (strcmp(details.pwd, usr->password) == 0))
             {
-                //user_main_menu();
+                user_main_menu();
             }
 
         else

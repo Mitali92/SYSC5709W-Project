@@ -1,5 +1,7 @@
 #include "layout.h"
 #include "home_menu.h"
+#include "display_page.h"
+#include "database_lookup.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -13,6 +15,7 @@ int main(int argc, char *argv[]){
 
     welcome_message();
     home_menu();
+
 
     return 0;
 }

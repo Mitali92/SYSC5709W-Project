@@ -4,7 +4,7 @@
 #include "layout.h"
 //#include "database_lookup.c"
 #include "database_lookup.h"
-//#include "pages.c"
+#include "pages.h"
 //#include "database_lookup.c"
 
 
@@ -53,11 +53,12 @@ void display_table (FILE *return_file){
 
     char line[255];
     int maxsize = 255;
-    char check[5] = {0,0,0,0,0};
+    char check[6] = {0};
+
     fread(check, 1, 5, return_file);
     rewind(return_file);
-    check[strcspn(check, "v")] = 0;
-    
+    //check[strcspn(check, "v")] = 0;
+
     if(strcmp(check, "\"BOOK") == 0){
 
     while ((fgets(line, maxsize, return_file)) != NULL){

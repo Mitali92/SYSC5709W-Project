@@ -8,6 +8,9 @@
 #include "layout.h"
 #include "delete_book.h"
 #include "messages.h"
+#include "display_page.h"
+#include "database_lookup.h"
+
 
 void manager_menu(){
 
@@ -28,7 +31,7 @@ void manager_menu(){
         gotoxy(50,21);
         printf("[ 4 ] LIST OF REGISTERED USERS");
         gotoxy(50,23);
-        printf("[ 5 ] VIEW USER REQUESTS");
+        printf("[ 5 ] VIEW LIST OF BOOKS");
         gotoxy(50,25);
         printf("[ 0 ] CLOSE APPLICATION");
         gotoxy(50,27);
@@ -51,14 +54,15 @@ void manager_menu(){
                     modify_book();
                     break;
 
-            case 4:
-                    printf("\nLIST OF REGISTERED USER FUNCTION CALLING");
-                    //list_users();
+                case 4:
+                    // return all users as a table
+                    display_table(lookup("",2,1));
+
                     break;
 
-            case 5:
-                    printf("\nUSER REQUSETS FUNCTION CALLING");
-                    //user_request();
+                case 5:
+                    //return all users as a tab;e
+                    display_table(lookup("",1,2));
                     break;
 
             case 0:
