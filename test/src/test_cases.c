@@ -12,6 +12,7 @@
 #include "sign_up.h"
 #include "modify_book.h"
 #include "modify_record.h"
+#include "add_record.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -79,6 +80,22 @@ START_TEST(test_all_good) {
 
 /************** MITALI's TESTS ****************/
 
+/* tests from sign up */
+START_TEST(test_add_record){
+
+    struct user *user = malloc(sizeof(struct user));
+    strcpy(user.name, "Name");
+    strcpy(user.user_name, "NameTL");
+    strcpy(user.email, "NameTL@gmail.com");
+    strcpy(user.password, "password");
+    strcpy(user.number_of_books, "2");
+
+    void *pointer = &user;
+
+    ck_assert_int_eq(add_record(pointer,2), 1);
+
+
+} END_TEST
 
 
 /************** GENERAL TESTS ****************/
@@ -188,6 +205,7 @@ Suite *test_suite(void) {
   tcase_add_test(tc_core, test_date_validation);
   tcase_add_test(tc_core, test_data_valid);
   tcase_add_test(tc_core, test_file_to_struct);
+  tcase_add_test(tc_core, test_add_record);
 
   suite_add_tcase(s, tc_core);
 

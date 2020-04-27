@@ -1,0 +1,17 @@
+Running suite All_tests
+./src/test_cases.c:23:P:Core:test_long_search_term:0: Passed
+./src/test_cases.c:31:P:Core:test_table_ofb:0: Passed
+./src/test_cases.c:39:P:Core:test_searchfield_ofb_1:0: Passed
+./src/test_cases.c:47:P:Core:test_searchfield_ofb_2:0: Passed
+./src/test_cases.c:55:E:Core:test_searchfield_ofb_3:0: (after this point) Received signal 11 (Segmentation fault: 11)
+./src/test_cases.c:63:E:Core:test_all_good:0: (after this point) Received signal 11 (Segmentation fault: 11)
+./src/test_cases.c:104:E:Core:test_ISBN_validation:0: (after this point) Received signal 11 (Segmentation fault: 11)
+./src/test_cases.c:115:P:Core:test_char_check:0: Passed
+./src/test_cases.c:121:F:Core:test_pwd_check:0: Assertion 'char_check("spaced password ") == 0' failed: char_check("spaced password ") == 1, 0 == 0
+./src/test_cases.c:132:P:Core:test_status_check:0: Passed
+./src/test_cases.c:140:P:Core:test_int_check:0: Passed
+./src/test_cases.c:144:E:Core:test_date_validation:0: (after this point) Received signal 10 (Bus error: 10)
+./src/test_cases.c:157:E:Core:test_data_valid:0: (after this point) Received signal 11 (Segmentation fault: 11)
+./src/test_cases.c:87:E:Core:test_file_to_struct:0: (after this point) Received signal 11 (Segmentation fault: 11)
+Results for all suites run:
+50%: Checks: 14, Failures: 1, Errors: 6
