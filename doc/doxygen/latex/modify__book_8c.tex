@@ -1,0 +1,89 @@
+\hypertarget{modify__book_8c}{}\doxysection{src/modify\+\_\+book.c File Reference}
+\label{modify__book_8c}\index{src/modify\_book.c@{src/modify\_book.c}}
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}manager\+\_\+menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}modify\+\_\+record.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}database\+\_\+lookup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}messages.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{modify__book_8c_a32eb789c4959883ae54f87330c5ad598}{edit\+\_\+field}} ()
+\item 
+int \mbox{\hyperlink{modify__book_8c_adae2dd5f49796dc8f15ac389c2150dbf}{data\+\_\+valid}} (char search\+\_\+term\mbox{[}$\,$\mbox{]}, int search\+\_\+field)
+\item 
+void \mbox{\hyperlink{modify__book_8c_a93e5f617cc5659c482bbae13ef2fc7af}{modify\+\_\+book}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{modify__book_8c_a42ca86b4ac24fc94123113198ab6f974}{bookid}} \mbox{[}20\mbox{]}
+\item 
+int \mbox{\hyperlink{modify__book_8c_a208898e83d08767f1bad0d91f0cdbc05}{edited}}
+\item 
+int \mbox{\hyperlink{modify__book_8c_a63bd75f20c553f0d65d7bb29b3f35696}{choice}}
+\item 
+char \mbox{\hyperlink{modify__book_8c_a4e423e25279c8e2dc8a4db4e58409165}{isbn}} \mbox{[}20\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{modify__book_8c_adae2dd5f49796dc8f15ac389c2150dbf}\label{modify__book_8c_adae2dd5f49796dc8f15ac389c2150dbf}} 
+\index{modify\_book.c@{modify\_book.c}!data\_valid@{data\_valid}}
+\index{data\_valid@{data\_valid}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{data\_valid()}{data\_valid()}}
+{\footnotesize\ttfamily int data\+\_\+valid (\begin{DoxyParamCaption}\item[{char}]{search\+\_\+term\mbox{[}$\,$\mbox{]},  }\item[{int}]{search\+\_\+field }\end{DoxyParamCaption})}
+
+The function search the isbn\+\_\+no and book\+\_\+id in the csv file and validates it if present or not. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em search\+\_\+term} & Term to match in database. \\
+\hline
+\mbox{\texttt{ in}}  & {\em search\+\_\+field} & A number indicating which field of the table to search \\
+\hline
+\mbox{\texttt{ out}}  & {\em is\+Found} & Acknowledge to the calling function if isbn\+\_\+no or book\+\_\+id is present or not.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{modify__book_8c_a32eb789c4959883ae54f87330c5ad598}\label{modify__book_8c_a32eb789c4959883ae54f87330c5ad598}} 
+\index{modify\_book.c@{modify\_book.c}!edit\_field@{edit\_field}}
+\index{edit\_field@{edit\_field}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{edit\_field()}{edit\_field()}}
+{\footnotesize\ttfamily int edit\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function is use to select the field which is to be edited from the given choice\mbox{\Hypertarget{modify__book_8c_a93e5f617cc5659c482bbae13ef2fc7af}\label{modify__book_8c_a93e5f617cc5659c482bbae13ef2fc7af}} 
+\index{modify\_book.c@{modify\_book.c}!modify\_book@{modify\_book}}
+\index{modify\_book@{modify\_book}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{modify\_book()}{modify\_book()}}
+{\footnotesize\ttfamily void modify\+\_\+book (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function is use to modify book details.\+Book can be search by using book\+\_\+id or isbn\+\_\+no you want to modify book.
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{modify__book_8c_a42ca86b4ac24fc94123113198ab6f974}\label{modify__book_8c_a42ca86b4ac24fc94123113198ab6f974}} 
+\index{modify\_book.c@{modify\_book.c}!bookid@{bookid}}
+\index{bookid@{bookid}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{bookid}{bookid}}
+{\footnotesize\ttfamily char bookid\mbox{[}20\mbox{]}}
+
+\mbox{\Hypertarget{modify__book_8c_a63bd75f20c553f0d65d7bb29b3f35696}\label{modify__book_8c_a63bd75f20c553f0d65d7bb29b3f35696}} 
+\index{modify\_book.c@{modify\_book.c}!choice@{choice}}
+\index{choice@{choice}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{choice}{choice}}
+{\footnotesize\ttfamily int choice}
+
+\mbox{\Hypertarget{modify__book_8c_a208898e83d08767f1bad0d91f0cdbc05}\label{modify__book_8c_a208898e83d08767f1bad0d91f0cdbc05}} 
+\index{modify\_book.c@{modify\_book.c}!edited@{edited}}
+\index{edited@{edited}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{edited}{edited}}
+{\footnotesize\ttfamily int edited}
+
+\mbox{\Hypertarget{modify__book_8c_a4e423e25279c8e2dc8a4db4e58409165}\label{modify__book_8c_a4e423e25279c8e2dc8a4db4e58409165}} 
+\index{modify\_book.c@{modify\_book.c}!isbn@{isbn}}
+\index{isbn@{isbn}!modify\_book.c@{modify\_book.c}}
+\doxysubsubsection{\texorpdfstring{isbn}{isbn}}
+{\footnotesize\ttfamily char isbn\mbox{[}20\mbox{]}}
+

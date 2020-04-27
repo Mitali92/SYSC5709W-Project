@@ -1,0 +1,32 @@
+\hypertarget{delete__record_8c}{}\doxysection{src/delete\+\_\+record.c File Reference}
+\label{delete__record_8c}\index{src/delete\_record.c@{src/delete\_record.c}}
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{delete__record_8c_a9df133b7c3e428bbc5f8cb649d2517fc}{delete\+\_\+record}} (char search\+\_\+term\mbox{[}20\mbox{]}, int table, int search\+\_\+field)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{delete__record_8c_a9df133b7c3e428bbc5f8cb649d2517fc}\label{delete__record_8c_a9df133b7c3e428bbc5f8cb649d2517fc}} 
+\index{delete\_record.c@{delete\_record.c}!delete\_record@{delete\_record}}
+\index{delete\_record@{delete\_record}!delete\_record.c@{delete\_record.c}}
+\doxysubsubsection{\texorpdfstring{delete\_record()}{delete\_record()}}
+{\footnotesize\ttfamily int delete\+\_\+record (\begin{DoxyParamCaption}\item[{char}]{search\+\_\+term\mbox{[}20\mbox{]},  }\item[{int}]{table,  }\item[{int}]{search\+\_\+field }\end{DoxyParamCaption})}
+
+The function delete details to the database for specific table in data set and returns the acknowledgement to the calling function. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em search\+\_\+term} & Term to match in database. \\
+\hline
+\mbox{\texttt{ in}}  & {\em table} & A number indicating which database table to search. \\
+\hline
+\mbox{\texttt{ in}}  & {\em search\+\_\+field} & A number indicating which field of the table to search \\
+\hline
+\mbox{\texttt{ out}}  & {\em ret} & Acknowledge to the calling function if sucessfully deleted in respective csv file.\\
+\hline
+\end{DoxyParams}

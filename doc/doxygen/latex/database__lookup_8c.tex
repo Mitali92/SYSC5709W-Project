@@ -1,0 +1,131 @@
+\hypertarget{database__lookup_8c}{}\doxysection{src/database\+\_\+lookup.c File Reference}
+\label{database__lookup_8c}\index{src/database\_lookup.c@{src/database\_lookup.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}database\+\_\+lookup.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{database__lookup_8c_ab1b64acf8a1b39e27f1726b4be62b0a2}{book\+\_\+struct\+\_\+fields}}~10
+\item 
+\#define \mbox{\hyperlink{database__lookup_8c_aecde22aea123ff93a0864da1995442d7}{user\+\_\+struct\+\_\+fields}}~5
+\item 
+\#define \mbox{\hyperlink{database__lookup_8c_a35ffc39124babae8508686e822e7f6af}{request\+\_\+struct\+\_\+fields}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{database__lookup_8c_a7bac3f7b417e802e215d76dc38d989e3}{file\+\_\+to\+\_\+struct}} (char $\ast$\mbox{\hyperlink{database__lookup_8c_a6a344f555e081dc49545edad9442812b}{line}}, int type)
+\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{database__lookup_8c_ad8bb267bd488a53ee0d0da44e667e594}{lookup}} (char search\+\_\+term\mbox{[}20\mbox{]}, int table, int search\+\_\+field)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{database__lookup_8c_ae59ec558233119da4b690c3506f9b2dd}{dbfile}}
+\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{database__lookup_8c_ab91d3b4046d4043eb97b9eb0b2b39093}{returnfile}}
+\item 
+char $\ast$ \mbox{\hyperlink{database__lookup_8c_a15cd79cf32af317f92fd988bdeaf5716}{comp\+\_\+result}}
+\item 
+char \mbox{\hyperlink{database__lookup_8c_a6a344f555e081dc49545edad9442812b}{line}} \mbox{[}255\mbox{]}
+\item 
+int \mbox{\hyperlink{database__lookup_8c_a221112d1b68cb436224eeb1a98815a4e}{maxsize}} = 255
+\item 
+const char \mbox{\hyperlink{database__lookup_8c_a1da4ea18c63e4c3b8b75df590acf2bf4}{comma}} \mbox{[}4\mbox{]} = \char`\"{}\textbackslash{}\char`\"{},\textbackslash{}\char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{database__lookup_8c_ab1b64acf8a1b39e27f1726b4be62b0a2}\label{database__lookup_8c_ab1b64acf8a1b39e27f1726b4be62b0a2}} 
+\index{database\_lookup.c@{database\_lookup.c}!book\_struct\_fields@{book\_struct\_fields}}
+\index{book\_struct\_fields@{book\_struct\_fields}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{book\_struct\_fields}{book\_struct\_fields}}
+{\footnotesize\ttfamily \#define book\+\_\+struct\+\_\+fields~10}
+
+\mbox{\Hypertarget{database__lookup_8c_a35ffc39124babae8508686e822e7f6af}\label{database__lookup_8c_a35ffc39124babae8508686e822e7f6af}} 
+\index{database\_lookup.c@{database\_lookup.c}!request\_struct\_fields@{request\_struct\_fields}}
+\index{request\_struct\_fields@{request\_struct\_fields}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{request\_struct\_fields}{request\_struct\_fields}}
+{\footnotesize\ttfamily \#define request\+\_\+struct\+\_\+fields~2}
+
+\mbox{\Hypertarget{database__lookup_8c_aecde22aea123ff93a0864da1995442d7}\label{database__lookup_8c_aecde22aea123ff93a0864da1995442d7}} 
+\index{database\_lookup.c@{database\_lookup.c}!user\_struct\_fields@{user\_struct\_fields}}
+\index{user\_struct\_fields@{user\_struct\_fields}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{user\_struct\_fields}{user\_struct\_fields}}
+{\footnotesize\ttfamily \#define user\+\_\+struct\+\_\+fields~5}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{database__lookup_8c_a7bac3f7b417e802e215d76dc38d989e3}\label{database__lookup_8c_a7bac3f7b417e802e215d76dc38d989e3}} 
+\index{database\_lookup.c@{database\_lookup.c}!file\_to\_struct@{file\_to\_struct}}
+\index{file\_to\_struct@{file\_to\_struct}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{file\_to\_struct()}{file\_to\_struct()}}
+{\footnotesize\ttfamily void$\ast$ file\+\_\+to\+\_\+struct (\begin{DoxyParamCaption}\item[{char $\ast$}]{line,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+The function take a line extracted from a csv file and splits the entries into separate tokens. It then passes the tokens into the appropriate struct. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em line} & line from a csv file to be split up. \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & A number indicating which tyoe of struct to make.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{database__lookup_8c_ad8bb267bd488a53ee0d0da44e667e594}\label{database__lookup_8c_ad8bb267bd488a53ee0d0da44e667e594}} 
+\index{database\_lookup.c@{database\_lookup.c}!lookup@{lookup}}
+\index{lookup@{lookup}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{lookup()}{lookup()}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ lookup (\begin{DoxyParamCaption}\item[{char}]{search\+\_\+term\mbox{[}20\mbox{]},  }\item[{int}]{table,  }\item[{int}]{search\+\_\+field }\end{DoxyParamCaption})}
+
+The function searches the database for a given search term and returns a file with the entries that match. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em search\+\_\+term} & Term to match in database. \\
+\hline
+\mbox{\texttt{ in}}  & {\em table} & A number indicating which database table to search. \\
+\hline
+\mbox{\texttt{ in}}  & {\em search\+\_\+field} & A number indicating which field of the table to search \\
+\hline
+\mbox{\texttt{ out}}  & {\em F\+I\+LE} & $\ast$returnfile A pointer to the file containing the result of the search\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{database__lookup_8c_a1da4ea18c63e4c3b8b75df590acf2bf4}\label{database__lookup_8c_a1da4ea18c63e4c3b8b75df590acf2bf4}} 
+\index{database\_lookup.c@{database\_lookup.c}!comma@{comma}}
+\index{comma@{comma}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{comma}{comma}}
+{\footnotesize\ttfamily const char comma\mbox{[}4\mbox{]} = \char`\"{}\textbackslash{}\char`\"{},\textbackslash{}\char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{database__lookup_8c_a15cd79cf32af317f92fd988bdeaf5716}\label{database__lookup_8c_a15cd79cf32af317f92fd988bdeaf5716}} 
+\index{database\_lookup.c@{database\_lookup.c}!comp\_result@{comp\_result}}
+\index{comp\_result@{comp\_result}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{comp\_result}{comp\_result}}
+{\footnotesize\ttfamily char$\ast$ comp\+\_\+result}
+
+\mbox{\Hypertarget{database__lookup_8c_ae59ec558233119da4b690c3506f9b2dd}\label{database__lookup_8c_ae59ec558233119da4b690c3506f9b2dd}} 
+\index{database\_lookup.c@{database\_lookup.c}!dbfile@{dbfile}}
+\index{dbfile@{dbfile}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{dbfile}{dbfile}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ dbfile}
+
+\mbox{\Hypertarget{database__lookup_8c_a6a344f555e081dc49545edad9442812b}\label{database__lookup_8c_a6a344f555e081dc49545edad9442812b}} 
+\index{database\_lookup.c@{database\_lookup.c}!line@{line}}
+\index{line@{line}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily char line\mbox{[}255\mbox{]}}
+
+\mbox{\Hypertarget{database__lookup_8c_a221112d1b68cb436224eeb1a98815a4e}\label{database__lookup_8c_a221112d1b68cb436224eeb1a98815a4e}} 
+\index{database\_lookup.c@{database\_lookup.c}!maxsize@{maxsize}}
+\index{maxsize@{maxsize}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{maxsize}{maxsize}}
+{\footnotesize\ttfamily int maxsize = 255}
+
+\mbox{\Hypertarget{database__lookup_8c_ab91d3b4046d4043eb97b9eb0b2b39093}\label{database__lookup_8c_ab91d3b4046d4043eb97b9eb0b2b39093}} 
+\index{database\_lookup.c@{database\_lookup.c}!returnfile@{returnfile}}
+\index{returnfile@{returnfile}!database\_lookup.c@{database\_lookup.c}}
+\doxysubsubsection{\texorpdfstring{returnfile}{returnfile}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ returnfile}
+

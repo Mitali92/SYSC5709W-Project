@@ -1,0 +1,67 @@
+\hypertarget{sign__up_8c}{}\doxysection{src/sign\+\_\+up.c File Reference}
+\label{sign__up_8c}\index{src/sign\_up.c@{src/sign\_up.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}messages.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sign\+\_\+up.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}database\+\_\+lookup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}add\+\_\+record.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}home\+\_\+menu.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsignup}{signup}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sign__up_8c_a31a22bed5a2513a9a53224bc89e95643}{char\+\_\+check}} (char input\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{sign__up_8c_adc361c725e999241f5ed82267f8957db}{pwd\+\_\+check}} (char input\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{sign__up_8c_ae023a684f187c7c3d42370656f2a2186}{sign\+\_\+up}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sign__up_8c_a31a22bed5a2513a9a53224bc89e95643}\label{sign__up_8c_a31a22bed5a2513a9a53224bc89e95643}} 
+\index{sign\_up.c@{sign\_up.c}!char\_check@{char\_check}}
+\index{char\_check@{char\_check}!sign\_up.c@{sign\_up.c}}
+\doxysubsubsection{\texorpdfstring{char\_check()}{char\_check()}}
+{\footnotesize\ttfamily int char\+\_\+check (\begin{DoxyParamCaption}\item[{char}]{input\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The function validates if the character array contains only letters and spaces 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\mbox{[}$\,$\mbox{]}} & the user input is stored into this array \\
+\hline
+\mbox{\texttt{ out}}  & {\em int} & based on the validation, either 0 or 1 will be returned by this function\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sign__up_8c_adc361c725e999241f5ed82267f8957db}\label{sign__up_8c_adc361c725e999241f5ed82267f8957db}} 
+\index{sign\_up.c@{sign\_up.c}!pwd\_check@{pwd\_check}}
+\index{pwd\_check@{pwd\_check}!sign\_up.c@{sign\_up.c}}
+\doxysubsubsection{\texorpdfstring{pwd\_check()}{pwd\_check()}}
+{\footnotesize\ttfamily int pwd\+\_\+check (\begin{DoxyParamCaption}\item[{char}]{input\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The function validates if the character array contains only letters, numbers and special characters O\+N\+LY without spaces 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\mbox{[}$\,$\mbox{]}} & the user input is stored into this array \\
+\hline
+\mbox{\texttt{ out}}  & {\em int} & based on the validation, either 0 or 1 will be returned by this function\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sign__up_8c_ae023a684f187c7c3d42370656f2a2186}\label{sign__up_8c_ae023a684f187c7c3d42370656f2a2186}} 
+\index{sign\_up.c@{sign\_up.c}!sign\_up@{sign\_up}}
+\index{sign\_up@{sign\_up}!sign\_up.c@{sign\_up.c}}
+\doxysubsubsection{\texorpdfstring{sign\_up()}{sign\_up()}}
+{\footnotesize\ttfamily void sign\+\_\+up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function displays S\+I\+G\+N\+UP page, takes user inputs for various fields, validates the inputs, IF U\+S\+ER I\+N\+P\+UT IS V\+A\+L\+ID --- stores the user details in users.\+csv file using \mbox{\hyperlink{add__record_8c_a2697736377c7f7cb2ee2e88038457e5f}{add\+\_\+record()}} and prompts the user for confirmation to go back to H\+O\+M\+E-\/\+M\+E\+NU page IF U\+S\+ER I\+N\+P\+UT IS I\+N\+V\+A\+L\+ID --- prints respective error messages and continues to take new inputs 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em void} & \\
+\hline
+\mbox{\texttt{ out}}  & {\em void} & \\
+\hline
+\end{DoxyParams}
