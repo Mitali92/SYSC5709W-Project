@@ -17,7 +17,7 @@ Bookify provides a digital method for storing and retrieving the records associa
 - /test
     + /include
     + /src
-- /data
+    + /data
 - /lib
 - makefile
 - README
@@ -27,7 +27,7 @@ Bookify provides a digital method for storing and retrieving the records associa
     Executables will be - bookify and all_tests
 
 The tests depend on an external library 'Check' which can be installed using the
-instructions here: https://libcheck.github.io/check/web/install.html
+instructions for your machine here: https://libcheck.github.io/check/web/install.html
 
 **Manuals**
 The following manuals can be found in the /doc folder
