@@ -32,4 +32,4 @@ instructions for your machine here: https://libcheck.github.io/check/web/install
 **Manuals**
 The following manuals can be found in the /doc folder
 1. User Manual
-2. Developer Manual
+2. Developer Manual - https://aishasr.github.io/Bookify_Documentation/html/index.html
