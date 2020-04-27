@@ -1,3 +1,21 @@
+#ifdef __linux__
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+#elif _WIN64 || _WIN32
+    #define BOOKSFILE "..\data\bookdetails.csv"
+    #define USERSFILE "..\data\users.csv"
+    #define REQUESTS "..\data\requests.csv"
+#elif __APPLE__
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+#elif __unix__
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -150,11 +168,11 @@ if((strlen(search_term) > 20)){
 char tablestring[255];
 //strcpy(tablestring, set_tablestring(table));
 switch(table){
-    case 1: strcpy(tablestring, "data/bookdetails.csv");
+    case 1: strcpy(tablestring, BOOKSFILE);
         break;
-    case 2: strcpy(tablestring, "data/users.csv");
+    case 2: strcpy(tablestring, USERSFILE);
         break;
-    case 3: strcpy(tablestring, "data/database.csv");
+    case 3: strcpy(tablestring, REQUESTS);
         break;
     default: printf("No match");
 }

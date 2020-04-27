@@ -1,23 +1,23 @@
 #ifdef __linux__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
-    #define BACKUP "data/bookdetails_backup.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+    #define BACKUP "../data/bookdetails_backup.csv"
 #elif _WIN64 || _WIN32
-    #define BOOKSFILE "data\bookdetails.csv"
-    #define USERSFILE "data\users.csv"
-    #define REQUESTS "data\requests.csv"
-    #define BACKUP "data\bookdetails_backup.csv"
+    #define BOOKSFILE "..\data\bookdetails.csv"
+    #define USERSFILE "..\data\users.csv"
+    #define REQUESTS "..\data\requests.csv"
+    #define BACKUP "..\data\bookdetails_backup.csv"
 #elif __APPLE__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
-    #define BACKUP "data/bookdetails_backup.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+    #define BACKUP "../data/bookdetails_backup.csv"
 #elif __unix__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
-    #define BACKUP "data/bookdetails_backup.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+    #define BACKUP "../data/bookdetails_backup.csv"
 #endif
 
 #include <errno.h>

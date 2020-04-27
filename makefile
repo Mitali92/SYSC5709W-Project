@@ -30,25 +30,36 @@ else
     endif
 endif
 
-EXECUTABLES = build/main all_tests
+EXECUTABLES = main all_tests
 
 CC = gcc
-CFLAGS += -I. -Iinclude
-VPATH := src
-DEPS = layout.h add_books.h add_record.h delete_record.h delete_book.h modify_book.h modify_record.h database_lookup.h manager_menu.h sign_up.h log_in.h messages.h home_menu.h display_page.h pages.h
+CFLAGS += -Iinclude
+VPATH := ./src ./build ./include
+DEPS := layout.h add_books.h add_record.h delete_record.h delete_book.h modify_book.h modify_record.h database_lookup.h manager_menu.h sign_up.h log_in.h messages.h home_menu.h display_page.h pages.h
 
-
-
-build/%.o: %.c $(DEPS)
-	$(CC) -c -o $< $(CFLAGS) $@
 
 all: $(EXECUTABLES)
 
-main: main.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
-	$(CC) $(CFLAGS) -g -o main main.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
+test:
+	cd ./build && make main && cd -
+
+build/%.o: src/%.c $(DEPS)
+	@echo "In the first build"
+	$(CC) -c -o $< -Iinclude -Isrc -Ibuild $(CFLAGS) $@
+
+main: layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
+	$(CC) $(CFLAGS) -g -o $@ $^
+	mkdir -p bin
+	cp main bin/main
+
 
 all_tests: test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
 	$(CC)  test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o -lcheck -lm -lpthread -o all_tests
+
+.PHONY: install
+install:
+	    mkdir -p bin
+	    cp main bin/main
 
 .PHONY: clean
 clean:
