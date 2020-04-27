@@ -1,0 +1,80 @@
+\hypertarget{modify__record_8c}{}\doxysection{src/modify\+\_\+record.c File Reference}
+\label{modify__record_8c}\index{src/modify\_record.c@{src/modify\_record.c}}
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}database\+\_\+lookup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}messages.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{modify__record_8c_ac71d7bb2ac2651e75b4015d5a4e1d6f9}{int\+\_\+check}} (char input\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{modify__record_8c_aac039ea996d7304382e62b03e934f1c0}{status\+\_\+check}} (char input\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{modify__record_8c_ac2aaa5e0363819ab2a8a2875b2d552d3}{date\+\_\+validation}} (char input\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{modify__record_8c_aa10ac1d8d36f2e9ab8aa6038a314095e}{modify\+\_\+record}} (char search\+\_\+term\mbox{[}$\,$\mbox{]}, int table, int search\+\_\+field)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{modify__record_8c_ac2aaa5e0363819ab2a8a2875b2d552d3}\label{modify__record_8c_ac2aaa5e0363819ab2a8a2875b2d552d3}} 
+\index{modify\_record.c@{modify\_record.c}!date\_validation@{date\_validation}}
+\index{date\_validation@{date\_validation}!modify\_record.c@{modify\_record.c}}
+\doxysubsubsection{\texorpdfstring{date\_validation()}{date\_validation()}}
+{\footnotesize\ttfamily int date\+\_\+validation (\begin{DoxyParamCaption}\item[{char}]{input\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The function validates if the character array contains valid date 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\mbox{[}$\,$\mbox{]}} & the user input in the filed \\
+\hline
+\mbox{\texttt{ out}}  & {\em int} & based on the validation, either 0 or 1 will be returned by this function\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{modify__record_8c_ac71d7bb2ac2651e75b4015d5a4e1d6f9}\label{modify__record_8c_ac71d7bb2ac2651e75b4015d5a4e1d6f9}} 
+\index{modify\_record.c@{modify\_record.c}!int\_check@{int\_check}}
+\index{int\_check@{int\_check}!modify\_record.c@{modify\_record.c}}
+\doxysubsubsection{\texorpdfstring{int\_check()}{int\_check()}}
+{\footnotesize\ttfamily int int\+\_\+check (\begin{DoxyParamCaption}\item[{char}]{input\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The function validates if the character array contains only integers 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\mbox{[}$\,$\mbox{]}} & the user input in the filed \\
+\hline
+\mbox{\texttt{ out}}  & {\em int} & based on the validation, either 0 or 1 will be returned by this function\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{modify__record_8c_aa10ac1d8d36f2e9ab8aa6038a314095e}\label{modify__record_8c_aa10ac1d8d36f2e9ab8aa6038a314095e}} 
+\index{modify\_record.c@{modify\_record.c}!modify\_record@{modify\_record}}
+\index{modify\_record@{modify\_record}!modify\_record.c@{modify\_record.c}}
+\doxysubsubsection{\texorpdfstring{modify\_record()}{modify\_record()}}
+{\footnotesize\ttfamily int modify\+\_\+record (\begin{DoxyParamCaption}\item[{char}]{search\+\_\+term\mbox{[}$\,$\mbox{]},  }\item[{int}]{table,  }\item[{int}]{search\+\_\+field }\end{DoxyParamCaption})}
+
+The function modify the book details using book\+\_\+id or isbn\+\_\+no 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em search\+\_\+term} & Term to match in database. \\
+\hline
+\mbox{\texttt{ in}}  & {\em table} & A number indicating which database table to search. \\
+\hline
+\mbox{\texttt{ in}}  & {\em search\+\_\+field} & A number indicating which field of the table to search \\
+\hline
+\mbox{\texttt{ out}}  & {\em ret} & Acknowledge to the calling function if sucessfully modified in respective csv file.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{modify__record_8c_aac039ea996d7304382e62b03e934f1c0}\label{modify__record_8c_aac039ea996d7304382e62b03e934f1c0}} 
+\index{modify\_record.c@{modify\_record.c}!status\_check@{status\_check}}
+\index{status\_check@{status\_check}!modify\_record.c@{modify\_record.c}}
+\doxysubsubsection{\texorpdfstring{status\_check()}{status\_check()}}
+{\footnotesize\ttfamily int status\+\_\+check (\begin{DoxyParamCaption}\item[{char}]{input\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The function validates if the character array contains specific -\/ Available or Unavailable 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input\mbox{[}$\,$\mbox{]}} & the user input in the filed \\
+\hline
+\mbox{\texttt{ out}}  & {\em int} & based on the validation, either 0 or 1 will be returned by this function\\
+\hline
+\end{DoxyParams}

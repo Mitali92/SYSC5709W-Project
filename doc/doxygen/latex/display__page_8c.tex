@@ -1,0 +1,40 @@
+\hypertarget{display__page_8c}{}\doxysection{src/display\+\_\+page.c File Reference}
+\label{display__page_8c}\index{src/display\_page.c@{src/display\_page.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}database\+\_\+lookup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pages.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{display__page_8c_a82037217fbd6d935c2dac2dc20d48b53}{display\+\_\+page}} (struct page display\+\_\+data)
+\item 
+void \mbox{\hyperlink{display__page_8c_ab8453f39a78ce2c57efb56d8433ed337}{display\+\_\+table}} (F\+I\+LE $\ast$return\+\_\+file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{display__page_8c_a82037217fbd6d935c2dac2dc20d48b53}\label{display__page_8c_a82037217fbd6d935c2dac2dc20d48b53}} 
+\index{display\_page.c@{display\_page.c}!display\_page@{display\_page}}
+\index{display\_page@{display\_page}!display\_page.c@{display\_page.c}}
+\doxysubsubsection{\texorpdfstring{display\_page()}{display\_page()}}
+{\footnotesize\ttfamily void display\+\_\+page (\begin{DoxyParamCaption}\item[{struct page}]{display\+\_\+data }\end{DoxyParamCaption})}
+
+The function take a page struct and prints it to the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em display\+\_\+data} & struct containing data for the page.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{display__page_8c_ab8453f39a78ce2c57efb56d8433ed337}\label{display__page_8c_ab8453f39a78ce2c57efb56d8433ed337}} 
+\index{display\_page.c@{display\_page.c}!display\_table@{display\_table}}
+\index{display\_table@{display\_table}!display\_page.c@{display\_page.c}}
+\doxysubsubsection{\texorpdfstring{display\_table()}{display\_table()}}
+{\footnotesize\ttfamily void display\+\_\+table (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{return\+\_\+file }\end{DoxyParamCaption})}
+
+The function takes a csv file, reads the lines and prints them to the console formatted as a table. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em return\+\_\+file} & file from which data for table is to be read\\
+\hline
+\end{DoxyParams}

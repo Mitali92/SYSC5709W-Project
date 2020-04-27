@@ -1,0 +1,66 @@
+\hypertarget{layout_8c}{}\doxysection{src/layout.c File Reference}
+\label{layout_8c}\index{src/layout.c@{src/layout.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{layout_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}} (int x, int y)
+\item 
+void \mbox{\hyperlink{layout_8c_af16538854966dc9de7af5df526b32d23}{header\+\_\+position}} (const char $\ast$screen\+\_\+name)
+\item 
+void \mbox{\hyperlink{layout_8c_a303b70a2f9d7f81d46aaaba8902d065c}{header\+\_\+layout}} (const char $\ast$screen\+\_\+name)
+\item 
+void \mbox{\hyperlink{layout_8c_ae9cf07cdcd9e6084bf86b1ffa5e031ba}{welcome\+\_\+message}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{layout_8c_ae824443b3f661414ba1f2718e17fe97d}\label{layout_8c_ae824443b3f661414ba1f2718e17fe97d}} 
+\index{layout.c@{layout.c}!gotoxy@{gotoxy}}
+\index{gotoxy@{gotoxy}!layout.c@{layout.c}}
+\doxysubsubsection{\texorpdfstring{gotoxy()}{gotoxy()}}
+{\footnotesize\ttfamily void gotoxy (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+The function places the cursor at the point (x,y) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & horizontal co-\/ordinate of the console screen \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & the vertical co-\/ordinate of the console screen\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{layout_8c_a303b70a2f9d7f81d46aaaba8902d065c}\label{layout_8c_a303b70a2f9d7f81d46aaaba8902d065c}} 
+\index{layout.c@{layout.c}!header\_layout@{header\_layout}}
+\index{header\_layout@{header\_layout}!layout.c@{layout.c}}
+\doxysubsubsection{\texorpdfstring{header\_layout()}{header\_layout()}}
+{\footnotesize\ttfamily void header\+\_\+layout (\begin{DoxyParamCaption}\item[{const char $\ast$}]{screen\+\_\+name }\end{DoxyParamCaption})}
+
+The function prints header-\/bar into the screen and calls the \mbox{\hyperlink{layout_8c_af16538854966dc9de7af5df526b32d23}{header\+\_\+position( )}} with the screen\+\_\+name 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em screen\+\_\+name} & name of the current screen\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{layout_8c_af16538854966dc9de7af5df526b32d23}\label{layout_8c_af16538854966dc9de7af5df526b32d23}} 
+\index{layout.c@{layout.c}!header\_position@{header\_position}}
+\index{header\_position@{header\_position}!layout.c@{layout.c}}
+\doxysubsubsection{\texorpdfstring{header\_position()}{header\_position()}}
+{\footnotesize\ttfamily void header\+\_\+position (\begin{DoxyParamCaption}\item[{const char $\ast$}]{screen\+\_\+name }\end{DoxyParamCaption})}
+
+The function calculates header length, determines its positioning inside the header-\/bar and prints it 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em screen\+\_\+name} & name of the current screen\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{layout_8c_ae9cf07cdcd9e6084bf86b1ffa5e031ba}\label{layout_8c_ae9cf07cdcd9e6084bf86b1ffa5e031ba}} 
+\index{layout.c@{layout.c}!welcome\_message@{welcome\_message}}
+\index{welcome\_message@{welcome\_message}!layout.c@{layout.c}}
+\doxysubsubsection{\texorpdfstring{welcome\_message()}{welcome\_message()}}
+{\footnotesize\ttfamily void welcome\+\_\+message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function prints layout for the landing-\/page 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em void} & \\
+\hline
+\end{DoxyParams}
