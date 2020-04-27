@@ -19,8 +19,8 @@ void log_in()
         /**
         * The function displays LOGIN page, takes user inputs, calls and validates it from users.csv file
         * IF USER INPUT IS VALID   --- displays either USER-menu or MANAGER-menu, based on the login details entered
-        * IF USER INPUT IS INVALID --- prints respective error message and continues to take new input 
-        * @param[in] void 
+        * IF USER INPUT IS INVALID --- prints respective error message and continues to take new input
+        * @param[in] void
         * @param[out] void
         */
         struct login details;
@@ -29,12 +29,27 @@ void log_in()
         gotoxy(50,11);
         printf("FILL BELOW DETAILS TO LOGIN:");
 
-//USERNAME FIELD
-        gotoxy(50,14);
-        printf("USER NAME:");
-        gotoxy(69,14);
-        scanf("%s", &details.user_name);
-        getchar();
+        //USERNAME FIELD
+                gotoxy(50,14);
+                printf("USER NAME:");
+            username_repeat:
+                gotoxy(69,14);
+                scanf("%s", &details.user_name);
+                getchar();
+                for(int k=0;k<strlen(details.user_name);k++)
+                    {
+                        if(details.user_name[k] == '\n')
+                            {
+                                gotoxy(50,16);
+                                printf("INVALID USERNAME. PRESS ENTER TO TRY AGAIN");
+                                getchar();
+                                gotoxy(50,16);
+                                printf("                                                   ");
+                                gotoxy(69,14);
+                                printf("                                                   ");
+                                goto username_repeat;
+                            }
+                    }
 
 //PASSWORD FIELD
         gotoxy(50,16);
