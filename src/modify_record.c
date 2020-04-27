@@ -1,23 +1,23 @@
 #ifdef __linux__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
-    #define BACKUP "data/bookdetails_backup.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+    #define BACKUP "../data/bookdetails_backup.csv"
 #elif _WIN64 || _WIN32
-    #define BOOKSFILE "data\bookdetails.csv"
-    #define USERSFILE "data\users.csv"
-    #define REQUESTS "data\requests.csv"
-    #define BACKUP "data\bookdetails_backup.csv"
+    #define BOOKSFILE "..\data\bookdetails.csv"
+    #define USERSFILE "..\data\users.csv"
+    #define REQUESTS "..\data\requests.csv"
+    #define BACKUP "..\data\bookdetails_backup.csv"
 #elif __APPLE__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
-    #define BACKUP "data/bookdetails_backup.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+    #define BACKUP "../data/bookdetails_backup.csv"
 #elif __unix__
-    #define BOOKSFILE "data/bookdetails.csv"
-    #define USERSFILE "data/users.csv"
-    #define REQUESTS "data/requests.csv"
-    #define BACKUP "data/bookdetails_backup.csv"
+    #define BOOKSFILE "../data/bookdetails.csv"
+    #define USERSFILE "../data/users.csv"
+    #define REQUESTS "../data/requests.csv"
+    #define BACKUP "../data/bookdetails_backup.csv"
 #endif
 
 #include <errno.h>
@@ -42,7 +42,7 @@ int int_check(char input[]){
     size = strlen(input);
 
     for(int i=0;i<size;i++){
-      if(input[i]=='0'||input[i]=='1'||input[i]=='2'||input[i]=='3'||input[i]=='5'||input[i]=='6'||input[i]=='7'||input[i]=='8'||input[i]=='9'){
+      if(input[i]=='0'||input[i]=='1'||input[i]=='2'||input[i]=='3'||input[i]=='4'||input[i]=='5'||input[i]=='6'||input[i]=='7'||input[i]=='8'||input[i]=='9'){
            return 0;
       }
       else{
@@ -158,6 +158,7 @@ int modify_record(char search_term[], int table,int search_field){
                     break;
             case 2: gotoxy(40,31);printf("Enter ISBN No :");
                     fflush(stdout);
+                    gotoxy(60,31);scanf("%s",editedValue);
                     break;
             case 3: gotoxy(40,31);printf("Enter Author Name : ");
                     fflush(stdout);
@@ -293,4 +294,3 @@ int modify_record(char search_term[], int table,int search_field){
    fclose(mainFile);
    return 0;
 }
-

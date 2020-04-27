@@ -14,5 +14,6 @@
 int isbn_validation(char search_term[],int search_field);
 int increment_id();
 void add_book();
+int integer_check(char input[]);
 
 #endif
