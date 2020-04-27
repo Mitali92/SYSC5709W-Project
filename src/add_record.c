@@ -1,19 +1,19 @@
 #ifdef __linux__
-    #define BOOKSFILE "../data/bookdetails.csv"
-    #define USERSFILE "../data/users.csv"
-    #define REQUESTS "../data/requests.csv"
+    #define BOOKSFILE "data/bookdetails.csv"
+    #define USERSFILE "data/users.csv"
+    #define REQUESTS "data/requests.csv"
 #elif _WIN64 || _WIN32
-    #define BOOKSFILE "..\data\bookdetails.csv"
-    #define USERSFILE "..\data\users.csv"
-    #define REQUESTS "..\data\requests.csv"
+    #define BOOKSFILE "data\bookdetails.csv"
+    #define USERSFILE "data\users.csv"
+    #define REQUESTS "data\requests.csv"
 #elif __APPLE__
-    #define BOOKSFILE "../data/bookdetails.csv"
-    #define USERSFILE "../data/users.csv"
-    #define REQUESTS "../data/requests.csv"
+    #define BOOKSFILE "data/bookdetails.csv"
+    #define USERSFILE "data/users.csv"
+    #define REQUESTS "data/requests.csv"
 #elif __unix__
-    #define BOOKSFILE "../data/bookdetails.csv"
-    #define USERSFILE "../data/users.csv"
-    #define REQUESTS "../data/requests.csv"
+    #define BOOKSFILE "data/bookdetails.csv"
+    #define USERSFILE "data/users.csv"
+    #define REQUESTS "data/requests.csv"
 #endif
 
 #include <errno.h>
@@ -23,6 +23,7 @@
 #include<time.h>
 
 #include "database_lookup.h"
+#include "layout.h"
 
 int add_record(void *struct_data,int table){
 
@@ -42,24 +43,17 @@ int add_record(void *struct_data,int table){
      struct user *user;
      struct request *request;
 
-     if(table == 1){
-        book = struct_data;
-     }
-     else if(table == 2){
-        user = struct_data;
-     }
-     else if(table == 3){
-        request = struct_data;
-     }
-
      switch(table){
-        case 1: strcpy(tablestring, BOOKSFILE);
+        case 1: book = struct_data;
+                strcpy(tablestring, BOOKSFILE);
                 break;
-        case 2: strcpy(tablestring, USERSFILE);
+        case 2: user = struct_data;
+                strcpy(tablestring, USERSFILE);
                 break;
-        case 3: strcpy(tablestring, REQUESTS);
+        case 3: request = struct_data;
+                strcpy(tablestring, REQUESTS);
                 break;
-        default: printf("No match");
+        default: gotoxy(40,36);printf("No match");
      }
 
      fa = fopen(tablestring,"a");
@@ -85,7 +79,7 @@ int add_record(void *struct_data,int table){
                   isValid = 1;
                   break;
 
-        default : printf("No match");
+        default : gotoxy(40,38);printf("Invalid Table");
                   isValid = 0;
      }
 

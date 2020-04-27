@@ -84,6 +84,28 @@ int increment_id(){
     return increment;
 }
 
+int integer_check(char input[]){
+
+     /**
+     * The function validates if the character array contains only integers
+     * @param[in] input[] the user input in the filed
+     * @param[out] int based on the validation, either 0 or 1 will be returned by this function
+     */
+
+    int size, x = 0;
+    size = strlen(input);
+
+    for(int i=0;i<size;i++){
+      if(input[i]=='0'||input[i]=='1'||input[i]=='2'||input[i]=='3'||input[i]=='4'||input[i]=='5'||input[i]=='6'||input[i]=='7'||input[i]=='8'||input[i]=='9'){
+           return 0;
+      }
+      else{
+           continue;
+      }
+    }
+   return 1;
+}
+
 void add_book()
 {
         /**
@@ -111,12 +133,28 @@ void add_book()
         gotoxy(40,18);printf("Author:");
         gotoxy(59,18);scanf("%[^\n]%*c",a->author_name);
         gotoxy(40,20);printf("Quantity:");
+    quantity:
         gotoxy(59,20);scanf("%[^\n]%*c",a->quantity);
 
+            if(integer_check(a->quantity)!=0) {
+                gotoxy(40,22);printf(ANSI_COLOR_RED"Enter valid quantity....!!!"ANSI_COLOR_RESET);
+                getchar();
+                gotoxy(40,22);printf("                                                                           ");
+                gotoxy(59,20);printf("                                                                           ");
+                goto quantity;
+            }
         gotoxy(40,22);printf("ISBN No:");
    isbn_repeat:
         gotoxy(59,22);scanf("%[^\n]%*c",a->isbn_no);
         fflush(stdout);
+
+            if(integer_check(a->isbn_no)!=0) {
+                gotoxy(40,24);printf(ANSI_COLOR_RED"Enter valid ISBN Number....!!!"ANSI_COLOR_RESET);
+                getchar();
+                gotoxy(40,24);printf("                                                                           ");
+                gotoxy(59,22);printf("                                                                           ");
+                goto isbn_repeat;
+            }
 
         //duplicate isbn validation check from the database table
         if(isbn_validation(a->isbn_no,3)==1){
@@ -135,14 +173,14 @@ void add_book()
                 modify_book();
             }
             else if(choice == 2){
-                gotoxy(59,22);printf("                                                                           ");
+                getchar();
                 gotoxy(45,24);printf("                                                                           ");
                 gotoxy(45,25);printf("                                                                           ");
                 gotoxy(45,26);printf("                                                                           ");
                 gotoxy(45,27);printf("                                                                           ");
                 gotoxy(45,28);printf("                                                                           ");
-                gotoxy(59,28);printf("                                                                           ");
-                getchar();
+                gotoxy(69,28);printf("                                                                           ");
+                gotoxy(59,22);printf("                                                                           ");
                 goto isbn_repeat;
             }
             else{
@@ -182,7 +220,9 @@ void add_book()
              manager_menu();
         }
         else{
-            printf("Error in saving details");
+            gotoxy(40,34);printf("Invalid !!! Error in saving details");
+            gotoxy(40,36);printf("                                                                          ");
+            gotoxy(40,38);printf("                                                                           ");
         }
 }
 
