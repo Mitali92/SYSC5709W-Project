@@ -54,7 +54,7 @@ main: layout.o add_books.o add_record.o delete_record.o delete_book.o modify_boo
 
 
 all_tests: test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
-	$(CC)  test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o -lcheck -lm -lpthread -o all_tests
+	$(CC)  -Itest/include test_cases.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o -lcheck -lm -lpthread -o all_tests
 
 .PHONY: install
 install:
