@@ -220,7 +220,9 @@ void add_book()
              manager_menu();
         }
         else{
-            printf("Error in saving details");
+            gotoxy(40,34);printf("Invalid !!! Error in saving details");
+            gotoxy(40,36);printf("                                                                          ");
+            gotoxy(40,38);printf("                                                                           ");
         }
 }
 
