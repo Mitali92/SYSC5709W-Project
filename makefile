@@ -40,14 +40,11 @@ DEPS := layout.h add_books.h add_record.h delete_record.h delete_book.h modify_b
 
 all: $(EXECUTABLES)
 
-test:
-	cd ./build && make main && cd -
 
 build/%.o: src/%.c $(DEPS)
-	@echo "In the first build"
 	$(CC) -c -o $< -Iinclude -Isrc -Ibuild $(CFLAGS) $@
 
-main: layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
+main: main.o layout.o add_books.o add_record.o delete_record.o delete_book.o modify_book.o modify_record.o database_lookup.o manager_menu.o sign_up.o log_in.o messages.o home_menu.o display_page.o pages.o
 	$(CC) $(CFLAGS) -g -o $@ $^
 	mkdir -p bin
 	cp main bin/main
